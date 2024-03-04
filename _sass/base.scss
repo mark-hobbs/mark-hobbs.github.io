@@ -16,6 +16,8 @@ body {
 /* Apply styles to the body content */
 .content {
   margin-top: 50px; /* Adjust margin-top to accommodate the height of the navigation bar */
+  width: 50%; /* Occupy full width */
+  text-align: justify;
 }
 
 nav {

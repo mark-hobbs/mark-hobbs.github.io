@@ -3,6 +3,6 @@ layout: post
 author: Mark Hobbs
 ---
 
-My second blog post
+My second post.
 
 ![](/assets/images/random_field_downsampled.png)

@@ -8,6 +8,23 @@ body {
   font-family: $bodyFont;
 }
 
-.current {
-  color: green;
+nav {
+  background-color: #333; /* Background color for the navigation bar */
+  padding: 10px 0; /* Add some padding to the top and bottom */
+  text-align: center; /* Center align the navigation items */
+}
+
+nav a {
+  color: #fff; /* Text color for navigation items */
+  text-decoration: none; /* Remove underline from links */
+  padding: 10px 20px; /* Add padding to the navigation items */
+  margin: 0 5px; /* Add some space between navigation items */
+}
+
+nav a:hover {
+  background-color: #555; /* Background color when hovering over navigation items */
+}
+
+nav .current {
+  font-weight: bold; /* Highlight the current page link with bold text */
 }

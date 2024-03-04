@@ -3,15 +3,29 @@ $bodyColor: #000000;
 $bodyFont: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 
 body {
-  background: $backgroundColor;
-  color: $bodyColor;
-  font-family: $bodyFont;
+  background: $backgroundColor; /* Set the background color */
+  color: $bodyColor; /* Set the text color */
+  font-family: $bodyFont; /* Set the font family */
+  display: flex; /* Use flexbox to center align */
+  justify-content: center; /* Horizontally center align */
+  align-items: center; /* Vertically center align */
+  height: 100vh; /* Set the height to the full viewport height */
+  margin: 0; /* Remove default margin */
+}
+
+/* Apply styles to the body content */
+.content {
+  margin-top: 50px; /* Adjust margin-top to accommodate the height of the navigation bar */
 }
 
 nav {
-  background-color: #333; /* Background color for the navigation bar */
-  padding: 10px 0; /* Add some padding to the top and bottom */
-  text-align: center; /* Center align the navigation items */
+  background-color: #333;
+  padding: 10px 0;
+  text-align: center;
+  position: fixed; /* Fix the navigation bar position */
+  width: 100%; /* Set the width to full viewport */
+  top: 0; /* Position at the top of the viewport */
+  z-index: 1000; /* Set a high z-index to ensure it appears above other content */
 }
 
 nav a {

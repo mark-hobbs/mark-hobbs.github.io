@@ -1,8 +1,10 @@
 ---
 layout: default
-title: "Happy Jekylling!"
+title: Home
 ---
 
-## You're ready to go!
+# Mark Hobbs
 
-Start developing your Jekyll website.
+[github.com/mark-hobbs](https://github.com/mark-hobbs)
+
+[scholar.google.com](https://scholar.google.com/citations?user=YAPz8qQAAAAJ&hl=en&oi=ao)

@@ -3,7 +3,7 @@ layout: post
 author: Mark Hobbs
 ---
 
-## Scaffold
+## Site scaffold
 
 - `_data/`
 - `_drafts/`

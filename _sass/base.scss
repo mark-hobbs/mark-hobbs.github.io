@@ -20,27 +20,12 @@ body {
   text-align: justify;
 }
 
-nav {
-  background-color: #333;
-  padding: 10px 0;
+/* Restrict the width of images within the .content container */
+.content img {
+  max-width: 100%; /* Set the maximum width to 100% of the container */
+}
+
+/* Center-align captions below images */
+figcaption {
   text-align: center;
-  position: fixed; /* Fix the navigation bar position */
-  width: 100%; /* Set the width to full viewport */
-  top: 0; /* Position at the top of the viewport */
-  z-index: 1000; /* Set a high z-index to ensure it appears above other content */
-}
-
-nav a {
-  color: #fff; /* Text color for navigation items */
-  text-decoration: none; /* Remove underline from links */
-  padding: 10px 20px; /* Add padding to the navigation items */
-  margin: 0 5px; /* Add some space between navigation items */
-}
-
-nav a:hover {
-  background-color: #555; /* Background color when hovering over navigation items */
-}
-
-nav .current {
-  font-weight: bold; /* Highlight the current page link with bold text */
 }

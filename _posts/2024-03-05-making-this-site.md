@@ -107,6 +107,10 @@ Create a default html template with a header, body and footer.
 
 ### `about.html`
 
+## Example sites
+
+[Hitchens](https://github.com/patdryburgh/hitchens)
+
 ## Hosting
 
 [GitHub Pages](https://pages.github.com/) is... `https://mark-hobbs.github.io`

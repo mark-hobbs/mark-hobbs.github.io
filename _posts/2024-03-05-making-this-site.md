@@ -107,6 +107,77 @@ Create a default html template with a header, body and footer.
 
 ### `about.html`
 
+## Syntax highlighting
+
+Jekyll supports syntax highlighting through the Liquid templating engine and plugins. One of the popular plugins for syntax highlighting in Jekyll is Rouge.
+
+Here are the steps to set up syntax highlighting for Python code in a Jekyll site using Rouge:
+
+1. **Install Rouge**: If Rouge is not already installed, you need to add it to your Jekyll site's Gemfile and run `bundle install`. Add the following line to your Gemfile:
+
+    ```
+    gem 'rouge'
+    ```
+
+2. **Configure Rouge**: Ensure that Rouge is properly configured in your `_config.yml` file. Add or update the `highlighter` setting to use Rouge:
+
+    ```yaml
+    highlighter: rouge
+    ```
+
+3. **Usage in Markdown**: When you're writing your posts or pages in Markdown, you can use code fences to specify the language for syntax highlighting. For Python code, you'd do this:
+
+    \```python
+    def hello_world():
+        print("Hello, world!")
+    \```
+
+4. **CSS Styling**: Rouge will add classes to your code blocks for styling. You will need to include CSS styles in your sites CSS file to style these classes. You can find Rouge stylesheets online, or you can customise them according to your preferences.
+
+Here is an example of how you can style Python code with Rouge in your CSS file:
+
+    ```css
+    /* Rouge Syntax Highlighting Styles */
+    pre {
+        overflow-x: auto;
+        padding: 1em;
+        background-color: #f7f7f7;
+        border: 1px solid #ddd;
+        border-radius: 0.3em;
+    }
+
+    pre code {
+        font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        font-size: 0.9em;
+    }
+
+    .highlight {
+        background-color: #ffffcc;
+    }
+
+    .highlight .p {
+        color: #ba2121;
+    }
+
+    .highlight .n {
+        color: #007020;
+    }
+
+    .highlight .o {
+        color: #666;
+    }
+
+    .highlight .c1,
+    .highlight .c {
+        color: #408080;
+        font-style: italic;
+    }
+    ```
+
+Adjust these styles as needed to fit the aesthetic of your site.
+
+Once you have set up Rouge and styled your code blocks, your Python code should be displayed with syntax highlighting on your Jekyll site.
+
 ## Example sites
 
 [Hitchens](https://github.com/patdryburgh/hitchens)

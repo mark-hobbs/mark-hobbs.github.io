@@ -1,0 +1,35 @@
+/* Rouge Syntax Highlighting Styles */
+pre {
+    overflow-x: auto;
+    padding: 1em;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 0.3em;
+}
+
+pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 0.9em;
+}
+
+.highlight {
+    background-color: #ffffcc;
+}
+
+.highlight .p {
+    color: #ba2121;
+}
+
+.highlight .n {
+    color: #007020;
+}
+
+.highlight .o {
+    color: #666;
+}
+
+.highlight .c1,
+.highlight .c {
+    color: #408080;
+    font-style: italic;
+}

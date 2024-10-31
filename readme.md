@@ -1,6 +1,6 @@
-# mark-hobbs.github.io
+# [mark-hobbs.github.io](https://mark-hobbs.github.io)
 
-Personal website built using Jekyll and hosted on GitHub Pages.
+Personal website built using Jekyll and hosted on [GitHub Pages](https://pages.github.com/).
 
 ## Development
 

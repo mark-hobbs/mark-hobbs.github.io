@@ -1,0 +1,28 @@
+.footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    padding: 10px 0;
+    font-family: $bodyFont;
+    color: $bodyColor;
+    background-color: $backgroundColor;
+    border-top: 1px solid #e0e0e0; /* Subtle border for visual separation */
+    z-index: 1000; /* Ensures footer stays above content */
+  }
+  
+  .footer-link {
+    color: $bodyColor;
+    text-decoration: none;
+    margin: 0 15px;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .footer-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    filter: grayscale(100%);
+  }
+  

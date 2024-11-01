@@ -5,6 +5,9 @@ author: Mark Hobbs
 
 # Genetic Algorithm (GA) from scratch
 
+![](/assets/images/ga-1.gif)
+<figcaption>GA</figcaption>
+
 ```python
 import random
 from tqdm import tqdm
@@ -66,7 +69,6 @@ class GeneticAlgorithm:
         plt.tight_layout()
 ```
 
-![](/assets/images/animation-1.gif)
-<figcaption>GA</figcaption>
+![](/assets/images/ga-2.gif)
 
 View the repo: [ga-demo](https://github.com/mark-hobbs/ga-demo/tree/main)

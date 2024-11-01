@@ -1,35 +1,52 @@
-/* Rouge Syntax Highlighting Styles */
+/* Rouge Syntax Highlighting Styles for Python */
 pre {
     overflow-x: auto;
     padding: 1em;
-    background-color: #f7f7f7;
-    border: 1px solid #ddd;
+    background-color: #F2DFCE;
     border-radius: 0.3em;
+    line-height: 1.45;
 }
 
 pre code {
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     font-size: 0.9em;
+    color: #000000; /* Main text color: Black */
 }
 
 .highlight {
-    background-color: #ffffcc;
+    background-color: #FFF1E0;
 }
 
-.highlight .p {
-    color: #ba2121;
+/* Syntax Colors */
+.highlight .c, /* Comments */
+.highlight .c1, /* Single-line comments */
+.highlight .s, /* Strings */
+.highlight .sd { /* Docstrings */
+    color: #6D7F86 /* Uniform grey color for comments, strings, and docstrings */
 }
 
-.highlight .n {
-    color: #007020;
+.highlight .k { /* Keyword */
+    color: #0D7680;
+    font-weight: bold;
 }
 
-.highlight .o {
-    color: #666;
+.highlight .nv, /* Variable */
+.highlight .na { /* Attribute */
+    color: #24292e;
 }
 
-.highlight .c1,
-.highlight .c {
-    color: #408080;
-    font-style: italic;
+.highlight .nn, /* Class names */
+.highlight .nc {
+    color: #01295C;
+    font-weight: bold;
+}
+
+.highlight .p { /* Punctuation */
+    color: #000000;
+}
+
+.highlight .m, /* General number class */
+.highlight .mi, /* Integer literals */
+.highlight .mf { /* Floating-point literals */
+    color: #5E6CB5;
 }

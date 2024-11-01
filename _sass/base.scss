@@ -10,6 +10,7 @@ body {
   flex-direction: column; /* Stacks the header and content vertically */
   align-items: center;
   margin: 0;
+  line-height: 1.5;
 }
 
 header {
@@ -22,6 +23,7 @@ header {
 
 .content {
   margin-top: 100px; /* Increase spacing between header and content */
+  margin-bottom: 100px;
   width: 50%; /* Adjust width for content readability */
   max-width: 800px; /* Set a max width for larger screens */
   text-align: justify;

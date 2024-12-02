@@ -5,6 +5,7 @@ author: Mark Hobbs
 
 # MCMC from scratch
 
+![](/assets/images/mcmc-animation.gif)
 
 ### `Sampler` class
 

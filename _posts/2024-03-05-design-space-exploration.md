@@ -1,6 +1,7 @@
 ---
 layout: post
 author: Mark Hobbs
+title: Design space exploration
 ---
 
 # Design space exploration

@@ -1,6 +1,7 @@
 ---
 layout: post
 author: Mark Hobbs
+title: MCMC from scratch
 ---
 
 # MCMC from scratch

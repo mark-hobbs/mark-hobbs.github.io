@@ -1,6 +1,7 @@
 ---
 layout: post
 author: Mark Hobbs
+title: Genetic Algorithm from scratch
 ---
 
 # Genetic Algorithm (GA) from scratch

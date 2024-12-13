@@ -46,3 +46,5 @@ The primary goal of optimisation is to find the best solution(s) according to sp
 **Genetic algorithm**
 
 ![](/assets/images/genetic-algorithm.gif)
+
+fix

@@ -15,6 +15,7 @@ Explore the repo: [design-space-exploration](https://github.com/mark-hobbs/desig
 - [4. Monte Carlo (MC)](#4-monte-carlo-mc)
 - [5. Markov Chain Monte Carlo (MCMC)](#5-markov-chain-monte-carlo-mcmc)
 - [6. Optimisation](#6-optimisation)
+- [7. Related concepts](#7-related-concepts)
 
 ## 1. Motivation
 
@@ -54,3 +55,7 @@ The primary goal of optimisation is to find the best solution(s) according to sp
 **Genetic algorithm**
 
 ![](/assets/images/genetic-algorithm.gif)
+
+## 7. Related concepts
+
+Generative models aim to infer the underlying distribution from which observed data is generated.

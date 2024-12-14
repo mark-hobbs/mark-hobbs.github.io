@@ -14,17 +14,19 @@ Efforts at the intersection of machine learning and simulation generally fall in
 
 ## Design space
 
-Contour plot illustrating the relationship between two design parameters, $X_1$ and $X_2$, and the corresponding values of the objective function. In many engineering applications, evaluating this objective function can be extremely computationally expensive.
+The design space is a multidimensional representation of all possible design configurations, with each point representing a unique combination of design parameters and their associated performance. The following contour plot illustrates the relationship between two design parameters, $X_1$ and $X_2$, and the corresponding values of the objective function. In many engineering applications, evaluating this objective function can be extremely computationally expensive.
 
 ![](/assets/images/design-space.png)
 
 ## Grid search
 
-Each point represents a single run of a computationally expensive simulation
+The simplest way to search the design space is through a grid search, where the space is divided into a uniform grid, and simulations are run at each grid point. While this method is straightforward and ensures systematic coverage, it suffers from the *curse of dimensionality*, where the number of required simulations grows exponentially with the number of dimensions. As a result, grid search becomes computationally impractical for problems with high-dimensional design spaces. In the following figure, each point represents a single run of a computationally expensive simulation.
 
 ![](/assets/images/grid-search.png)
 
 ## Monte Carlo (MC)
+
+Monte Carlo sampling offers a more flexible approach to exploring the design space by randomly sampling points, avoiding the rigid structure of a grid. This method is less affected by the curse of dimensionality since the number of samples can be chosen independently of the dimensionality. However, it requires a large number of samples to achieve good coverage, especially in regions of interest. In the figure below, the randomly distributed points illustrate the stochastic nature of this approach.
 
 ![](/assets/images/monte-carlo.png)
 
@@ -46,5 +48,3 @@ The primary goal of optimisation is to find the best solution(s) according to sp
 **Genetic algorithm**
 
 ![](/assets/images/genetic-algorithm.gif)
-
-fix

@@ -18,7 +18,7 @@ Given a series of experimental observations in the form of stress-strain ($\sigm
 
 The problem statement is an example of an **inverse problem**. The goal of an inverse problem is to estimate an unknown parameter that is not directly observable by using measured data and a mathematical model linking the observed and the unknown.
 
-A mathematical model is selected or designed to describe the relationship between the observed data and the unknown parameter, and the model parameters are adjusted to minimise the disparity between the predicted values and actual observations. Iterative optimisation techniques are typically employed to find the best-fitting parameters by minimising a cost function that quantifies the mismatch between the observed data and the predictions of the mathematical model. Through this process of model fitting, predictions or estimations about the unknown parameter can be derived.
+A mathematical model is selected or designed to describe the relationship between the observed data and the unknown parameter, and the model parameters are adjusted to minimise the disparity between the predicted values and actual observations. Iterative **optimisation** techniques are typically employed to find the best-fitting parameters by minimising a cost function that quantifies the mismatch between the observed data and the predictions of the mathematical model. Through this process of model fitting, predictions or estimations about the unknown parameter can be derived.
 
 Conventional methods have a number of limitations:
 
@@ -30,69 +30,29 @@ Conventional methods have a number of limitations:
 
 4. **Ill-posedness:** In many cases, inverse problems are ill-posed, meaning that small changes in the observed data can lead to large changes in the estimated parameters. This sensitivity to data perturbations makes it challenging to obtain stable and reliable solutions.
 
-### 2.1 Optimisation (gradient descent)
+## 3. Model
 
-Iterative optimisation techniques are typically employed to solve inverse problems. They aim to determine the best-fitting parameters by minimising a cost function that quantifies the mismatch between the observed data and the predictions of the mathematical model.  One common technique is gradient descent, which iteratively adjusts the parameters in the direction that reduces the cost function most rapidly.
+Upon examining the above experimental observations, an expert will likely determine that the material response is best characterised by a linear elastic-perfectly plastic model. The behaviour of a linear elastic-perfectly plastic material is described by a two parameters, Young's modulus $E$ and yield... The stress-strain relationship of a linear elastic-perfectly plastic material during uniaxial tension can be expressed as:
 
-Gradient descent and its variants, such as stochastic gradient descent (SGD) and adaptive moment estimation (Adam), are widely used due to their efficiency and scalability. These methods leverage the gradient of the cost function with respect to the parameters to make informed updates, gradually converging to a local or global minimum of the cost function. As stated above, these techniques only offer point estimates and fail to capture uncertainty.
+$$\sigma(\epsilon, \textbf{x}) = E\epsilon$$
 
-The below `GradientDescent` class implements a gradient descent optimiser with momentum to minimise the mean squared error between observed data and model predictions, using finite differences to compute the gradient.
+where $\sigma$ represents stress, $\epsilon$ represents strain, $\textbf{x}$ denotes the model parameter vector (in this case, $\textbf{x} = E$), and $E$ denotes Young's modulus.
 
-```python
-class GradientDescent:
+The below figure illustrates the stress-strain response for a linear elastic-perfectly plastic material.
 
-    def __init__(self, model, observed, initial_candidate):
-        self.model = model
-        self.observed = observed
-        self.candidate = np.atleast_1d(initial_candidate)
-        self.velocity = np.zeros_like(self.candidate)
+![](/assets/images/linear-elastic-perfectly-plastic-material-model.png)
 
-    def optimise(self, step_size, momentum=0.99, n_steps=100):
-        """
-        Optimise the cost function using gradient descent with momentum
-        """
-        step_size = np.atleast_1d(step_size)
-        cost_hist, candidate_hist = [], []
+## 4. Model fitting
 
-        for _ in range(n_steps):
-            self.velocity = (momentum * self.velocity) - (step_size * self._compute_gradient())
-            self.candidate += self.velocity
-            candidate_hist.append(np.copy(self.candidate))
-            cost_hist.append(self._cost_function(self.candidate))
+Minimise the mean squared error between observed data and model predictions, using a gradient based optimiser. The *true* model that was used to generate the synthetic observations is plotted.
 
-        return np.array(candidate_hist), np.array(cost_hist)
+![](/assets/images/fitted-model.png)
 
-    def _compute_gradient(self, h=1e-5):
-        """
-        Employ the finite difference method to compute the gradient of the
-        cost function with respect to the model parameters.
-        """
-        x = self.candidate
-        gradient = np.zeros_like(x)
-
-        for i in range(len(x)):
-            x_forward, x_backward = np.copy(x), np.copy(x)
-            x_forward[i] += h
-            x_backward[i] -= h
-            gradient[i] = (
-                self._cost_function(x_forward) - self._cost_function(x_backward)
-            ) / (2 * h)
-
-        return gradient
-
-    def _cost_function(self, candidate):
-        """
-        Compute the mean squared error between the observed data
-        and the model predictions
-        """
-        return np.mean((self.observed - self.model(candidate)) ** 2)
-```
-
-## 3. Bayesian inference
+## 5. Bayesian inference
 
 A Bayesian framework offers significant advantages for addressing inverse problems. Bayesian inference is the process of updating our beliefs about the probability of an event based on prior knowledge and observed data using Bayes' theorem. In the context of the presented problem, we update our beliefs about the probability of the parameter values in our model based on prior knowledge and experimental observations. Bayes' theorem is an extremely powerful concept, particularly in situations where uncertainty exists and where prior knowledge or beliefs can be incorporated into the analysis.
 
-### 3.1 Bayes' Theorem
+### 5.1 Bayes' Theorem
 
 **Bayes' theorem** is used to determine the probability of a hypothesis given observed evidence (the posterior probability). In this example, we can think of the hypothesis and evidence as follows:
 
@@ -121,7 +81,7 @@ A brief description of the likelihood, prior and posterior is provided below:
 
 In summary, Bayes' theorem allows us to update our beliefs about model parameters by integrating prior knowledge with experimental observations, providing a robust framework for handling uncertainty and making informed inferences.
 
-### 3.2 Advantages
+### 5.2 Advantages
 
 There are multiple reasons why a Bayesian framework is better suited for solving inverse problems:
 
@@ -131,19 +91,7 @@ There are multiple reasons why a Bayesian framework is better suited for solving
 
 Overall, the Bayesian framework offers a principled approach to solving inverse problems by integrating prior knowledge, capturing uncertainty, and providing more robust and interpretable estimates compared to traditional methods.
 
-### 3.3 Model
-
-Upon examining the above experimental observations, an expert will likely determine that the material response is best characterised by a linear elastic-perfectly plastic model. The behaviour of a linear elastic-perfectly plastic material is described by a two parameters, Young's modulus $E$ and yield... The stress-strain relationship of a linear elastic-perfectly plastic material during uniaxial tension can be expressed as:
-
-$$\sigma(\epsilon, \textbf{x}) = E\epsilon$$
-
-where $\sigma$ represents stress, $\epsilon$ represents strain, $\textbf{x}$ denotes the model parameter vector (in this case, $\textbf{x} = E$), and $E$ denotes Young's modulus.
-
-<!-- ![](figures/linear-elastic-material-model.png) -->
-
-Below is a function (`compute_stress`) that, given $E$, will compute the stress for any value of strain. Subsequently, the stress-strain response for a linear elastic material is plotted below.
-
-### 3.4 Likelihood $\pi(\textbf{y}|\textbf{x})$
+### 5.4 Likelihood $\pi(\textbf{y}|\textbf{x})$
 
 The likelihood function represents the probability that the observed data $\textbf{y}$ was generated by the model parameters $\textbf{x}$. Thus, when evaluated on a given sample of the model parameters $\textbf{x}$, the likelihood function indicates which parameter values are more likely than others, in the sense that they would have made the observed data $\textbf{y}$ more probable. A low value of likelihood would indicate that either the model is wrong, the model parameters are wrong, or the observed data is rare. To construct the likelihood function we need to define a model that represents the data-generating process.
 
@@ -169,7 +117,7 @@ The likelihood for all observations can be expressed as:
 
 $$\pi(\textbf{y}|E) = \frac{1}{s_{noise}\sqrt{2\pi}}exp\left(-\frac{1}{2}{\frac{\sum_{i=1}^{n_m}(y - E\epsilon)^2}{s^2_{noise}}}\right)$$
 
-### 3.5 Prior $\pi(\textbf{x})$
+### 5.5 Prior $\pi(\textbf{x})$
 
 The prior encapsulates the initial belief regarding the value of a parameter before considering any evidence. The prior can be established through consulting experts or examining existing literature, for example, to determine a typical value for material stiffness. In our case, the sole unknown parameter is the material stiffness $E$, and we adopt a prior represented by a modified normal distribution:
 
@@ -177,7 +125,7 @@ $$\pi(E) \propto exp\left(-\frac{(E - \overline{E})^2}{2s^2_E}\right) \quad \tex
 
 This distribution is chosen to reflect the constraint that material stiffness cannot be negative or zero. The parameter $\overline{E}$ denotes the mean stiffness value, while $s_E$ represents the standard deviation. Utilising this prior distribution enables us to incorporate our understanding of material properties into the analysis, providing a foundation for making informed inferences about $E$. This concept is very powerful when we only have a small data set.
 
-### 3.6 Posterior $\pi(E|y)$
+### 5.6 Posterior $\pi(E|y)$
 
 The PDF of the unknown parameters $\textbf{x}$, given the observations $\textbf{y}$
 
@@ -191,7 +139,7 @@ Since the data $y$ is already measured, the denominator in Bayes' Theorem $\pi(y
 
 $$\pi(E|y) = \frac{1}{C}\pi(E)\pi(y|E)$$
 
-## 5. Compute the Posterior Distribution
+## 6. Compute the Posterior Distribution
 
 Bayesian inference allows us to update our beliefs about parameters based on observed data. This updating process results in the posterior distribution, which encapsulates our updated knowledge about the parameters after considering the data. Several methods can be employed to compute the posterior distribution:
 
@@ -213,7 +161,7 @@ Each of these methods has its strengths and limitations, and the choice depends 
 
 ![](/assets/images/posterior.png)
 
-### 5.3 Why are density values omitted?
+### 6.3 Why are density values omitted?
 
 When plotting the posterior density in Bayesian statistics, it is customary not to include density values on the y-axis of the plot. Instead, the y-axis typically represents the relative probability or density of different parameter values given the observed data.
 
@@ -229,49 +177,7 @@ There are multiple reasons for omitting density values:
 
 In summary, the absence of density values on the y-axis of posterior density plots helps maintain clarity and focus on the relative likelihoods of different parameter values, which is typically the primary objective when visualising posterior distributions in Bayesian analysis.
 
-## 6. Metropolis-Hastings
-
-When the search space becomes larger, or the model is expensive to evaluate, it can become infeasible to do an exhaustive search and we must turn to randomised searches. Markov Chain Monte Carlo (MCMC) methods are the most common approach in such scenarios. The aim of MCMC is to randomly walk through the parameter space, while the fraction of time spent at each state $\theta_i$ is $\propto$ the unormalised posterior. While various libraries exist for posterior exploration, we will implement a [Metropolis-Hastings](https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm) sampler to aid comprehension. Please note that the code for the sampler below is originally sourced from this [blog](https://colindcarroll.com/2018/11/24/animated-mcmc-with-matplotlib/) by Colin Carroll.
-
-In the next [example](02-linear-elasticity-perfect.ipynb) we will write a `Sampler` class
-
-### 6.2 Statistical summaries
-
-Once the posterior has been sampled, it needs to be analysed to determine the statistical summaries.
-
-During the initial sampling phase (commonly referred to as the burn-in phase), the chain is still adjusting and exploring the parameter space, potentially starting from an arbitrary initial state or distribution. The initial samples may not accurately represent the true posterior distribution because the chain has not yet stabilised. Therefore, these initial samples are discarded (burned) and not used for analysis purposes.
-
-After discarding the burn-in samples, the remaining samples can be used to estimate various statistical summaries. One key summary is the **Maximum A Posteriori (MAP) estimate**, which is the mode of the posterior distribution and represents the most likely value given the data. Additionally, **credible intervals** can be computed to provide a range of values within which the true parameter value is likely to lie with a certain probability.
-
-### 6.3 MCMC convergence
-
-Assessing convergence in Markov Chain Monte Carlo (MCMC) methods is crucial to ensure that the generated samples adequately represent the target distribution. Several methods can be used to assess convergence:
-
-1. **Visual Inspection**: Plotting trace plots for each parameter can give a visual indication of convergence. Trace plots should appear as random walks without clear trends or patterns.
-
-2. **Gelman-Rubin Diagnostic (R-hat)**: This diagnostic compares the variance between multiple chains to the variance within each chain. An R-hat close to 1 indicates convergence. Typically, an R-hat value less than 1.1 is considered acceptable.
-
-3. **Effective Sample Size (ESS)**: ESS estimates the number of independent samples generated by the MCMC chain. It accounts for autocorrelation within the chain. Higher ESS indicates better mixing and convergence.
-
-4. **Autocorrelation**: Autocorrelation measures the correlation between a sample and lagged versions of itself. High autocorrelation indicates poor mixing. Plotting autocorrelation functions can help visualize this.
-
-5. **Geweke Diagnostic**: This diagnostic compares the mean and variance of segments from the beginning and end of a single chain. Large discrepancies suggest lack of convergence.
-
-6. **Convergence Diagnostics Plots**: Various diagnostic plots like density plots, histogram plots, and scatter plots comparing different chains can also be helpful in assessing convergence.
-
-7. **Bayesian p-values**: These are based on the distribution of a discrepancy measure between two halves of the chain. Large p-values suggest convergence.
-
-8. **Energy Plots**: These plots track the energy of the system over iterations. Stable energy levels indicate convergence.
-
-9. **Posterior Predictive Checks (PPCs)**: Simulate new data from the fitted model and compare it to observed data. Poor fit suggests lack of convergence.
-
-10. **Cross-Validation**: Split the data into training and test sets, fit the model on training data, and validate on test data. Consistent predictions indicate convergence.
-
-By employing a combination of these methods, you can effectively assess convergence in MCMC simulations and ensure reliable inference from the sampled distributions.
-
-![](/assets/images/chain.png)
-
-## 7. Summary
+## x. Summary
 
 Given noisy experimental data obtained from a uniaxial tensile test of a material specimen, we hypothesised that the material response can be described by a linear-elastic material law. We then employed a Bayesian framework to infer the parameters in the material model, accounting for uncertainty in the observations. Bayesian inference provides an estimate of the posterior distribution of the model parameters rather than just deterministic estimates. Learning comes from two sources: (1) the evidence provided by the observed data and (2) prior knowledge about the likely values of the model parameters.
 

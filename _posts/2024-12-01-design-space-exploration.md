@@ -6,7 +6,7 @@ title: Design space exploration
 
 This post provides a visual guide to design space exploration and its connection to optimisation and uncertainty quantification.
 
-Explore the repo: [design-space-exploration](https://github.com/mark-hobbs/design-space-exploration)
+Explore the repo: [design-space-exploration](https://github.com/mark-hobbs/articles/tree/main/design-space-exploration)
 
 ## Motivation
 

@@ -6,7 +6,7 @@ title: A simple introduction to Bayesian inference
 
 > THIS IS A WORK IN PROGRESS
 
-This post provides an introduction to Bayesian inference, using examples familiar to engineers to demonstrate the benefits of probabilistic methods. A second more detailed post includes all the code used to produce the results published here.
+This post provides an introduction to Bayesian inference, using an example familiar to engineers to demonstrate the benefits of probabilistic methods. A second more detailed post includes all the code used to produce the results published here.
 
 Explore the repo: [bayesian-inference](https://github.com/mark-hobbs/articles/tree/main/bayesian-inference)
 
@@ -161,7 +161,10 @@ MCMC methods offer a powerful and versatile approach to estimate the posterior d
 
 Each of these methods has its strengths and limitations, and the choice depends on factors such as the complexity of the model, computational resources available, and the desired accuracy of the posterior estimation. Additionally, combining multiple approaches or employing advanced MCMC techniques, such as Hamiltonian Monte Carlo, can further enhance the accuracy and efficiency of Bayesian inference in various scenarios. We will begin by employing a simple grid search, as implemented in `grid_search()`.
 
+![](/assets/images/histograms.png)
+
 ![](/assets/images/posterior.png)
+
 
 ### 6.3 Why are density values omitted?
 

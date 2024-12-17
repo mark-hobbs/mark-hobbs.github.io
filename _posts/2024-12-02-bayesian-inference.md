@@ -8,6 +8,8 @@ title: A simple introduction to Bayesian inference
 
 This post provides an introduction to Bayesian inference, using examples familiar to engineers to demonstrate the benefits of probabilistic methods. A second more detailed post includes all the code used to produce the results published here.
 
+Explore the repo: [bayesian-inference](https://github.com/mark-hobbs/articles/tree/main/bayesian-inference)
+
 ## 1. Problem statement
    
 Given a series of experimental observations in the form of stress-strain ($\sigma$-$\epsilon$) data obtained from a uniaxial tensile test of a material specimen (as illustrated in the figure below), and acknowledging that the observations will be contaminated by a small amount of noise, infer the model parameters that describe the material response with a quantified level of uncertainty. It is essential to acknowledge and mitigate this noise to ensure the accuracy of any subsequent analyses or conclusions drawn from the data.

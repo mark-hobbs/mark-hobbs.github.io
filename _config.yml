@@ -4,6 +4,8 @@ title: Mark Hobbs personal site
 
 highlighter: rouge
 
+permalink: /posts/:title
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap

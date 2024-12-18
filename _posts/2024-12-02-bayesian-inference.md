@@ -119,7 +119,7 @@ This expresses the belief that the parameters $\textbf{x}$ are normally distribu
 
 ### 5.5 Posterior $\pi(\textbf{x}|\textbf{y})$
 
-The posterior distribution combines the prior and likelihood to update our belief about the parameters $\textbf{x}$ after observing the data $\textbf{y}$. The posterior is given by:
+The posterior distribution represents our belief about the parameters $\textbf{x}$ after observing the data $\textbf{y}$. The posterior is given by:
 
 $$
 \pi(\textbf{x}|\textbf{y}) \propto \pi(\textbf{x}) \cdot \pi(\textbf{y}|\textbf{x})
@@ -135,11 +135,11 @@ where $C$ is a normalisation constant ensuring that the integral of the posterio
 
 ## 6. Compute the Posterior Distribution
 
-Bayesian inference allows us to update our beliefs about parameters based on observed data. This updating process results in the posterior distribution, which encapsulates our updated knowledge about the parameters after considering the data. Several methods can be employed to compute the posterior distribution:
+Several methods can be employed to compute the posterior distribution:
 
 #### Analytical Solution:
 
-In the presented linear-elastic model, the posterior can be determined analytically because the noise model is additive, and both the noise distribution and the prior distribution are (modified) normal distributions. When the prior and likelihood functions have conjugate distributions, a closed-form solution is possible. Examples include the normal-normal and beta-binomial models. However, the posterior can only be determined analytically in a limited number of simple cases, and for real-world problems, numerical methods are typically employed.
+When the prior and likelihood functions are conjugate, a closed-form solution can be derived. Examples include the normal-normal and beta-binomial models. However, the posterior can only be determined analytically in a limited number of simple cases, and numerical methods are typically used for more complex real-world problems.
 
 #### Grid Search:
 
@@ -147,7 +147,7 @@ In cases where analytical solutions are not feasible due to complex or non-stand
 
 #### Markov Chain Monte Carlo (MCMC):
 
-MCMC methods offer a powerful and versatile approach to estimate the posterior distribution, particularly in high-dimensional and complex models where analytical solutions or grid search are impractical. MCMC algorithms, such as Metropolis-Hastings and Gibbs sampling, generate a Markov chain that asymptotically converges to samples from the target posterior distribution. These methods iteratively propose candidate parameter values, accepting or rejecting them based on a defined acceptance criterion that preserves the desired distribution. MCMC provides flexibility in handling complex models and can efficiently explore the parameter space, even in cases of high dimensionality or non-standard distributions. A simple Metropolis-Hastings sampler is implemented in Section 6.
+MCMC methods offer a powerful and versatile approach to estimate the posterior distribution, particularly in high-dimensional and complex models where analytical solutions or grid search are impractical. MCMC algorithms, such as Metropolis-Hastings and Gibbs sampling, generate a Markov chain that asymptotically converges to samples from the target posterior distribution. These methods iteratively propose candidate parameter values, accepting or rejecting them based on a defined acceptance criterion that preserves the desired distribution. MCMC provides flexibility in handling complex models and can efficiently explore the parameter space, even in cases of high dimensionality or non-standard distributions.
 
 #### Summary
 

@@ -4,8 +4,6 @@ author: Mark Hobbs
 title: A simple introduction to Bayesian inference
 ---
 
-> THIS IS A WORK IN PROGRESS
-
 This post introduces Bayesian inference through a simple example that engineers will find familiar, demonstrating the benefits of using probabilistic methods. To maintain accessibility, the use of formal mathematics is minimised. The complete code used to generate all results and figures in this post is available in the following repository: [bayesian-inference](https://github.com/mark-hobbs/articles/tree/main/bayesian-inference)
 
 ## 1. Problem statement
@@ -137,46 +135,43 @@ where $C$ is a normalisation constant ensuring that the integral of the posterio
 
 Several methods can be employed to compute the posterior distribution:
 
-#### Analytical Solution:
+#### Analytical Solution
 
 When the prior and likelihood functions are conjugate, a closed-form solution can be derived. Examples include the normal-normal and beta-binomial models. However, the posterior can only be determined analytically in a limited number of simple cases, and numerical methods are typically used for more complex real-world problems.
 
-#### Grid Search:
+#### Grid Search
 
 In cases where analytical solutions are not feasible due to complex or non-standard distributions, grid search provides a practical numerical approach. In grid search, the parameter space is discretised into a grid, and the posterior probability is computed for each grid point. This method involves evaluating the prior and likelihood functions at each grid point and then normalising to obtain the posterior probabilities. While grid search is straightforward to implement, it may not be feasible when the model is computationally expensive, and will become extremely computationally intensive for high-dimensional parameter spaces.
 
-#### Markov Chain Monte Carlo (MCMC):
+#### Markov Chain Monte Carlo (MCMC)
 
 MCMC methods offer a powerful and versatile approach to estimate the posterior distribution, particularly in high-dimensional and complex models where analytical solutions or grid search are impractical. MCMC algorithms, such as Metropolis-Hastings and Gibbs sampling, generate a Markov chain that asymptotically converges to samples from the target posterior distribution. These methods iteratively propose candidate parameter values, accepting or rejecting them based on a defined acceptance criterion that preserves the desired distribution. MCMC provides flexibility in handling complex models and can efficiently explore the parameter space, even in cases of high dimensionality or non-standard distributions.
 
-![](/assets/images/posterior.png)
-
 #### Summary
 
-Each of these methods has its strengths and limitations, and the choice depends on factors such as the complexity of the model, computational resources available, and the desired accuracy of the posterior estimation. Additionally, combining multiple approaches or employing advanced MCMC techniques, such as Hamiltonian Monte Carlo, can further enhance the accuracy and efficiency of Bayesian inference in various scenarios. We will begin by employing a simple grid search, as implemented in `grid_search()`.
+Each of these methods has its strengths and limitations, and the choice depends on factors such as the complexity of the model, computational resources available, and the desired accuracy of the posterior estimation. Additionally, combining multiple approaches or employing advanced MCMC techniques, such as Hamiltonian Monte Carlo, can further enhance the accuracy and efficiency of Bayesian inference in various scenarios.
 
-
-## x. Posterior Distribution
+## 7. Posterior Distribution
 
 Now we can analyse the posterior distribution to draw conclusions or make predictions. This might involve calculating summary statistics, credible intervals or making comparisons between different parameters values.
 
-![](/assets/images/histograms.png)
+![](/assets/images/posterior.png)
 
-**Statistical summary**
+![](/assets/images/histograms.png)
 
 **Posterior Predictive Distribution**
 
+Improved decision making... downstream design tasks...
+
 ![](/assets/images/posterior-predictive-distribution.png)
 
-**Decision making**
+### Why are density values omitted?
 
-### x Why are density values omitted?
-
-Probability density values are omitted from posterior plots to emphasise the **shape of the distribution** and the **relative likelihood of parameter values**. Absolute density values offer little interpretive value, as posterior densities are often normalised and primarily used for comparison.
+Probability density values are omitted from posterior plots to emphasise the shape of the distribution and the relative likelihood of parameter values. Absolute density values offer little interpretive value, as posterior densities are often normalised and primarily used for comparison.
 
 Excluding density values enhances clarity, directing attention to high-probability regions and the overall shape of the posterior distribution.
 
-## x. Summary
+## 8. Summary
 
 Given noisy experimental data obtained from a uniaxial tensile test of a material specimen, we hypothesised that the material response can be described by a linear-elastic material law. We then employed a Bayesian framework to infer the parameters in the material model, accounting for uncertainty in the observations. Bayesian inference provides an estimate of the posterior distribution of the model parameters rather than just deterministic estimates. Learning comes from two sources: (1) the evidence provided by the observed data and (2) prior knowledge about the likely values of the model parameters.
 

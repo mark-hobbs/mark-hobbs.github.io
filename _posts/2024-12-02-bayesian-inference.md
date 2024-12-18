@@ -53,56 +53,11 @@ where:
 
 ![](/assets/images/linear-elastic-perfectly-plastic-material-model.png)
 
-```python
-class LinearElasticPerfectlyPlastic:
-    """
-    Linear elastic-perfectly plastic material
-    """
-    def __init__(self, x):
-        """
-        x : list or array-like
-            The independent variables (e.g., strain).
-        """
-        self.x = x
-
-    def __call__(self, parameters):
-        """
-        Compute stress based on the provided parameters.
-
-        Parameters
-        ----------
-        parameters : list
-            Model parameters (Young's Modulus and Yield Stress)
-
-        Returns
-        -------
-        stress : float
-            Computed stress.
-        """
-        E = parameters[0]
-        stress_y = parameters[1]
-
-        stress = []
-        strain_y = stress_y / E
-
-        for strain in self.x:
-            if strain <= strain_y:
-                stress.append(E * strain)
-            else:
-                stress.append(stress_y)
-
-        return stress
-```
-
-Initiate an instance of the model.
-
-```python
-model = LinearElasticPlasticModel(strain)
-```
-
 ## 4. Model fitting
 
-Minimise the mean squared error between observed data and model predictions, using a gradient based optimiser. The *true* model that was used to generate the synthetic observations is plotted.
+To determine the best-fit values of Young's modulus $E$ and yield stress $\sigma_y$, the model is fitted to the observed data by minimising the mean squared error (MSE) between the model predictions and the experimental observations. The model parameters are optimised using gradient-based methods or genetic algorithms to minimise the error
+
+The figure below illustrates the results of this fitting process. The *true* model, which was used to generate the synthetic observations, is also plotted for reference. 
 
 ![](/assets/images/fitted-model.png)
 

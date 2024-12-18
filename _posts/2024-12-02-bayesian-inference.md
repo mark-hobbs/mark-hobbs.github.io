@@ -6,7 +6,7 @@ title: A simple introduction to Bayesian inference
 
 > THIS IS A WORK IN PROGRESS
 
-This post introduces Bayesian inference through an example that engineers will find familiar, highlighting the advantages of probabilistic methods. To maintain accessibility, I have minimised the use of formal mathematics and instead included code snippets to aid understanding. The complete code used to generate all results and figures in this post is available in the following repository: [bayesian-inference](https://github.com/mark-hobbs/articles/tree/main/bayesian-inference)
+This post introduces Bayesian inference through a simple example that engineers will find familiar, demonstrating the benefits of using probabilistic methods. To maintain accessibility, the use of formal mathematics is minimised. The complete code used to generate all results and figures in this post is available in the following repository: [bayesian-inference](https://github.com/mark-hobbs/articles/tree/main/bayesian-inference)
 
 ## 1. Problem statement
    

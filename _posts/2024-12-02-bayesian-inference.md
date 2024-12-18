@@ -143,7 +143,7 @@ When the prior and likelihood functions are conjugate, a closed-form solution ca
 
 In cases where analytical solutions are infeasible due to complex or non-standard distributions, grid search offers a practical numerical approach. In this method, the parameter space is discretised into a grid, and the posterior probability is computed at each grid point to estimate the posterior distribution. While grid search is straightforward to implement, it suffers from the *curse of dimensionality*, where the number of required evaluations grows exponentially with the number of dimensions.  
 
-If the model $\textbf{f}(\textbf{x})$ is computationally expensive, for example, a CFD simulation, grid search is generally computationally infeasible. Additionally, many evaluations are effectively 'wasted' in regions where the posterior density is low. This inefficiency underscores the need for more advanced methods that concentrate the search on regions of interest — specifically, areas where the posterior density is high.
+If the model $\textbf{f}(\textbf{x})$ is computationally expensive, for example, a CFD simulation, grid search is infeasible. Additionally, many evaluations are effectively 'wasted' in regions where the posterior density is low. This inefficiency underscores the need for more advanced methods that concentrate the search on regions of interest — specifically, areas where the posterior density is high.
 
 #### Markov Chain Monte Carlo (MCMC)
 

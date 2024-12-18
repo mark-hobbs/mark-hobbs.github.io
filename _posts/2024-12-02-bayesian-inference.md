@@ -149,34 +149,32 @@ In cases where analytical solutions are not feasible due to complex or non-stand
 
 MCMC methods offer a powerful and versatile approach to estimate the posterior distribution, particularly in high-dimensional and complex models where analytical solutions or grid search are impractical. MCMC algorithms, such as Metropolis-Hastings and Gibbs sampling, generate a Markov chain that asymptotically converges to samples from the target posterior distribution. These methods iteratively propose candidate parameter values, accepting or rejecting them based on a defined acceptance criterion that preserves the desired distribution. MCMC provides flexibility in handling complex models and can efficiently explore the parameter space, even in cases of high dimensionality or non-standard distributions.
 
+![](/assets/images/posterior.png)
+
 #### Summary
 
 Each of these methods has its strengths and limitations, and the choice depends on factors such as the complexity of the model, computational resources available, and the desired accuracy of the posterior estimation. Additionally, combining multiple approaches or employing advanced MCMC techniques, such as Hamiltonian Monte Carlo, can further enhance the accuracy and efficiency of Bayesian inference in various scenarios. We will begin by employing a simple grid search, as implemented in `grid_search()`.
 
+
+## x. Posterior Distribution
+
+Now we can analyse the posterior distribution to draw conclusions or make predictions. This might involve calculating summary statistics, credible intervals or making comparisons between different parameters values.
+
 ![](/assets/images/histograms.png)
 
-![](/assets/images/posterior.png)
+**Statistical summary**
 
-
-### 6.3 Why are density values omitted?
-
-When plotting the posterior density in Bayesian statistics, it is customary not to include density values on the y-axis of the plot. Instead, the y-axis typically represents the relative probability or density of different parameter values given the observed data.
-
-There are multiple reasons for omitting density values:
-
-1. **Relative comparison**: The principal objective of a posterior density plot is to visualise the distribution's shape and understand the relative likelihoods of different parameter values. Including density values on the y-axis would not significantly enhance interpretation, as the focus lies on the distribution's shape and how it varies across parameter values.
-
-2. **Normalisation**: Posterior densities are often scaled so that the area under the curve equals 1. Including density values on the y-axis would necessitate selecting a scale that may not be immediately intuitive and could detract from the primary purpose of the plot.
-
-3. **Interpretability**: Posterior densities are frequently interpreted in a relative sense rather than in terms of absolute density values. For instance, a higher peak in the posterior density indicates that a particular parameter value is more probable given the observed data, but the actual density value at that point may lack direct interpretation.
-
-4. **Focus on shape**: Excluding density values facilitates focusing on the distribution's shape and visually comparing different parameter values. This aids in comprehending the uncertainty associated with parameter estimation and identifying regions of high probability.
-
-In summary, the absence of density values on the y-axis of posterior density plots helps maintain clarity and focus on the relative likelihoods of different parameter values, which is typically the primary objective when visualising posterior distributions in Bayesian analysis.
-
-## x. Posterior Predictive Distribution
+**Posterior Predictive Distribution**
 
 ![](/assets/images/posterior-predictive-distribution.png)
+
+**Decision making**
+
+### x Why are density values omitted?
+
+Probability density values are omitted from posterior plots to emphasise the **shape of the distribution** and the **relative likelihood of parameter values**. Absolute density values offer little interpretive value, as posterior densities are often normalised and primarily used for comparison.
+
+Excluding density values enhances clarity, directing attention to high-probability regions and the overall shape of the posterior distribution.
 
 ## x. Summary
 
@@ -184,26 +182,4 @@ Given noisy experimental data obtained from a uniaxial tensile test of a materia
 
 To compute the posterior, we demonstrated a basic grid search and the standard Metropolis-Hastings algorithm. Additionally, we employed conventional optimisation techniques to determine point estimates by implementing gradient descent to minimise an error function that quantifies the discrepancy between the observed data and the predictions of the linear-elastic model.
 
-We will finish by summarising the **Bayesian workflow**:
-
-1. **Define the Problem**: Clearly articulate the problem you are trying to solve or the question you are aiming to answer.
-
-3. **Collect Data**: Gather relevant data that can inform the problem or question at hand.
-
-4. **Likelihood Function**: Establish a mathematical model that describes how the data are related to the parameters of interest. This is known as the likelihood function.
-
-5. **Prior Knowledge**: Gather any existing knowledge or beliefs about the parameters of interest. This is represented as the prior probability distribution.
-
-6. **Bayes' Theorem**: Apply Bayes' theorem, which updates our prior beliefs in light of the observed data, to calculate the posterior probability distribution. Bayes' theorem states that the posterior probability is proportional to the product of the likelihood function and the prior probability.
-
-7. **Posterior Inference**: Analyse the posterior distribution to draw conclusions or make predictions. This might involve calculating summary statistics, credible intervals, or making comparisons between different parameter values.
-
-8. **Validation and Sensitivity Analysis**: Validate the results obtained by checking the model's fit to the data and its sensitivity to changes in assumptions or prior specifications.
-
-9. **Decision Making**: Use the posterior distribution to make decisions or take actions based on the analysis. This could involve choosing the most probable parameter values, making predictions, or assessing the uncertainty associated with different outcomes.
-
-10. **Iterative Process**: Bayesian analysis is often an iterative process, where the model is refined, additional data are collected, and the analysis is updated based on new information.
-
-11. **Communication**: Communicate the results and conclusions effectively, including any uncertainties or assumptions made during the analysis, to stakeholders or decision-makers.
-
-By following these steps, the Bayesian workflow allows for a systematic and principled approach to solving problems and making decisions under uncertainty.
+The Bayesian workflow allows for a systematic and principled approach to solving problems and making decisions under uncertainty.

@@ -6,9 +6,7 @@ title: A simple introduction to Bayesian inference
 
 > THIS IS A WORK IN PROGRESS
 
-This post provides an introduction to Bayesian inference, using an example familiar to engineers to demonstrate the benefits of probabilistic methods. A second more detailed post includes all the code used to produce the results published here.
-
-Explore the repo: [bayesian-inference](https://github.com/mark-hobbs/articles/tree/main/bayesian-inference)
+This post introduces Bayesian inference through an example that engineers will find familiar, highlighting the advantages of probabilistic methods. To maintain accessibility, I have minimised the use of formal mathematics and instead included code snippets to aid understanding. The complete code used to generate all results and figures in this post is available in the following repository: [bayesian-inference](https://github.com/mark-hobbs/articles/tree/main/bayesian-inference)
 
 ## 1. Problem statement
    
@@ -34,15 +32,73 @@ Conventional methods have a number of limitations:
 
 ## 3. Model
 
-Upon examining the above experimental observations, an expert will likely determine that the material response is best characterised by a linear elastic-perfectly plastic model. The behaviour of a linear elastic-perfectly plastic material is described by a two parameters, Young's modulus $E$ and yield... The stress-strain relationship of a linear elastic-perfectly plastic material during uniaxial tension can be expressed as:
+Based on the experimental observations, an expert would likely conclude that the material response is best characterised by a linear elastic-perfectly plastic model. This behaviour is defined by two parameters: Young's modulus $E$ and yield stress $\sigma_y$. 
 
-$$\sigma(\epsilon, \textbf{x}) = E\epsilon$$
+The stress-strain relationship for a linear elastic-perfectly plastic material under uniaxial tension can be expressed as:
 
-where $\sigma$ represents stress, $\epsilon$ represents strain, $\textbf{x}$ denotes the model parameter vector (in this case, $\textbf{x} = E$), and $E$ denotes Young's modulus.
+$$
+\sigma(\epsilon, \mathbf{x}) = 
+\begin{cases} 
+E\epsilon, & \text{if } \epsilon \leq \sigma_y / E, \\ 
+\sigma_y, & \text{if } \epsilon > \sigma_y / E.
+\end{cases}
+$$
 
-The below figure illustrates the stress-strain response for a linear elastic-perfectly plastic material.
+where:
+- $\sigma$ is the stress,
+- $\epsilon$ is the strain,
+- $\mathbf{x} = [E, \sigma_y]$ is the vector of model parameters,  
+- $E$ is Young's modulus, and  
+- $\sigma_y$ is the yield stress.
 
 ![](/assets/images/linear-elastic-perfectly-plastic-material-model.png)
+
+```python
+class LinearElasticPerfectlyPlastic:
+    """
+    Linear elastic-perfectly plastic material
+    """
+    def __init__(self, x):
+        """
+        x : list or array-like
+            The independent variables (e.g., strain).
+        """
+        self.x = x
+
+    def __call__(self, parameters):
+        """
+        Compute stress based on the provided parameters.
+
+        Parameters
+        ----------
+        parameters : list
+            Model parameters (Young's Modulus and Yield Stress)
+
+        Returns
+        -------
+        stress : float
+            Computed stress.
+        """
+        E = parameters[0]
+        stress_y = parameters[1]
+
+        stress = []
+        strain_y = stress_y / E
+
+        for strain in self.x:
+            if strain <= strain_y:
+                stress.append(E * strain)
+            else:
+                stress.append(stress_y)
+
+        return stress
+```
+
+Initiate an instance of the model.
+
+```python
+model = LinearElasticPlasticModel(strain)
+```
 
 ## 4. Model fitting
 

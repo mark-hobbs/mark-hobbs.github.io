@@ -91,7 +91,7 @@ where:
 A Bayesian framework has two core advantages for solving inverse problems:
 
 1. **Incorporating prior knowledge:** Bayesian inference enables us to incorporate prior knowledge or beliefs about the unknown parameters into the estimation process. This proves particularly useful when dealing with limited data, as it helps regularise the estimation and reduces the risk of overfitting.
-2. **Uncertainty quantification:** Bayesian inference naturally provides a means to quantify uncertainty in the estimated parameters through the posterior distribution. This allows for more informed decision-making by accounting for the inherent uncertainty in the data and the model.
+2. **Uncertainty quantification:** Bayesian inference naturally provides a means to quantify uncertainty in the estimated parameters through the posterior distribution. This allows for more informed decision-making by accounting for the inherent uncertainty in the data and the model parameters.
 
 ### 5.3 Likelihood $\pi(\textbf{y}|\textbf{x})$
 
@@ -119,7 +119,7 @@ This expresses the belief that the parameters $\textbf{x}$ are normally distribu
 
 ### 5.5 Posterior $\pi(\textbf{x}|\textbf{y})$
 
-The posterior distribution combines the prior and likelihood to update our belief about the parameters $\textbf{x}$ after observing the data. The posterior is given by:
+The posterior distribution combines the prior and likelihood to update our belief about the parameters $\textbf{x}$ after observing the data $\textbf{y}$. The posterior is given by:
 
 $$
 \pi(\textbf{x}|\textbf{y}) \propto \pi(\textbf{x}) \cdot \pi(\textbf{y}|\textbf{x})

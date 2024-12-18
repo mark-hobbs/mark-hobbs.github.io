@@ -131,7 +131,7 @@ $$
 
 where $C$ is a normalisation constant ensuring that the integral of the posterior over $\textbf{x}$ equals 1. In most cases, the constant can be ignored, as our primary focus is the relative probability of different parameter candidates.
 
-## 6. Compute the Posterior Distribution
+## 6. Computing the Posterior Distribution
 
 Several methods can be employed to compute the posterior distribution:
 
@@ -141,9 +141,7 @@ When the prior and likelihood functions are conjugate, a closed-form solution ca
 
 #### Grid Search
 
-In cases where analytical solutions are infeasible due to complex or non-standard distributions, grid search offers a practical numerical approach. In this method, the parameter space is discretised into a grid, and the posterior probability is computed at each grid point to estimate the posterior distribution. While grid search is straightforward to implement, it suffers from the *curse of dimensionality*, where the number of required evaluations grows exponentially with the number of dimensions.  
-
-If the model $\textbf{f}(\textbf{x})$ is computationally expensive, for example, a CFD simulation, grid search is infeasible. Additionally, many evaluations are effectively 'wasted' in regions where the posterior density is low. This inefficiency underscores the need for more advanced methods that concentrate the search on regions of interest — specifically, areas where the posterior density is high.
+In cases where analytical solutions are infeasible due to complex or non-standard distributions, grid search offers a practical numerical approach. The parameter space is discretised into a grid, and the posterior probability is computed at each grid point, providing an estimate of the posterior distribution. While grid search is straightforward to implement, it suffers from the *curse of dimensionality*, where the number of required evaluations grows exponentially with the number of dimensions.  If the model $\textbf{f}(\textbf{x})$ is computationally expensive, for example, a numerical simulation, grid search is often impracticable. Additionally, many evaluations are effectively 'wasted' in regions where the posterior density is low. This inefficiency underscores the need for more advanced methods that concentrate the search on regions of interest — specifically, areas where the posterior density is high.
 
 #### Markov Chain Monte Carlo (MCMC)
 
@@ -154,6 +152,8 @@ MCMC methods offer a powerful and versatile approach to estimate the posterior d
 Each of these methods has its strengths and limitations, and the choice depends on factors such as the computational expense of the model, computational resources available and the desired accuracy of the posterior estimation. For a visual guide to design space exploration and its connection to MCMC and grid search, refer to [this post]({% post_url 2024-12-01-design-space-exploration %}).
 
 ## 7. Posterior Distribution
+
+To obtain an accurate prediction of the posterior distribution with full coverage, we employ the Metropolis-Hastings algorithm... 
 
 Now we can analyse the posterior distribution to draw conclusions or make predictions. This might involve calculating summary statistics, credible intervals or making comparisons between different parameters values.
 
@@ -173,7 +173,11 @@ Probability density values are omitted from posterior plots to emphasise the sha
 
 Excluding density values enhances clarity, directing attention to high-probability regions and the overall shape of the posterior distribution.
 
-## 8. Summary
+## 8. Higher-dimensional problems
+
+I purposely chose a 2D problem as it allows us to easily visualise the posterior distribution and understand grid search, MCMC etc. However as we move to higher-dimensions it becomes much more difficult... linear elasticity-nonlinear hardening with four model parameters... 
+
+## 9. Summary
 
 Given noisy experimental data obtained from a uniaxial tensile test of a material specimen, we hypothesised that the material response can be described by a linear-elastic material law. We then employed a Bayesian framework to infer the parameters in the material model, accounting for uncertainty in the observations. Bayesian inference provides an estimate of the posterior distribution of the model parameters rather than just deterministic estimates. Learning comes from two sources: (1) the evidence provided by the observed data and (2) prior knowledge about the likely values of the model parameters.
 

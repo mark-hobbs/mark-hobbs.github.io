@@ -61,7 +61,7 @@ The figure below illustrates the results of this fitting process. The *true* mod
 
 ## 5. Bayesian inference
 
-A Bayesian framework offers significant advantages for addressing inverse problems. Bayesian inference is the process of updating our beliefs about the probability of an event based on prior knowledge and observed data using Bayes' theorem. In the context of the presented problem, we update our beliefs about the probability of the parameter values in our model based on prior knowledge and experimental observations. Bayes' theorem is an extremely powerful concept, particularly in situations where uncertainty exists and where prior knowledge or beliefs can be incorporated into the analysis.
+A Bayesian framework offers significant advantages for addressing inverse problems. Bayesian inference is the process of updating our beliefs about the probability of an event based on prior knowledge and observed data using Bayes' theorem. In the context of the presented problem, we update our beliefs about the probability of the parameter values in our model based on prior knowledge and experimental observations. Bayes' theorem is an extremely powerful concept, particularly in situations where uncertainty exists, data is limited and where prior knowledge or beliefs can be incorporated into the analysis.
 
 ### 5.1 Bayes' Theorem
 
@@ -153,11 +153,9 @@ Each of these methods has its strengths and limitations, and the choice depends 
 
 ## 7. Posterior Distribution
 
-To obtain an accurate prediction of the posterior distribution with full coverage, we employ the Metropolis-Hastings algorithm... 
+To efficiently obtain an accurate prediction of the posterior distribution, we typically employ MCMC methods. In this post, we have utilised an Adaptive Metropolis-Hastings sampler to approximate the posterior distribution. The process of tuning MCMC samplers and ensuring that they have adequately explored the posterior and achieved convergence is beyond the scope of this post. However, it is a crucial aspect of reliable Bayesian inference, as poor tuning or insufficient exploration can lead to biased estimates or inaccurate conclusions.
 
-Once the posterior has been sampled, it needs to be analysed to determine the statistical summaries...
-
-Now we can analyse the posterior distribution to draw conclusions or make predictions. This might involve calculating summary statistics, credible intervals or making comparisons between different parameters values.
+Once the posterior distribution has been sampled, the next step is to analyse it to extract statistical summaries, draw meaningful conclusions and make informed predictions. This analysis often includes estimating quantities such as means, variances and credible intervals, as well as visualising the results to better understand the underlying uncertainty and parameter correlations.
 
 ![](/assets/images/posterior.png)
 

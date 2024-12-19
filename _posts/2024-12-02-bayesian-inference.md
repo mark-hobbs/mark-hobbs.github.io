@@ -145,11 +145,16 @@ In cases where analytical solutions are infeasible due to complex or non-standar
 
 #### Markov Chain Monte Carlo (MCMC)
 
+When the search space becomes larger, or the model is expensive to evaluate, it can become infeasible to do an exhaustive search and we must turn to randomised searches. Markov Chain Monte Carlo (MCMC) methods are the most common approach in such scenarios. The aim of MCMC is to randomly walk through the parameter space, while the fraction of time spent at each state $\theta_i$ is $\propto$ the unormalised posterior.
+
 MCMC methods offer a powerful and versatile approach to estimate the posterior distribution, particularly in high-dimensional and complex models where analytical solutions or grid search are impractical. MCMC algorithms, such as Metropolis-Hastings and Gibbs sampling, generate a Markov chain that asymptotically converges to samples from the target posterior distribution. These methods iteratively propose candidate parameter values, accepting or rejecting them based on a defined acceptance criterion that preserves the desired distribution. MCMC provides flexibility in handling complex models and can efficiently explore the parameter space, even in cases of high dimensionality or non-standard distributions. Advanced techniques, such as Hamiltonian Monte Carlo, further improve the accuracy and efficiency of Bayesian inference by leveraging gradient information to enhance the exploration of the parameter space.
 
 #### Summary
 
 Each of these methods has its strengths and limitations, and the choice depends on factors such as the computational expense of the model $\textbf{f}(\textbf{x})$, computational resources available and the desired accuracy of the posterior estimation. For a visual guide to design space exploration and its connection to MCMC and grid search, refer to [this post]({% post_url 2024-12-01-design-space-exploration %}).
+
+![](/assets/images/posterior-approximation-comparison.png)
+*Comparison of Grid Search and MCMC. The contour lines of the true posterior are shown for reference.*
 
 ## 7. Posterior Distribution
 

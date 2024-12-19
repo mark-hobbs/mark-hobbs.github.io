@@ -35,6 +35,15 @@ header {
   max-width: 100%;
 }
 
-figcaption {
+.content em {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #555;
+  font-style: normal;
+  padding: 5px 10px;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
 }

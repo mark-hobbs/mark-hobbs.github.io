@@ -28,7 +28,7 @@ Conventional methods have a number of limitations:
 
 4. **Ill-posedness:** In many cases, inverse problems are ill-posed, meaning that small changes in the observed data can lead to large changes in the estimated parameters. This sensitivity to data perturbations makes it challenging to obtain stable and reliable solutions.
 
-## 3. Model
+## 3. Model $\textbf{f}(\textbf{x})$
 
 Based on the experimental observations, an expert would likely conclude that the material response is best characterised by a linear elastic-perfectly plastic model. This behaviour is defined by two parameters: Young's modulus $E$ and yield stress $\sigma_y$. 
 
@@ -53,7 +53,7 @@ where:
 
 ## 4. Model fitting
 
-To determine the best-fit values of Young's modulus $E$ and yield stress $\sigma_y$, the model is fitted to the observed data by minimising the mean squared error (MSE) between the model predictions and the experimental observations. The model parameters are optimised using gradient-based methods or genetic algorithms to minimise the error
+To determine the best-fitting model parameters $\textbf{x}$, the model $\textbf{f}(\textbf{x})$ is fitted to the observed data by minimising the mean squared error (MSE) between the model predictions and the experimental observations. The model parameters are optimised using gradient-based methods or genetic algorithms to minimise the error
 
 The figure below illustrates the results of this fitting process. The *true* model, which was used to generate the synthetic observations, is also plotted for reference. 
 
@@ -129,11 +129,11 @@ $$
 \pi(\textbf{x}|\textbf{y}) = \frac{1}{C} \pi(\textbf{x}) \cdot \pi(\textbf{y}|\textbf{x})
 $$
 
-where $C$ is a normalisation constant ensuring that the integral of the posterior over $\textbf{x}$ equals 1. In most cases, the constant can be ignored, as our primary focus is the relative probability of different parameter candidates.
+where $C$ is a normalisation constant ensuring that the integral of the posterior over $\textbf{x}$ equals 1. In most cases, the constant can be ignored, as our primary focus is the relative probability of different parameter candidates... and the unormalised posterior...
 
-## 6. Computing the Posterior Distribution
+## 6. Approximating the posterior
 
-Several methods can be employed to compute the posterior distribution:
+Several methods can be employed to approximate the posterior distribution:
 
 #### Analytical Solution
 
@@ -149,11 +149,13 @@ MCMC methods offer a powerful and versatile approach to estimate the posterior d
 
 #### Summary
 
-Each of these methods has its strengths and limitations, and the choice depends on factors such as the computational expense of the model, computational resources available and the desired accuracy of the posterior estimation. For a visual guide to design space exploration and its connection to MCMC and grid search, refer to [this post]({% post_url 2024-12-01-design-space-exploration %}).
+Each of these methods has its strengths and limitations, and the choice depends on factors such as the computational expense of the model $\textbf{f}(\textbf{x})$, computational resources available and the desired accuracy of the posterior estimation. For a visual guide to design space exploration and its connection to MCMC and grid search, refer to [this post]({% post_url 2024-12-01-design-space-exploration %}).
 
 ## 7. Posterior Distribution
 
 To obtain an accurate prediction of the posterior distribution with full coverage, we employ the Metropolis-Hastings algorithm... 
+
+Once the posterior has been sampled, it needs to be analysed to determine the statistical summaries...
 
 Now we can analyse the posterior distribution to draw conclusions or make predictions. This might involve calculating summary statistics, credible intervals or making comparisons between different parameters values.
 

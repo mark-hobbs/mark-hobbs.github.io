@@ -156,7 +156,7 @@ Each of these methods has its strengths and limitations, and the choice depends 
 <figure>
   <img src="/assets/images/posterior-approximation-comparison.png" alt="Posterior approximation comparison">
   <figcaption>
-    Comparison of Grid Search and MCMC. The contour lines of the true posterior are shown for reference.
+    Comparison of Grid Search and MCMC for an illustrative posterior distribution, with contour lines of the true posterior shown for reference.
   </figcaption>
 </figure>
 

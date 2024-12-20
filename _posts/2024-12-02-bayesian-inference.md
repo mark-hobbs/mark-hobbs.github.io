@@ -55,7 +55,7 @@ where:
 
 To determine the best-fitting model parameters $\textbf{x}$, the model $\textbf{f}(\textbf{x})$ is fitted to the observed data by minimising the mean squared error (MSE) between the model predictions and the experimental observations. The model parameters are optimised using gradient-based methods or genetic algorithms to minimise the error
 
-The figure below illustrates the results of this fitting process. The *true* model, which was used to generate the synthetic observations, is also plotted for reference. 
+The figure below illustrates the results of this fitting process. The *true* model, which was used to generate the synthetic observations, is also plotted for reference. Although the disagreement between the true and fitted models may appear small, this fitting process can create a misleading sense of certainty regarding the model parameters. Such overconfidence can have significant consequences for downstream design tasks.
 
 ![](/assets/images/fitted-model.png)
 

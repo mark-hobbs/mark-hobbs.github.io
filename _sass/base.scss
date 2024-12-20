@@ -35,15 +35,26 @@ header {
   max-width: 100%;
 }
 
-.content em {
+figure {
+  display: block;
+  max-width: 100%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+figure img {
+  max-width: 100%;
+  height: auto;
+}
+
+figure figcaption {
   display: block;
   margin-top: 10px;
   font-size: 0.9em;
   color: #555;
-  font-style: normal;
+  text-align: center;
   padding: 5px 10px;
   max-width: 80%;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
 }

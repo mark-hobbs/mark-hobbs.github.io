@@ -153,8 +153,12 @@ MCMC methods offer a powerful and versatile approach to estimate the posterior d
 
 Each of these methods has its strengths and limitations, and the choice depends on factors such as the computational expense of the model $\textbf{f}(\textbf{x})$, computational resources available and the desired accuracy of the posterior estimation. For a visual guide to design space exploration and its connection to MCMC and grid search, refer to [this post]({% post_url 2024-12-01-design-space-exploration %}).
 
-![](/assets/images/posterior-approximation-comparison.png)
-*Comparison of Grid Search and MCMC. The contour lines of the true posterior are shown for reference.*
+<figure>
+  <img src="/assets/images/posterior-approximation-comparison.png" alt="Posterior approximation comparison">
+  <figcaption>
+    Comparison of Grid Search and MCMC. The contour lines of the true posterior are shown for reference.
+  </figcaption>
+</figure>
 
 ## 7. Posterior Distribution
 

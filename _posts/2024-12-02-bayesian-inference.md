@@ -166,15 +166,30 @@ To efficiently obtain an accurate prediction of the posterior distribution, we t
 
 Once the posterior distribution has been sampled, the next step is to analyse it to extract statistical summaries, draw meaningful conclusions and make informed predictions. This analysis often includes estimating quantities such as means, variances and credible intervals, as well as visualising the results to better understand the underlying uncertainty and parameter correlations.
 
-![](/assets/images/posterior.png)
+<figure>
+  <img src="/assets/images/posterior.png" alt="Posterior distribution">
+  <figcaption>
+    Posterior distribution: scatter plot illustrating samples drawn from the posterior distribution using an Adaptive Metropolis-Hastings sampler
+  </figcaption>
+</figure>
 
-![](/assets/images/histograms.png)
+<figure>
+  <img src="/assets/images/histograms.png" alt="Marginal distribution">
+  <figcaption>
+    Marginal distribution:
+  </figcaption>
+</figure>
 
 **Posterior Predictive Distribution**
 
 Improved decision making... downstream design tasks...
 
-![](/assets/images/posterior-predictive-distribution.png)
+<figure>
+  <img src="/assets/images/posterior-predictive-distribution.png" alt="Posterior Predictive Distribution">
+  <figcaption>
+    Posterior Predictive Distribution:
+  </figcaption>
+</figure>
 
 ### Why are density values omitted?
 

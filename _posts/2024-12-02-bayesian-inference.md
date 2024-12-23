@@ -53,7 +53,7 @@ where:
 
 ## 4. Model fitting
 
-To determine the best-fitting model parameters $\textbf{x}$, the model $\textbf{f}(\textbf{x})$ is fitted to the observed data by minimising the mean squared error (MSE) between the model predictions and the experimental observations. The model parameters are optimised using gradient-based methods or genetic algorithms to minimise the error
+To determine the best-fitting model parameters $\textbf{x}$, the model $\textbf{f}(\textbf{x})$ is fitted to the observed data by minimising the mean squared error (MSE) between the model predictions and the experimental observations. To minimise the error, the model parameters are optimised using techniques such as gradient descent, genetic algorithms and Bayesian optimisation.
 
 The figure below illustrates the results of this fitting process. The *true* model, which was used to generate the synthetic observations, is also plotted for reference. Although the disagreement between the true and fitted models may appear small, this fitting process can create a misleading sense of certainty regarding the model parameters. Such overconfidence can have significant consequences for downstream design tasks.
 
@@ -182,9 +182,9 @@ Probability density values are omitted from posterior plots to emphasise the sha
 
 Excluding density values enhances clarity, directing attention to high-probability regions and the overall shape of the posterior distribution.
 
-## 8. Higher-dimensional problems
+<!-- ## 8. Higher-dimensional problems
 
-I purposely chose a 2D problem as it allows us to easily visualise the posterior distribution and understand grid search, MCMC etc. However as we move to higher-dimensions it becomes much more difficult... linear elasticity-nonlinear hardening with four model parameters... 
+The 2D problem allows us to easily visualise the posterior distribution and understand grid search, MCMC etc. However as we move to higher-dimensions it becomes much more difficult... linear elasticity-nonlinear hardening with four model parameters...  -->
 
 ## 9. Summary
 

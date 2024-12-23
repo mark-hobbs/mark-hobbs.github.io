@@ -182,7 +182,7 @@ Once the posterior distribution has been sampled, the next step is to analyse it
 
 **Posterior Predictive Distribution**
 
-Improved decision making... downstream design tasks...
+Using the posterior distribution in downstream design enables the quantification of uncertainty in simulations or models, thereby enhancing design robustness.
 
 <figure>
   <img src="/assets/images/posterior-predictive-distribution.png" alt="Posterior Predictive Distribution">

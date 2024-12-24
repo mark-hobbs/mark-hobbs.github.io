@@ -176,7 +176,7 @@ Once the posterior distribution has been sampled, the next step is to analyse it
 <figure>
   <img src="/assets/images/histograms.png" alt="Marginal distribution">
   <figcaption>
-    Marginal distribution:
+    Marginal distribution: Depicts our belief about the individual model parameters given the observed data. The shaded region represents the 95% credible interval. 
   </figcaption>
 </figure>
 

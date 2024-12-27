@@ -133,7 +133,7 @@ where $C$ is a normalisation constant ensuring that the integral of the posterio
 
 ## 6. Approximating the posterior
 
-Several methods can be employed to approximate the posterior distribution:
+We discuss common approaches for approximating the posterior distribution. This is a non-trivial task in high-dimensional spaces and/or when the model is computationally expensive to evaluate.
 
 #### Analytical Solution
 
@@ -160,7 +160,7 @@ Each of these methods has its strengths and limitations, and the choice depends 
   </figcaption>
 </figure>
 
-## 7. Posterior Distribution
+## 7. Posterior Analysis
 
 To efficiently obtain an accurate prediction of the posterior distribution, we typically employ MCMC methods. In this post, we have utilised an Adaptive Metropolis-Hastings sampler to approximate the posterior distribution. The process of tuning MCMC samplers and ensuring that they have adequately explored the posterior and achieved convergence is beyond the scope of this post. However, it is a crucial aspect of reliable Bayesian inference, as poor tuning or insufficient exploration can lead to biased estimates or inaccurate conclusions.
 
@@ -203,7 +203,7 @@ Excluding density values enhances clarity, directing attention to high-probabili
 
 The 2D problem allows us to easily visualise the posterior distribution and understand grid search, MCMC etc. However as we move to higher-dimensions it becomes much more difficult... linear elasticity-nonlinear hardening with four model parameters...  -->
 
-## 9. Summary
+## 8. Summary
 
 Given noisy experimental data obtained from a uniaxial tensile test of a material specimen, we hypothesised that the material response can be described by a linear-elastic material law. We then employed a Bayesian framework to infer the parameters in the material model, accounting for uncertainty in the observations. Bayesian inference provides an estimate of the posterior distribution of the model parameters rather than just deterministic estimates. Learning comes from two sources: (1) the evidence provided by the observed data and (2) prior knowledge about the likely values of the model parameters.
 

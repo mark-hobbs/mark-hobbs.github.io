@@ -186,6 +186,8 @@ The posterior distribution represents our belief about the model parameters give
 
 By propagating this uncertainty forward through the model, we gain insight into the uncertainty in our predictions. 
 
+If we take a cut through at a given strain value, we can understand the distribution of potential stress values...
+
 <figure>
   <img src="/assets/images/posterior-predictive-distribution.png" alt="Posterior Predictive Distribution">
   <figcaption>
@@ -210,3 +212,5 @@ Given noisy experimental data obtained from a uniaxial tensile test of a materia
 To compute the posterior, we demonstrated a basic grid search and the standard Metropolis-Hastings algorithm. Additionally, we employed conventional optimisation techniques to determine point estimates by implementing gradient descent to minimise an error function that quantifies the discrepancy between the observed data and the predictions of the linear-elastic model.
 
 The Bayesian workflow allows for a systematic and principled approach to solving problems and making decisions under uncertainty.
+
+When fitting a model to data, it is important to remember that errors exist in both the data and the model. In the presented example, we have only accounted for errors in the data, while neglecting potential inaccuracies in the model itself.

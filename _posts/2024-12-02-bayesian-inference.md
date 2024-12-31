@@ -184,7 +184,7 @@ Once the posterior distribution has been sampled, the next step is to analyse it
 
 The posterior distribution represents our belief about the model parameters given the observed data. By utilising this information in downstream design tasks, it is possible to quantify the uncertainty in our simulations and models, thereby enhancing design robustness.
 
-By propagating this uncertainty forward through the model, we gain insight into the uncertainty in our predictions. For example, if one seeks to determine the stress in a component at a specific strain value, it is possible to obtain a probability distribution for the stress. This approach offers a much deeper understanding of the range of potential outcomes, in contrast to relying on a single deterministic estimate.
+By propagating the uncertainty in the model parameters forward through the model, we gain insight into the uncertainty in our predictions. For example, if the objective is to determine the stress in a component at a specific strain value, a standard approach would return a single deterministic estimate. In contrast, a probabilistic approach provides a distribution of the stress, offering a much deeper understanding of the range of potential outcomes. 
 
 <figure>
   <img src="/assets/images/posterior-predictive-distribution.png" alt="Posterior Predictive Distribution">

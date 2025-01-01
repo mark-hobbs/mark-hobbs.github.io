@@ -189,7 +189,7 @@ By propagating the uncertainty in the model parameters forward through the model
 <figure>
   <img src="/assets/images/posterior-predictive-distribution.png" alt="Posterior Predictive Distribution">
   <figcaption>
-    Posterior Predictive Distribution:
+    Posterior Predictive Distribution: The distribution of model predictions, accounting for uncertainty in the model parameters. This post only considers parameter uncertainty, but it is also possible to include model uncertainty to capture a more comprehensive range of potential outcomes.
   </figcaption>
 </figure>
 

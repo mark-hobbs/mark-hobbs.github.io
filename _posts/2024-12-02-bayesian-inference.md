@@ -195,9 +195,7 @@ By propagating the uncertainty in the model parameters forward through the model
 
 ### Why are density values omitted?
 
-Probability density values are omitted from posterior plots to emphasise the shape of the distribution and the relative likelihood of parameter values. Absolute density values offer little interpretive value, as posterior densities are often normalised and primarily used for comparison.
-
-Excluding density values enhances clarity, directing attention to high-probability regions and the overall shape of the posterior distribution.
+Probability density values are omitted from posterior plots to emphasise the shape of the distribution, focussing attention on high-probability regions and the relative likelihood of parameter values. Absolute density values offer little interpretive value, as posterior densities are often normalised and primarily used for comparison.
 
 <!-- ## 8. Higher-dimensional problems
 

@@ -30,7 +30,7 @@ Conventional methods have a number of limitations:
 
 ## 3. Model $\textbf{f}(\textbf{x})$
 
-Based on the experimental observations, an expert would likely conclude that the material response is best characterised by a linear elastic-perfectly plastic model. This behaviour is defined by two parameters: Young's modulus $E$ and yield stress $\sigma_y$. 
+Based on the experimental observations, an expert would likely conclude that the material response is best characterised by a linear elastic-perfectly plastic model. The material model is defined by two parameters: Young's modulus $E$ and yield stress $\sigma_y$. 
 
 The stress-strain relationship for a linear elastic-perfectly plastic material under uniaxial tension can be expressed as:
 

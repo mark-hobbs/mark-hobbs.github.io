@@ -162,9 +162,7 @@ Each of these methods has its strengths and limitations, and the choice depends 
 
 ## 7. Posterior Analysis
 
-To efficiently obtain an accurate prediction of the posterior distribution, we typically employ MCMC methods. In this post, we have utilised an Adaptive Metropolis-Hastings sampler to approximate the posterior distribution. The process of tuning MCMC samplers and ensuring that they have adequately explored the posterior and achieved convergence is beyond the scope of this post. However, it is a crucial aspect of reliable Bayesian inference, as poor tuning or insufficient exploration can lead to biased estimates or inaccurate conclusions.
-
-Once the posterior distribution has been sampled, the next step is to analyse it to extract statistical summaries, draw meaningful conclusions and make informed predictions. This analysis often includes estimating quantities such as means, variances and credible intervals, as well as visualising the results to better understand the underlying uncertainty and parameter correlations.
+To efficiently obtain an accurate prediction of the posterior distribution, we typically employ MCMC methods. In this post, we have utilised an Adaptive Metropolis-Hastings sampler to approximate the posterior distribution. The process of tuning MCMC samplers and ensuring that they have adequately explored the posterior and achieved convergence is beyond the scope of this post. However, it is a crucial aspect of reliable Bayesian inference, as poor tuning or insufficient exploration can lead to biased estimates or inaccurate conclusions. The figure below illustrates a well-sampled posterior with good coverage of the parameter space.
 
 <figure>
   <img src="/assets/images/posterior.png" alt="Posterior distribution">
@@ -172,6 +170,8 @@ Once the posterior distribution has been sampled, the next step is to analyse it
     Posterior distribution: scatter plot illustrating samples drawn from the posterior distribution using an Adaptive Metropolis-Hastings sampler
   </figcaption>
 </figure>
+
+Once the posterior distribution has been sampled, the next step is to analyse it to extract statistical summaries, draw meaningful conclusions and make informed predictions. This analysis often includes estimating quantities such as means, variances and credible intervals, as well as visualising the results to better understand the underlying uncertainty and parameter correlations. The below figure illustrates our belief about the individual model parameters, with the shaded region representing the 95% credible interval.
 
 <figure>
   <img src="/assets/images/histograms.png" alt="Marginal distribution">

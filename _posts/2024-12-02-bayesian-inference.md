@@ -133,7 +133,7 @@ where $C$ is a normalisation constant ensuring that the integral of the posterio
 
 ## 6. Approximating the posterior
 
-The posterior can only be determined analytically in a limited number of simple cases where the prior and likelihood are conjugate and a closed-form solution can be derived. For more complex real-world problems, numerical methods are used to approximate the posterior distribution; however, this becomes a non-trivial task when the parameter space is high-dimensional or the model is computationally expensive to evaluate.
+The posterior can only be determined analytically in a limited number of simple cases where the prior and likelihood are conjugate and a closed-form solution can be derived. For more complex real-world problems, numerical methods are used to approximate the posterior distribution; however, this is a non-trivial task when the parameter space is high-dimensional or the model is computationally expensive to evaluate.
 
 #### Grid Search
 

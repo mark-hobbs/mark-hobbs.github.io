@@ -176,7 +176,7 @@ Once the posterior distribution has been sampled, the next step is to analyse it
   </figcaption>
 </figure>
 
-**Posterior Predictive Distribution**
+### Posterior Predictive Distribution
 
 The posterior distribution represents our belief about the model parameters given the observed data. By utilising this information in downstream design tasks, it is possible to quantify the uncertainty in our simulations and models, thereby enhancing design robustness.
 

@@ -176,7 +176,7 @@ Once the posterior distribution has been sampled, the next step is to analyse it
   </figcaption>
 </figure>
 
-### Posterior Predictive Distribution
+#### Posterior Predictive Distribution
 
 The posterior distribution represents our belief about the model parameters given the observed data. By utilising this information in downstream design tasks, it is possible to quantify the uncertainty in our simulations and models, thereby enhancing design robustness.
 
@@ -189,7 +189,7 @@ By propagating the uncertainty in the model parameters forward through the model
   </figcaption>
 </figure>
 
-### Why are density values omitted?
+#### Why are density values omitted?
 
 Probability density values are omitted from posterior plots to emphasise the shape of the distribution, focussing attention on high-probability regions and the relative likelihood of parameter values. Absolute density values offer little interpretive value, as posterior densities are often normalised and primarily used for comparison.
 

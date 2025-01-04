@@ -6,13 +6,22 @@ title: A simple introduction to Bayesian inference
 
 This post introduces Bayesian inference through a simple example that engineers will find familiar, demonstrating the benefits of using probabilistic methods. To maintain accessibility, the use of formal mathematics is minimised. The complete code used to generate all results and figures in this post is available in the following repository: [bayesian-inference](https://github.com/mark-hobbs/articles/tree/main/bayesian-inference)
 
-## 1. Problem statement
-   
+
+## Motivation
+
+Model fitting, or calibration, is a crucial aspect of the design process. Engineers rely on numerical models, which must first be calibrated to experimental data before being utilised in downstream design tasks. Once calibrated, numerical models serve as predictive tools, allowing engineers to simulate the performance of a component or system under different conditions, optimise design parameters, and make informed decisions in subsequent design tasks. 
+
+Robust calibration is particularly challenging when data is limited, and poor calibration can lead to significant consequences for downstream design tasks and overall design robustness. This is especially critical when designs operate near performance limits, as even slight deviations in real-world operating conditions from predicted values can have severe detrimental effects.
+
+Proper calibration ensures that the model not only fits the data but also accounts for uncertainties in the data and the model, enhancing the reliability and robustness of downstream applications. Adopting a Bayesian approach provides a robust framework for managing uncertainty, enabling engineers to quantify predictive uncertainties more comprehensively. This approach mitigates the risk of overconfidence in model predictions and supports more informed, resilient design decisions.
+
+## Problem statement
+
 Given a series of experimental observations in the form of stress-strain ($\sigma$-$\epsilon$) data obtained from a uniaxial tensile test of a material specimen (as illustrated in the figure below), and acknowledging that the observations will be contaminated by a small amount of noise, infer the model parameters that describe the material response with a quantified level of uncertainty. It is essential to acknowledge and mitigate this noise to ensure the accuracy of any subsequent analyses or conclusions drawn from the data.
 
 ![](/assets/images/linear-elastic-perfectly-plastic-experimental-observations.png)
 
-## 2. Inverse problems
+## Inverse problems
 
 The problem statement is an example of an **inverse problem**. The goal of an inverse problem is to estimate an unknown parameter that is not directly observable by using measured data and a mathematical model linking the observed and the unknown.
 
@@ -28,7 +37,7 @@ Conventional methods have a number of limitations:
 
 4. **Ill-posedness:** In many cases, inverse problems are ill-posed, meaning that small changes in the observed data can lead to large changes in the estimated parameters. This sensitivity to data perturbations makes it challenging to obtain stable and reliable solutions.
 
-## 3. Model $\textbf{f}(\textbf{x})$
+## Model $\textbf{f}(\textbf{x})$
 
 Based on the experimental observations, an expert would likely conclude that the material response is best characterised by a linear elastic-perfectly plastic model. The material model is defined by two parameters: Young's modulus $E$ and yield stress $\sigma_y$. 
 
@@ -51,7 +60,7 @@ where:
 
 ![](/assets/images/linear-elastic-perfectly-plastic-material-model.png)
 
-## 4. Model fitting
+## Model fitting
 
 To determine the best-fitting model parameters $\textbf{x}$, the model $\textbf{f}(\textbf{x})$ is fitted to the observed data by minimising the mean squared error (MSE) between the model predictions and the experimental observations. To minimise the error, the model parameters are optimised using techniques such as gradient descent, genetic algorithms and Bayesian optimisation.
 
@@ -59,11 +68,11 @@ The figure below illustrates the results of this fitting process. The *true* mod
 
 ![](/assets/images/fitted-model.png)
 
-## 5. Bayesian inference
+## Bayesian inference
 
 A Bayesian framework offers significant advantages for addressing inverse problems. Bayesian inference is the process of updating our beliefs about the probability of an event based on prior knowledge and observed data using Bayes' theorem. In the context of the presented problem, we update our beliefs about the probability of the parameter values in our model based on prior knowledge and experimental observations. Bayes' theorem is an extremely powerful concept, particularly in situations where uncertainty exists, data is limited and where prior knowledge or beliefs can be incorporated into the analysis.
 
-### 5.1 Bayes' Theorem
+### Bayes' Theorem
 
 **Bayes' theorem** is used to determine the probability of a hypothesis given observed evidence (the posterior probability). In this example, we can think of the hypothesis and evidence as follows:
 
@@ -84,14 +93,14 @@ where:
 - $\pi(\textbf{y})$ is the **marginal likelihood** or **evidence**
 - $\pi(\textbf{x}\|\textbf{y})$ is the **posterior probability** (updated belief about the model parameters after incorporating the observed data)
 
-### 5.2 Advantages
+### Advantages
 
 A Bayesian framework has two core advantages for solving inverse problems:
 
 1. **Incorporating prior knowledge:** Bayesian inference enables us to incorporate prior knowledge or beliefs about the unknown parameters into the estimation process. This proves particularly useful when dealing with limited data, as it helps regularise the estimation and reduces the risk of overfitting.
 2. **Uncertainty quantification:** Bayesian inference naturally provides a means to quantify uncertainty in the estimated parameters through the posterior distribution. This allows for more informed decision-making by accounting for the inherent uncertainty in the data and the model parameters.
 
-### 5.3 Likelihood $\pi(\textbf{y}|\textbf{x})$
+### Likelihood $\pi(\textbf{y}|\textbf{x})$
 
 The likelihood function represents the probability of the observed data $\textbf{y}$ given the model parameters $\textbf{x}$. It helps determine which parameter values are most likely to produce the observed data. In general, the data-generating process can be modelled as:
 
@@ -105,7 +114,7 @@ $$
 \pi(\textbf{y}|\textbf{x}) = \pi_{noise}(\textbf{y} - \textbf{f}(\textbf{x}))
 $$
 
-### 5.4 Prior $\pi(\textbf{x})$
+### Prior $\pi(\textbf{x})$
 
 The prior represents our initial beliefs about the model parameters before observing any data. It can be informed by expert knowledge, prior studies, or assumptions about the distribution of the parameters. For the model parameters $\textbf{x}$, the prior can take different forms, but unless there is evidence to suggest otherwise, a normal distribution is commonly used:
 
@@ -115,7 +124,7 @@ $$
 
 This expresses the belief that the parameters $\textbf{x}$ are normally distributed around a mean $\overline{\textbf{x}}$ with a standard deviation $\sigma_{\textbf{x}}$.
 
-### 5.5 Posterior $\pi(\textbf{x}|\textbf{y})$
+### Posterior $\pi(\textbf{x}|\textbf{y})$
 
 The posterior represents our belief about the parameters $\textbf{x}$ after observing the data $\textbf{y}$. The posterior is given by:
 
@@ -131,7 +140,7 @@ $$
 
 where $C$ is a normalisation constant ensuring that the integral of the posterior over $\textbf{x}$ equals 1. In most cases, the constant can be ignored, as our primary focus is the relative probability of different parameter candidates... and the unormalised posterior...
 
-## 6. Approximating the posterior
+## Approximating the posterior
 
 The posterior can only be determined analytically in a limited number of simple cases where the prior and likelihood are conjugate and a closed-form solution can be derived. For more complex real-world problems, numerical methods are used to approximate the posterior distribution; however, this is a non-trivial task when the parameter space is high-dimensional or the model is computationally expensive to evaluate.
 
@@ -156,7 +165,7 @@ Each of these methods has its strengths and limitations, and the choice depends 
   </figcaption>
 </figure>
 
-## 7. Posterior Analysis
+## Posterior Analysis
 
 To efficiently obtain an accurate prediction of the posterior distribution, we typically employ MCMC methods. In this post, we have utilised an Adaptive Metropolis-Hastings sampler to approximate the posterior distribution. The process of tuning MCMC samplers and ensuring that they have adequately explored the posterior and achieved convergence is beyond the scope of this post. However, it is a crucial aspect of reliable Bayesian inference, as poor tuning or insufficient exploration can lead to biased estimates or inaccurate conclusions. The figure below illustrates a well-sampled posterior with good coverage of the parameter space.
 
@@ -197,7 +206,7 @@ Probability density values are omitted from posterior plots to emphasise the sha
 
 The 2D problem allows us to easily visualise the posterior distribution and understand grid search, MCMC etc. However as we move to higher-dimensions it becomes much more difficult... linear elasticity-nonlinear hardening with four model parameters...  -->
 
-## 8. Summary
+## Conclusion
 
 Given experimental data from a uniaxial tensile test of a material specimen, we hypothesised that the material response could be described by a linear elastic-perfectly plastic material model. To determine the model parameters, we initially employed conventional optimisation techniques to minimise an error function quantifying the discrepancy between the observed data and the model predictions. However, this approach yields point estimates of the parameters, which can create a false sense of certainty and potentially lead to significant consequences in downstream design tasks.
 

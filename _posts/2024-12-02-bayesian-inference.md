@@ -19,7 +19,12 @@ Bayesian inference offers a rigorous approach for estimating uncertainty in mode
 
 Fit a model to experimental stress-strain ($\sigma$-$\epsilon$) data obtained from a uniaxial tensile test of a material specimen, as depicted in the figure below. The fitted model will inform decision-making and support downstream design tasks. The level of uncertainty in the inferred model parameters should be quantified.
 
-![](/assets/images/linear-elastic-perfectly-plastic-experimental-observations.png)
+<figure>
+  <img src="/assets/images/linear-elastic-perfectly-plastic-experimental-observations.png" alt="Experimental data">
+  <figcaption>
+    Experimental data: The experimental observations have been generated numerically so that they deviate from the *true* model using a known noise model. This enables a direct comparison between the *true* parameter values and the inferred distributions. In practice, the true values are unknown.
+  </figcaption>
+</figure>
 
 ## Inverse problems
 
@@ -194,7 +199,7 @@ By propagating the uncertainty in the model parameters forward through the model
 <figure>
   <img src="/assets/images/posterior-predictive-distribution.png" alt="Posterior Predictive Distribution">
   <figcaption>
-    Posterior Predictive Distribution: The distribution of model predictions, accounting for uncertainty in the model parameters. This post only considers parameter uncertainty, but it is also possible to include model uncertainty to capture a more comprehensive range of potential outcomes.
+    Posterior Predictive Distribution: The distribution of model predictions, accounting for uncertainty in the model parameters. We have only considered parameter uncertainty, but it is also possible to account for model uncertainty to capture a more comprehensive range of potential outcomes.
   </figcaption>
 </figure>
 

@@ -220,3 +220,9 @@ To address this issue, we employed a Bayesian framework to infer the parameters 
 We approximated the posterior using an Adaptive Metropolis-Hastings sampler and demonstrated how this information can be applied to downstream design tasks to quantify uncertainty in predictions (e.g., numerical simulations). A Bayesian approach provides a rigorous framework for designing under uncertainty, offering a deeper understanding of the uncertainty in our predictions and safeguarding against overconfidence.
 
 Finally, it is important to remember that when fitting a model to data, errors exist in both the data and the model. In the presented example, we have only accounted for errors in the data, while neglecting potential inaccuracies in the model itself.
+
+<!-- ---
+
+## Higher-dimensional problems
+
+The 2D problem allows us to easily visualise the posterior distribution and understand grid search, MCMC etc. However as we move to higher-dimensions it becomes much more difficult... linear elasticity-nonlinear hardening with four model parameters...  -->

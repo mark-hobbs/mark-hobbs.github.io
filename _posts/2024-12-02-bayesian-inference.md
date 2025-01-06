@@ -17,9 +17,7 @@ Proper calibration ensures that a model not only fits the data but also accounts
 
 ## Problem statement
 
-<!-- Fit a model to experimental stress-strain ($\sigma$-$\epsilon$) data obtained from a uniaxial tensile test of a material specimen, as depicted in the figure below. The fitted model will inform decision-making and support downstream design tasks. It is therefore essential to account for noise in the experimental data and quantify the uncertainty in the inferred model parameters. -->
-
-Given a series of experimental observations in the form of stress-strain ($\sigma$-$\epsilon$) data obtained from a uniaxial tensile test of a material specimen (as illustrated in the figure below), and acknowledging that the observations will be contaminated by a small amount of noise, infer the model parameters that describe the material response with a quantified level of uncertainty. It is essential to acknowledge and mitigate this noise to ensure the accuracy of any subsequent analyses or conclusions drawn from the data.
+Fit a model to experimental stress-strain ($\sigma$-$\epsilon$) data obtained from a uniaxial tensile test of a material specimen, as depicted in the figure below. The fitted model will inform decision-making and support downstream design tasks. The level of uncertainty in the inferred model parameters should be quantified.
 
 ![](/assets/images/linear-elastic-perfectly-plastic-experimental-observations.png)
 

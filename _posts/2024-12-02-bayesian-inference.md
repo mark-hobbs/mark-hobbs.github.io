@@ -22,7 +22,7 @@ Fit a model to experimental stress-strain ($\sigma$-$\epsilon$) data obtained fr
 <figure>
   <img src="/assets/images/linear-elastic-perfectly-plastic-experimental-observations.png" alt="Experimental data">
   <figcaption>
-    Experimental data: The experimental observations have been generated numerically so that they deviate from the <em>true</em>  model using a known noise model. This enables a direct comparison between the <em>true</em>  parameter values and the inferred distributions. In practice, the true values are unknown.
+    Experimental data: The experimental observations have been generated numerically so that they deviate from the <em>true</em>  model using a known noise model. This enables a direct comparison between the <em>true</em>  parameter values and the inferred distributions. In practice, the <em>true</em>  values are unknown.
   </figcaption>
 </figure>
 

@@ -9,11 +9,11 @@ This post introduces Bayesian inference through a simple example that engineers 
 
 ## Motivation
 
-Model fitting, or calibration, is a crucial aspect of the design process. Engineers rely on numerical models, which must first be calibrated to experimental data before being utilised in downstream design tasks. Once calibrated, these models serve as predictive tools, allowing engineers to simulate the performance of a component or system under varying conditions, optimise design parameters, and make informed decisions in subsequent tasks.
+Model fitting, or calibration, is a crucial aspect of the design process. Engineers rely on numerical models that are calibrated to experimental data before being utilised in downstream design tasks. Once calibrated, these models serve as predictive tools, allowing engineers to simulate the performance of a component or system under varying conditions, optimise design parameters, and make informed decisions in subsequent tasks.
 
-Robust calibration is particularly challenging when data is limited, as poor calibration can lead to significant consequences for downstream design tasks and overall robustness. This is especially critical when designs operate near performance limits, where even slight deviations in real-world operating conditions from predicted values can result in severe detrimental effects.
+Proper calibration ensures that a model not only fits the data but also accounts for uncertainties inherent in both the data and the model itself, thereby enhancing the reliability and robustness of the design process. This is especially critical when designs operate near performance limits, and small deviations in real-world operating conditions from predicted values can have significant consequences.
 
-Proper calibration ensures that a model not only fits the data but also accounts for uncertainties inherent in both the data and the model itself, thereby enhancing the reliability and robustness of downstream applications. Adopting a Bayesian approach provides a rigorous framework for managing uncertainty, enabling engineers to quantify predictive uncertainties more comprehensively. This approach mitigates the risk of overconfidence in model predictions and supports more informed, resilient design decisions.
+Bayesian inference offers a rigorous approach for estimating uncertainty in model parameters, enabling engineers to quantify predictive uncertainties. By quantifying the level of uncertainty, risks associated with overconfidence in model predictions are mitigated, leading to more robust and reliable designs.
 
 ## Problem statement
 

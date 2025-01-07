@@ -121,7 +121,7 @@ $$
 
 ### Prior $\pi(\textbf{x})$
 
-The prior represents our initial beliefs about the model parameters before observing any data. It can be informed by expert knowledge, prior studies, or assumptions about the distribution of the parameters. For the model parameters $\textbf{x}$, the prior can take different forms, but unless there is evidence to suggest otherwise, a normal distribution is commonly used:
+The prior represents our initial beliefs about the model parameters before observing any data. It allows us to incorporate knowledge from prior studies and experts about the the probable values of the parameters. For the model parameters $\textbf{x}$, the prior can take different forms, but unless there is evidence to suggest otherwise, a normal distribution is commonly used:
 
 $$
 \pi(\textbf{x}) \propto \exp\left(-\frac{(\textbf{x} - \overline{\textbf{x}})^2}{2\sigma^2_{\textbf{x}}}\right)

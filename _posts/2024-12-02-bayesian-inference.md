@@ -107,7 +107,7 @@ A Bayesian framework has two core advantages for solving inverse problems:
 
 ### Likelihood $\pi(\textbf{y}|\textbf{x})$
 
-The likelihood function represents the probability of the observed data $\textbf{y}$ given the model parameters $\textbf{x}$. It helps determine which parameter values are most likely to produce the observed data. In general, the data-generating process can be modelled as:
+The likelihood function represents the probability of the observed data $\textbf{y}$ given the model parameters $\textbf{x}$. Put another way, the likelihood quantifies the probability that a given set of parameter values produced the observed data. In general, the data-generating process can be modelled as:
 
 $$
 \textbf{y} = \textbf{f}(\textbf{x}) + \mathbf{\Omega}

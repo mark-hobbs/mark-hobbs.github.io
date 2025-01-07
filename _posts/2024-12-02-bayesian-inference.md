@@ -129,6 +129,14 @@ $$
 
 This expresses the belief that the parameters $\textbf{x}$ are normally distributed around a mean $\overline{\textbf{x}}$ with a standard deviation $\sigma_{\textbf{x}}$.
 
+<figure>
+  <img src="/assets/images/prior.png" alt="Prior">
+  <figcaption>
+    Prior distribution: Represents our initial beliefs about the probable values of the model parameters before observing data.
+  </figcaption>
+</figure>
+
+
 ### Posterior $\pi(\textbf{x}|\textbf{y})$
 
 The posterior represents our belief about the parameters $\textbf{x}$ after observing the data $\textbf{y}$. The posterior is given by:

@@ -155,7 +155,7 @@ $$
 \pi(\textbf{x}|\textbf{y}) = \frac{1}{C} \pi(\textbf{x}) \cdot \pi(\textbf{y}|\textbf{x})
 $$
 
-where $C$ is a normalisation constant ensuring that the integral of the posterior over $\textbf{x}$ equals 1. In most cases, the constant can be ignored, as our primary focus is the relative probability of different parameter candidates... and the unormalised posterior...
+where $C$ is a normalisation constant ensuring that the integral of the posterior over $\textbf{x}$ equals 1. In most cases, this constant can be ignored, as the primary interest lies in the relative probabilities of different parameter candidates, and the unnormalised posterior provides all the necessary information.
 
 ## Approximating the posterior
 

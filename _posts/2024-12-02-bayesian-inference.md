@@ -119,7 +119,7 @@ $$
 \pi(\textbf{y}|\textbf{x}) = \pi_{noise}(\textbf{y} - \textbf{f}(\textbf{x}))
 $$
 
-The noise model $\pi_{noise}(\mathbf{\Omega})$ captures the distribution of the observational noise $\mathbf{\Omega}$. Noise in the observations arises from imperfections in the measurement apparatus and human error. A Gaussian distribution is a common choice, modelling noise as normally distributed with a mean of zero and a specified variance, though more complex distributions may be required for certain datasets. 
+The noise model $\pi_{noise}(\mathbf{\Omega})$ captures the distribution of the observational noise $\mathbf{\Omega}$. Noise in the observations arises from imperfections in the measurement apparatus and human error. A Gaussian distribution is a common choice, modelling noise as normally distributed with a mean of zero and a specified variance, although more complex distributions may be necessary for certain datasets.
 
 <!-- Some experimental devices are capable of directly quantifying this noise model, providing valuable information about its structure and enabling more accurate calibration of the likelihood. -->
 

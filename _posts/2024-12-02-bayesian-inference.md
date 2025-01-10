@@ -119,6 +119,10 @@ $$
 \pi(\textbf{y}|\textbf{x}) = \pi_{noise}(\textbf{y} - \textbf{f}(\textbf{x}))
 $$
 
+The noise model $\pi_{noise}(\mathbf{\Omega})$ captures the distribution of the observational noise $\mathbf{\Omega}$. Noise in the observations arises from imperfections in the measurement apparatus and human error. A Gaussian distribution is a common choice, modelling noise as normally distributed with a mean of zero and a specified variance, though more complex distributions may be required for certain datasets. 
+
+<!-- Some experimental devices are capable of directly quantifying this noise model, providing valuable information about its structure and enabling more accurate calibration of the likelihood. -->
+
 ### Prior $\pi(\textbf{x})$
 
 The prior represents our initial beliefs about the model parameters before observing any data. It allows us to incorporate knowledge from prior studies and expert opinions about the the probable values of the parameters. For the model parameters $\textbf{x}$, the prior can take different forms, but unless there is evidence to suggest otherwise, a normal distribution is commonly used:

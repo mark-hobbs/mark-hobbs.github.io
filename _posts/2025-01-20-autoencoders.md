@@ -17,7 +17,7 @@ Two major factors that limit our ability to do engineering better are: (1) the c
 
 Optimisation methods rely on our ability to parameterise the problem but not every shape is well-suited to being parametrised. Geometries are typically represented by meshes with thousands to millions of elements.
 
-Imagine if we wanted to find a geometry that maximises heat dispersion... A simple metric for determining the head dispersion potential of a given shape is the ratio of the surface area to volume. Shapes with a high surface area to volume ratio tend to dissipate or exchange energy with their surrounding more effectively that shapes with a low surface area to volume ratio.
+Imagine if we wanted to find a design that maximises heat dispersion... A simple metric for determining the heat dispersion potential of a given design is the ratio of the surface area to volume. Shapes with a high surface area to volume ratio tend to dissipate or exchange energy with their surrounding more effectively that shapes with a low surface area to volume ratio.
 
 ```python
 import torch

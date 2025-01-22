@@ -5,8 +5,10 @@ title: Posts
 
 <ul class="post-list">
   {% for post in site.posts %}
-    <li class="post-item">
-      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-    </li>
+    {% unless post.draft%}
+      <li class="post-item">
+        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+      </li>
+    {% endunless %}
   {% endfor %}
 </ul>

@@ -1,0 +1,83 @@
+---
+layout: post
+author: Mark Hobbs
+title: An introduction to autoencoders
+draft: True
+---
+
+```python
+import torch
+import torch.nn as nn
+
+
+class VAE(nn.Module):
+    """
+    Variational Autoencoder (VAE) model.
+
+    Parameters
+    ----------
+    input_dim : int
+        Dimension of the input data (degree of freedom)
+
+    latent_dim : int
+        Dimension of the latent space.
+
+    Methods
+    -------
+    encode(x)
+        Encodes the input data into mean and log variance of the latent space
+
+    reparameterise(mean, logvar)
+        Applies the reparameterisation trick to sample from the latent space
+
+    decode(z)
+        Decodes the latent space representation back to the input space
+
+    forward(x)
+        Performs a forward pass through the VAE.
+
+    loss_function(reconstructed_x, x, mean, logvar)
+        Computes the VAE loss, which is the sum of reconstruction loss and KL divergence
+    """
+
+    def __init__(self, input_dim, latent_dim):
+        super(VAE, self).__init__()
+
+        self.input_dim = input_dim
+        self.latent_dim = latent_dim
+
+        # Encoder
+        self.fc1 = nn.Linear(input_dim, 128)
+        self.fc2_mean = nn.Linear(128, latent_dim)
+        self.fc2_logvar = nn.Linear(128, latent_dim)
+
+        # Decoder
+        self.fc3 = nn.Linear(latent_dim, 128)
+        self.fc4 = nn.Linear(128, input_dim)
+
+    def encode(self, x):
+        h = torch.relu(self.fc1(x))
+        mean = self.fc2_mean(h)
+        logvar = self.fc2_logvar(h)
+        return mean, logvar
+
+    def reparameterise(self, mean, logvar):
+        std = torch.exp(0.5 * logvar)
+        eps = torch.randn_like(std)
+        return mean + eps * std
+
+    def decode(self, z):
+        h = torch.relu(self.fc3(z))
+        return torch.sigmoid(self.fc4(h))
+
+    def forward(self, x):
+        mean, logvar = self.encode(x)
+        z = self.reparameterise(mean, logvar)
+        reconstructed_x = self.decode(z)
+        return reconstructed_x, mean, logvar
+
+    def loss_function(self, reconstructed_x, x, mean, logvar):
+        BCE = nn.functional.binary_cross_entropy(reconstructed_x, x, reduction="sum")
+        KL_divergence = -0.5 * torch.sum(1 + logvar - mean.pow(2) - logvar.exp())
+        return BCE + KL_divergence
+```

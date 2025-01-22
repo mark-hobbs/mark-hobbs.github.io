@@ -2,10 +2,8 @@
 layout: post
 author: Mark Hobbs
 title: Genetic algorithm from scratch
-published: false
+draft: True
 ---
-
-# Genetic Algorithm (GA) from scratch
 
 ![](/assets/images/ga-1.gif)
 <figcaption>GA</figcaption>

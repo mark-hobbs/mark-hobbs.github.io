@@ -19,6 +19,8 @@ Optimisation methods rely on our ability to parameterise the problem but not eve
 
 Imagine if we wanted to find a design that maximises heat dispersion... A simple metric for determining the heat dispersion potential of a given design is the ratio of the surface area to volume. Shapes with a high surface area to volume ratio tend to dissipate or exchange energy with their surrounding more effectively that shapes with a low surface area to volume ratio.
 
+By shifting optimisation to the latent space, as opposed to optimising the high-dimensional geometry, optimal designs can be identified much more efficiently.
+
 ```python
 import torch
 import torch.nn as nn

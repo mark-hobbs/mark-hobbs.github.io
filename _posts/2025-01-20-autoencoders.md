@@ -7,7 +7,7 @@ draft: True
 
 This post introduces autoencoders through a simple example. A key aim of this post is to motivate use cases in engineering.
 
-**Goal***: Train a VAE on a dataset of 2D shapes (e.g., circles, triangles, squares, stars) and use the latent space to interpolate between shapes.
+**Goal**: Train a VAE on a dataset of 2D shapes (e.g., circles, triangles, squares, stars) and use the latent space to interpolate between shapes.
 
 **Visualisation**: Visualise how shapes smoothly transition and change across the latent space.
 

@@ -13,7 +13,7 @@ This post introduces autoencoders through a simple example. A key aim of this po
 
 ## Motivation
 
-Two major factors that limit our ability to do engineering better are: (1) the computational expense of numerical simulations, and (2) our ability to concisely quantify how different shapes (or designs) are related.
+Two major factors that limit our ability to do engineering better are: (1) the computational expense of numerical simulations, and (2) our ability to concisely quantify how different shapes (or designs) are related (our ability to smoothly interpolate between different designs).
 
 Optimisation methods rely on our ability to parameterise the problem but not every shape is well-suited to being parametrised. Geometries are typically represented by meshes with thousands to millions of elements.
 

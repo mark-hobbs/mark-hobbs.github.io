@@ -21,7 +21,9 @@ Imagine if we wanted to find a design that maximises heat dispersion... A simple
 
 Autoencoders provide a powerful tool for finding low-dimensional representations of high-dimensional data.
 
-By shifting optimisation to the latent space, as opposed to optimising the high-dimensional geometry, optimal designs can be identified much more efficiently.
+By shifting optimisation to the latent space, as opposed to optimising the high-dimensional design representation, optimal designs can be identified much more efficiently.
+
+## Autoencoders
 
 ## Implementation
 
@@ -145,5 +147,9 @@ class Trainer:
                 f"Epoch {epoch+1}/{self.epochs}, Loss: {train_loss / len(self.dataloader)}"
             )
 ```
+
+## Visualising the latent space
+
+## Optimisation in the latent space
 
 ## Generative modelling

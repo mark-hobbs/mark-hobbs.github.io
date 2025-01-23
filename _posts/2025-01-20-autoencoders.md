@@ -150,6 +150,8 @@ class Trainer:
 
 ## Visualising the latent space
 
+![](/assets/images/latent-space-visualisation.gif)
+
 ## Optimisation in the latent space
 
 ## Generative modelling

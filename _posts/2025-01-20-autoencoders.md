@@ -19,7 +19,17 @@ Optimisation methods rely on our ability to parameterise the problem but not eve
 
 Imagine if we wanted to find a design that maximises heat dispersion... A simple metric for determining the heat dispersion potential of a given design is the ratio of the surface area to volume. Shapes with a high surface area to volume ratio tend to dissipate or exchange energy with their surrounding more effectively that shapes with a low surface area to volume ratio.
 
+Autoencoders provide a powerful tool for finding low-dimensional representations of high-dimensional data.
+
 By shifting optimisation to the latent space, as opposed to optimising the high-dimensional geometry, optimal designs can be identified much more efficiently.
+
+## Implementation
+
+Here we outline the implementation using `pytorch`. We modularise the implementation into three classes:
+
+- `VAE` 
+- `Trainer` 
+- `ShapeData`
 
 ```python
 import torch
@@ -97,3 +107,43 @@ class VAE(nn.Module):
         KL_divergence = -0.5 * torch.sum(1 + logvar - mean.pow(2) - logvar.exp())
         return BCE + KL_divergence
 ```
+
+```python
+import torch.optim as optim
+from torch.utils.data import DataLoader
+
+
+class Trainer:
+
+    def __init__(self, model, dataset, batch_size=32, learning_rate=1e-3, epochs=50):
+        self.model = model
+        self.dataset = dataset
+        self.batch_size = batch_size
+        self.learning_rate = learning_rate
+        self.epochs = epochs
+
+        self.dataloader = DataLoader(dataset, batch_size=self.batch_size, shuffle=True)
+        self.optimiser = optim.Adam(self.model.parameters(), lr=self.learning_rate)
+
+    def train(self):
+        for epoch in range(self.epochs):
+            self.model.train()
+            train_loss = 0
+            for batch in self.dataloader:
+                self.optimiser.zero_grad()
+
+                reconstructed_batch, mean, logvar = self.model(batch)
+                loss = self.model.loss_function(
+                    reconstructed_batch, batch, mean, logvar
+                )
+                loss.backward()
+                self.optimiser.step()
+
+                train_loss += loss.item()
+
+            print(
+                f"Epoch {epoch+1}/{self.epochs}, Loss: {train_loss / len(self.dataloader)}"
+            )
+```
+
+## Generative modelling

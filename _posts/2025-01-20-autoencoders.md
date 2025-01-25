@@ -147,6 +147,37 @@ class Trainer:
                 f"Epoch {epoch+1}/{self.epochs}, Loss: {train_loss / len(self.dataloader)}"
             )
 ```
+### Encoder
+
+### Decoder
+
+```python
+def decode(self, z):
+    h = torch.relu(self.fc3(z))
+    return torch.sigmoid(self.fc4(h))
+```
+
+```python
+def decode(self, z):
+    h = torch.relu(self.fc3(z))
+    return self.fc4(h)
+```
+
+### Loss function
+
+```python
+def loss_function(self, reconstructed_x, x, mean, logvar):
+    bce = nn.functional.binary_cross_entropy(reconstructed_x, x, reduction="sum")
+    kl_divergence = -0.5 * torch.sum(1 + logvar - mean.pow(2) - logvar.exp())
+    return bce + kl_divergence
+```
+
+```python
+def loss_function(self, reconstructed_x, x, mean, logvar):
+    mse = nn.functional.mse_loss(reconstructed_x, x, reduction="sum")
+    kl_divergence = -0.5 * torch.sum(1 + logvar - mean.pow(2) - logvar.exp())
+    return mse + kl_divergence
+```
 
 ## Visualising the latent space
 

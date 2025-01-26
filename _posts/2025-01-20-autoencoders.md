@@ -151,11 +151,15 @@ class Trainer:
 
 ### Decoder
 
+Discontinuous
+
 ```python
 def decode(self, z):
     h = torch.relu(self.fc3(z))
     return torch.sigmoid(self.fc4(h))
 ```
+
+Continuous
 
 ```python
 def decode(self, z):
@@ -179,9 +183,22 @@ def loss_function(self, reconstructed_x, x, mean, logvar):
     return mse + kl_divergence
 ```
 
+```python
+def loss_function(self, reconstructed_x, x, mean, logvar, beta=1.0):
+    mse = nn.functional.mse_loss(reconstructed_x, x, reduction="sum")
+    kl_divergence = -0.5 * torch.sum(1 + logvar - mean.pow(2) - logvar.exp())
+    return mse + beta * kl_divergence
+```
+
 ## Visualising the latent space
 
 ![](/assets/images/latent-space-visualisation.gif)
+
+[Latent space visualisation example 1](https://medium.com/@outerrencedl/a-simple-autoencoder-and-latent-space-visualization-with-pytorch-568e4cd2112a)
+
+[Latent space visualisation example 2](https://towardsdatascience.com/difference-between-autoencoder-ae-and-variational-autoencoder-vae-ed7be1c038f2)
+
+[Latent space visualisation example 2 - 2D shape distribution](https://www.youtube.com/watch?v=sV2FOdGqlX0&t=38s&ab_channel=AqeelAnwar)]
 
 ## Optimisation in the latent space
 

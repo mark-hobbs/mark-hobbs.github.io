@@ -198,7 +198,7 @@ def loss_function(self, reconstructed_x, x, mean, logvar, beta=1.0):
 
 [Latent space visualisation example 2](https://towardsdatascience.com/difference-between-autoencoder-ae-and-variational-autoencoder-vae-ed7be1c038f2)
 
-[Latent space visualisation example 2 - 2D shape distribution](https://www.youtube.com/watch?v=sV2FOdGqlX0&t=38s&ab_channel=AqeelAnwar)]
+[Latent space visualisation example 2 - 2D shape distribution](https://www.youtube.com/watch?v=sV2FOdGqlX0&t=38s&ab_channel=AqeelAnwar)
 
 ## Optimisation in the latent space
 

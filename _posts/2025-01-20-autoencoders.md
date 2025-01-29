@@ -192,6 +192,8 @@ def loss_function(self, reconstructed_x, x, mean, logvar, beta=1.0):
 
 ## Visualising the latent space
 
+![](/assets/images/latent-space-grid.png)
+
 ![](/assets/images/latent-space-visualisation.gif)
 
 [Latent space visualisation example 1](https://medium.com/@outerrencedl/a-simple-autoencoder-and-latent-space-visualization-with-pytorch-568e4cd2112a)

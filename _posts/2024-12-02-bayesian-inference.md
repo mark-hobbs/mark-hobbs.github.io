@@ -219,22 +219,16 @@ By propagating the uncertainty in the model parameters forward through the model
 
 Probability density values are omitted from posterior plots to emphasise the shape of the distribution, focussing attention on high-probability regions and the relative likelihood of parameter values. Absolute density values offer little interpretive value, as posterior densities are often normalised and primarily used for comparison.
 
-<!-- ## 8. Higher-dimensional problems
-
-The 2D problem allows us to easily visualise the posterior distribution and understand grid search, MCMC etc. However as we move to higher-dimensions it becomes much more difficult... linear elasticity-nonlinear hardening with four model parameters...  -->
-
 ## Conclusion
 
-Given experimental data from a uniaxial tensile test of a material specimen, we hypothesised that the material response could be described by a linear elastic-perfectly plastic material model. To determine the model parameters, we initially employed conventional optimisation techniques to minimise an error function quantifying the discrepancy between the observed data and the model predictions. However, this approach yields point estimates of the parameters, which can create a false sense of certainty and potentially lead to significant consequences in downstream design tasks.
+The design process often relies on numerical models that are first calibrated to experimental data before being employed in downstream design tasks. Proper calibration ensures that a model not only fits the data but also accounts for uncertainties inherent in the data, thereby enhancing the reliability and robustness of the design process.
 
-To address this issue, we employed a Bayesian framework to infer the parameters in the material model, while accounting for noise in the experimental observations. Bayesian inference provides an estimate of the posterior distribution of the model parameters rather than deterministic point estimates. Learning comes from two sources: (1) the evidence provided by the observed data and (2) prior knowledge about the likely values of the model parameters.
+The standard approach to model calibration is to minimise an error function that quantifies the discrepancy between the observed data and model predictions. This approach yields point estimates of the model parameters that provide a best-fit to the data but neglects the uncertainty in both the data and the model, creating a false sense of certainty. Poor calibration can have significant consequences in downstream design tasks as errors are propagated forward and amplified through successive design stages. When designs operate near their performance limits, the importance of getting calibration right is critical.  
 
-We approximated the posterior using an Adaptive Metropolis-Hastings sampler and demonstrated how this information can be applied to downstream design tasks to quantify uncertainty in predictions (e.g., numerical simulations). A Bayesian approach provides a rigorous framework for designing under uncertainty, offering a deeper understanding of the uncertainty in our predictions and safeguarding against overconfidence.
+Bayesian inference offers a much more robust approach to calibration that allows us to account for noise in the experimental observations and the model itself. Unlike standard approaches to calibration, a Bayesian approach enables the quantification of uncertainty in parameter estimates, providing not just a best-fit solution but an entire distribution (posterior) that reflects the credibility of different parameter values. Learning comes from two sources: (1) the evidence provided by the observed data and (2) prior knowledge about the likely values of the model parameters. This information can then be applied to downstream design tasks to quantify uncertainty in predictions (e.g., numerical simulations). 
 
-Finally, it is important to remember that when fitting a model to data, errors exist in both the data and the model. In the presented example, we have only accounted for errors in the data, while neglecting potential inaccuracies in the model itself.
+A Bayesian approach provides a rigorous framework for designing under uncertainty, offering a deeper understanding of the uncertainty in our predictions and safeguarding against overconfidence. Finally, it is important to re-emphasise that when fitting a model to data, errors exist in both the data and the model. In the presented example, we have only accounted for errors in the data, while neglecting potential inaccuracies in the model itself.
 
-<!-- ---
-
-## Higher-dimensional problems
+<!-- ## Higher-dimensional problems
 
 The 2D problem allows us to easily visualise the posterior distribution and understand grid search, MCMC etc. However as we move to higher-dimensions it becomes much more difficult... linear elasticity-nonlinear hardening with four model parameters...  -->

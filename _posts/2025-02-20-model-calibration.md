@@ -5,7 +5,7 @@ title: Calibrating computationally expensive models
 draft: True
 ---
 
-The calibration of computationally expensive numerical models to experimental data is a challenging task. Due to the iterative nature of calibration requiring many repeat simulations - often thousands - if the model runtime is of the order of hours to days, then the calibration task becomes computationally impracticable. 
+The calibration of computationally expensive numerical models to experimental data is a challenging task. Calibration is an iterative process, often requiring hundreds to thousands of repeat simulations to minimise the discrepancy between model predictions and experimental observations. If the model runtime is of the order of hours to days, then the calibration task becomes computationally impracticable.
 
 To address this limitation, surrogate modelling approaches have emerged as effective alternatives, where the high-fidelity model is replaced by a computationally efficient approximation. Surrogate models, such as Gaussian processes and neural networks, can emulate the input-output relationship of the original model at a fraction of the computational cost. By strategically sampling the parameter space and constructing these surrogate models, engineers and researchers can explore uncertainty quantification, sensitivity analysis, and optimisation techniques that would otherwise be prohibitively expensive.
 
@@ -16,7 +16,7 @@ The complete code used to generate all results and figures in this post is avail
 
 ## Model
 
-The goal is to design a `Model` class that serves as a seamless interface between any numerical model and optimisation or sampling method. When the `Model` is computationally expensive we must employ a surrogate model. The `SurrogateModel` class must also maintain the same seamless/common interface.
+The `Model` class serves as a seamless interface between the numerical model and optimisation or sampling method. When the `Model` is computationally expensive we must employ a surrogate model and the `SurrogateModel` class must also maintain the same seamless/common interface.
 
 Pass an instance of a `Model` or `SurrogateModel` with a `__call__` method that computes a performance metric, such as the mean squared error (MSE), for the given input parameters.
 
@@ -62,5 +62,9 @@ class SurrogateModel(Model):
   def __init__():
     pass
 ```
+
+## Likelihood
+
+If the surrogate model is a Gaussian process, the model uncertainty can be incorporated into the observation noise.
 
 ## Calibration

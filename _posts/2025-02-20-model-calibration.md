@@ -5,6 +5,8 @@ title: Calibrating computationally expensive models
 draft: True
 ---
 
+*Outer-loop* applications... design space exploration, optimisation, uncertainty quantification, sensitivity analysis...
+
 The calibration of computationally expensive numerical models to experimental data is a challenging task. Calibration is an iterative process, often requiring hundreds to thousands of repeat simulations to minimise the discrepancy between model predictions and experimental observations. If the model runtime is of the order of hours to days, then the calibration task becomes computationally impracticable.
 
 To address this limitation, surrogate modelling approaches have emerged as effective alternatives, where the high-fidelity model is replaced by a computationally efficient approximation. Surrogate models, such as Gaussian processes and neural networks, can emulate the input-output relationship of the original model at a fraction of the computational cost. By strategically sampling the parameter space and constructing these surrogate models, engineers and researchers can explore uncertainty quantification, sensitivity analysis, and optimisation techniques that would otherwise be prohibitively expensive.

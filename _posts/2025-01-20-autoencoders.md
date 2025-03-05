@@ -196,6 +196,8 @@ def loss_function(self, reconstructed_x, x, mean, logvar, beta=1.0):
 
 ![](/assets/images/latent-space-visualisation.gif)
 
+![](/assets/images/latent-space-points.gif)
+
 [Latent space visualisation example 1](https://medium.com/@outerrencedl/a-simple-autoencoder-and-latent-space-visualization-with-pytorch-568e4cd2112a)
 
 [Latent space visualisation example 2](https://towardsdatascience.com/difference-between-autoencoder-ae-and-variational-autoencoder-vae-ed7be1c038f2)

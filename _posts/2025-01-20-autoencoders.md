@@ -192,7 +192,9 @@ def loss_function(self, reconstructed_x, x, mean, logvar, beta=1.0):
 
 ## Visualising the latent space
 
-![](/assets/images/latent-space-grid.png)
+![](/assets/images/latent-space-grid-1.png)
+
+![](/assets/images/latent-space-grid-2.png)
 
 ![](/assets/images/latent-space-visualisation.gif)
 

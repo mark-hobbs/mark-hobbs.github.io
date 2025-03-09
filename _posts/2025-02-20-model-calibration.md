@@ -5,7 +5,7 @@ title: Calibrating computationally expensive models
 draft: True
 ---
 
-*Outer-loop* applications... design space exploration, optimisation, uncertainty quantification, sensitivity analysis...
+This post is titled *"Calibrating computationally expensive models"*, but the ideas and software design patterns introduced are applicable to all *outer-loop* applications - including design space exploration, optimisation, uncertainty quantification and sensitivity analysis.
 
 The calibration of computationally expensive numerical models to experimental data is a challenging task. Calibration is an iterative process, often requiring hundreds to thousands of repeat simulations to minimise the discrepancy between model predictions and experimental observations. If the model runtime is of the order of hours to days, then the calibration task becomes computationally impracticable.
 

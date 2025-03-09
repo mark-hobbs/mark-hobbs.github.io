@@ -209,3 +209,7 @@ def loss_function(self, reconstructed_x, x, mean, logvar, beta=1.0):
 ## Optimisation in the latent space
 
 ## Generative modelling
+
+## References
+
+[Encoding and exploring latent design space of optimal material structures via a VAE-LSTM model](https://doi.org/10.1016/j.finmec.2021.100054)

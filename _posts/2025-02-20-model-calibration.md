@@ -13,14 +13,70 @@ To address this limitation, surrogate modelling approaches have emerged as effec
 
 The complete code used to generate all results and figures in this post is available in the following repository: [model-calibration](https://github.com/mark-hobbs/articles/tree/main/model-calibration)
 
-
-## Design of Experiments
-
 ## Model
 
-The `Model` class serves as a seamless interface between the numerical model and optimisation or sampling method. When the `Model` is computationally expensive we must employ a surrogate model and the `SurrogateModel` class must also maintain the same seamless/common interface.
+The `Model` class serves as a seamless interface between the numerical model and different *outer-loop* applications, such as design of experiments, optimisation and uncertainty quantification. The `Model` class simplifies the integration of numerical models into broader computational workflows.
 
-Pass an instance of a `Model` or `SurrogateModel` with a `__call__` method that computes a performance metric, such as the mean squared error (MSE), for the given input parameters.
+When the `Model` is computationally expensive we must employ a surrogate model and the `SurrogateModel` class must also maintain the same common interface.
+
+Pass an instance of a `Model` or `SurrogateModel` with a `__call__` method that computes a performance (fitness) metric, such as the mean squared error (MSE), for the given input parameters.
+
+```python
+class Model:
+    """
+    Base class for models used in optimisation and Bayesian inference.
+
+    Subclasses must implement the run and __call__ method.
+    """
+
+    def __init__(self, x, y_observed=None):
+        """
+        x : list or array-like
+            The independent variables (e.g., strain).
+
+        y_observed : list or array-like
+            The observed values of the dependent variables (e.g., stress).
+        """
+        self.x = x
+        self.y_observed = y_observed
+
+    def run(self):
+        """
+        Run the model to generate predictions
+
+        This method must be implemented by subclasses and should
+        return predictions computed by the model based on the 
+        provided parameters.
+
+        Returns
+        -------
+        list
+            Model predictions corresponding to the input variables.
+        """
+        raise NotImplementedError("Subclasses must implement the run method.")
+
+    def __call__(self, *args, **kwargs):
+        """
+        Evaluate the performance (fitness) of the model
+        
+        Quantify how well the model predictions match 
+        the observed data (e.g., mean squared error).
+
+        Parameters
+        ----------
+        *args : tuple
+            Positional arguments.
+
+        **kwargs : dict
+            Keyword arguments.
+
+        Returns
+        -------
+        float
+            A score representing the performance of the model.
+        """
+        raise NotImplementedError("Subclasses must implement __call__ method.")
+```
 
 ## Surrogate model 
 
@@ -64,6 +120,9 @@ class SurrogateModel(Model):
   def __init__():
     pass
 ```
+
+## Design of Experiments
+
 
 ## Likelihood
 

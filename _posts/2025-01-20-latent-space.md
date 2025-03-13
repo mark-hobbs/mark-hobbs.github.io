@@ -1,27 +1,37 @@
 ---
 layout: post
 author: Mark Hobbs
-title: An introduction to autoencoders
+title: Optimisation in the latent space
 draft: True
 ---
 
-This post introduces autoencoders through a simple example. A key aim of this post is to motivate use cases in engineering.
-
-**Goal**: Train a VAE on a dataset of 2D shapes (e.g., circles, triangles, squares, stars) and use the latent space to interpolate between shapes.
-
-**Visualisation**: Visualise how shapes smoothly transition and change across the latent space.
+This post introduces the concept of a latent space and highlights its utility in design problems through an optimisation example. A latent space is a low-dimensional representation of high-dimensional data, where similar items are positioned close together. Recent advances such as variational autoencoders (VAEs) and diffusion models have enabled the learning of very expressive low-dimensional representations of complex design spaces. By shifting optimisation to the latent space, as opposed to optimising the high-dimensional design representation, optimal designs can be identified much more efficiently.
 
 ## Motivation
 
 Two major factors that limit our ability to do engineering better are: (1) the computational expense of numerical simulations, and (2) our ability to concisely quantify how different shapes (or designs) are related (our ability to smoothly interpolate between different designs).
 
-Optimisation methods rely on our ability to parameterise the problem but not every shape is well-suited to being parametrised. Geometries are typically represented by meshes with thousands to millions of elements.
+Optimisation methods rely on our ability to parameterise the problem but not every design is well-suited to being parametrised. Geometries are typically represented by meshes with thousands to millions of elements.
 
 Imagine if we wanted to find a design that maximises heat dispersion... A simple metric for determining the heat dispersion potential of a given design is the ratio of the surface area to volume. Shapes with a high surface area to volume ratio tend to dissipate or exchange energy with their surrounding more effectively that shapes with a low surface area to volume ratio.
 
 Autoencoders provide a powerful tool for finding low-dimensional representations of high-dimensional data.
 
 By shifting optimisation to the latent space, as opposed to optimising the high-dimensional design representation, optimal designs can be identified much more efficiently.
+
+## Latent space
+
+Latent spaces provide several key advantages in engineering design. They capture the underlying structure and patterns within data, allowing designers to work with meaningful parameters rather than raw features. This enables more intuitive exploration and manipulation of designs, where small changes in the latent space can produce coherent variations in the output.
+
+The mathematical foundation of latent spaces involves dimension reduction techniques that transform complex data into a condensed representation while preserving essential relationships. When properly trained, these models can generate new, valid designs by sampling or navigating through the latent space. Additionally, latent spaces often exhibit interpolation properties, where moving from one point to another creates a smooth transition between corresponding designs.
+
+In optimisation workflows, latent spaces dramatically reduce the search dimensionality. Consider a structural design problem with thousands of potential variables - directly optimising this would be computationally prohibitive. By mapping the problem to a latent space with perhaps just tens of dimensions, optimisation algorithms can operate far more efficiently while still exploring the meaningful variation in the design space.
+
+## Example problem
+
+**Goal**: Train a VAE on a dataset of 2D shapes (e.g., circles, triangles, squares, stars) and use the latent space to interpolate between shapes.
+
+**Visualisation**: Visualise how shapes smoothly transition and change across the latent space.
 
 ## Autoencoders
 

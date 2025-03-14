@@ -19,8 +19,6 @@ Autoencoders provide a powerful tool for finding low-dimensional representations
 
 By shifting optimisation to the latent space, as opposed to optimising the high-dimensional design representation, optimal designs can be identified much more efficiently.
 
-## Latent space
-
 Latent spaces provide several key advantages in engineering design. They capture the underlying structure and patterns within data, allowing designers to work with meaningful parameters rather than raw features. This enables more intuitive exploration and manipulation of designs, where small changes in the latent space can produce coherent variations in the output.
 
 The mathematical foundation of latent spaces involves dimension reduction techniques that transform complex data into a condensed representation while preserving essential relationships. When properly trained, these models can generate new, valid designs by sampling or navigating through the latent space. Additionally, latent spaces often exhibit interpolation properties, where moving from one point to another creates a smooth transition between corresponding designs.
@@ -28,6 +26,8 @@ The mathematical foundation of latent spaces involves dimension reduction techni
 In optimisation workflows, latent spaces dramatically reduce the search dimensionality. Consider a structural design problem with thousands of potential variables - directly optimising this would be computationally prohibitive. By mapping the problem to a latent space with perhaps just tens of dimensions, optimisation algorithms can operate far more efficiently while still exploring the meaningful variation in the design space.
 
 ## Example problem
+
+The chosen example problem has been selected primarily to enable the promotion of understanding through visual means.
 
 **Goal**: Train a VAE on a dataset of 2D shapes (e.g., circles, triangles, squares, stars) and use the latent space to interpolate between shapes.
 
@@ -215,8 +215,6 @@ def loss_function(self, reconstructed_x, x, mean, logvar, beta=1.0):
 [Latent space visualisation example 2](https://towardsdatascience.com/difference-between-autoencoder-ae-and-variational-autoencoder-vae-ed7be1c038f2)
 
 [Latent space visualisation example 2 - 2D shape distribution](https://www.youtube.com/watch?v=sV2FOdGqlX0&t=38s&ab_channel=AqeelAnwar)
-
-## Optimisation in the latent space
 
 ## Generative modelling
 

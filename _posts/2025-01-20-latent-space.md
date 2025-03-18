@@ -206,6 +206,8 @@ def loss_function(self, reconstructed_x, x, mean, logvar, beta=1.0):
 
 ![](/assets/images/latent-space-grid-2.png)
 
+![](/assets/images/latent-space-grid-3.png)
+
 ![](/assets/images/latent-space-visualisation.gif)
 
 ![](/assets/images/latent-space-points.gif)

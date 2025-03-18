@@ -7,6 +7,14 @@ draft: True
 
 This post introduces the concept of a latent space and highlights its utility in design problems through an optimisation example. A latent space is a low-dimensional representation of high-dimensional data, where similar items are positioned close together. Recent advances such as variational autoencoders (VAEs) and diffusion models have enabled the learning of very expressive low-dimensional representations of complex design spaces. By shifting optimisation to the latent space, as opposed to optimising the high-dimensional design representation, optimal designs can be identified much more efficiently.
 
+- A latent space is an abstract low-dimensional representation of a high-dimensional space...
+- Items that resemble each other are located close to one another in the latent space
+- The aim of this post is to demonstrate how the concept of a latent space can be utilised in design problems.
+- Recent advances such as variational autoencoders (VAEs) and diffusion models have enabled the learning of very expressive low-dimensional representations of complex design spaces.
+- By shifting optimisation to the latent space, as opposed to optimising the high-dimensional design representation, optimal designs can be identified much more efficiently.
+- Parametrising the design problem is perhaps the most challenging problem...
+
+
 ## Motivation
 
 Two major factors that limit our ability to do engineering better are: (1) the computational expense of numerical simulations, and (2) our ability to concisely quantify how different shapes (or designs) are related (our ability to smoothly interpolate between different designs).
@@ -24,6 +32,8 @@ Latent spaces provide several key advantages in engineering design. They capture
 The mathematical foundation of latent spaces involves dimension reduction techniques that transform complex data into a condensed representation while preserving essential relationships. When properly trained, these models can generate new, valid designs by sampling or navigating through the latent space. Additionally, latent spaces often exhibit interpolation properties, where moving from one point to another creates a smooth transition between corresponding designs.
 
 In optimisation workflows, latent spaces dramatically reduce the search dimensionality. Consider a structural design problem with thousands of potential variables - directly optimising this would be computationally prohibitive. By mapping the problem to a latent space with perhaps just tens of dimensions, optimisation algorithms can operate far more efficiently while still exploring the meaningful variation in the design space.
+
+Dimensionality reduction...
 
 ## Example problem
 

@@ -5,6 +5,8 @@ title: Genetic algorithm from scratch
 draft: True
 ---
 
+View the repo: [ga-demo](https://github.com/mark-hobbs/ga-demo/)
+
 This post details the implementation of a genetic algorithm from scratch using good object-oriented programming (OOP) practices and provides a number of visual examples to help develop the readers understanding.
 
 Genetic algorithms are heuristic optimisation techniques based loosely on evolutionary theory, that mimic the process of natural selection to find solutions to complex optimisation problems.
@@ -45,8 +47,7 @@ class GeneticAlgorithm:
         population,
         num_generations=50,
         num_parents=4,
-        mutation_probability=0.05,
-        animate=False,
+        mutation_probability=0.05
     ):
         self.population = population
         self.num_generations = num_generations
@@ -98,6 +99,7 @@ class Population:
 
 ```python
 class Individual:
+
     def __init__(self, genes):
         self.genes = genes
         self._fitness = None
@@ -162,5 +164,3 @@ class Individual:
 ## Problem
 
 ![](/assets/images/ga-2.gif)
-
-View the repo: [ga-demo](https://github.com/mark-hobbs/ga-demo/)

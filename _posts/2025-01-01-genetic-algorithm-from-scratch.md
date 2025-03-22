@@ -5,7 +5,7 @@ title: Genetic algorithm from scratch
 draft: True
 ---
 
-This post implements a genetic algorithm from scratch using good object-oriented programming (OOP) practices and provides a number of visual examples to help develop the readers understanding.
+This post details the implementation of a genetic algorithm from scratch using good object-oriented programming (OOP) practices and provides a number of visual examples to help develop the readers understanding.
 
 Genetic algorithms are heuristic optimisation techniques based loosely on evolutionary theory, that mimic the process of natural selection to find solutions to complex optimisation problems.
 

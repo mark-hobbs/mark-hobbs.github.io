@@ -25,17 +25,17 @@ The core components of a genetic algorithm include:
 
 ## Implementation
 
-By implementing a genetic algorithm with clean OOP design, we can create a flexible, reusable framework that separates concerns and makes the genetic algorithm adaptable to various optimisation problems without having to rewrite the core evolutionary logic.
+By implementing a genetic algorithm with clean OOP design, we can create a flexible and reusable framework that separates concerns and makes the genetic algorithm adaptable to various optimisation problems without having to rewrite the core evolutionary logic.
 
-Genetic algorithms provide a good demonstration of the advantages of object-oriented programming as they have distinct objects - a `Population` made up of many `Individuals`...
+Genetic algorithms provide an excellent demonstration of the principles and advantages of object-oriented programming. By designing classes that encapsulate key components — such as the evolutionary process, population and individuals — we can create well-defined abstractions that promote modularity, flexibility and a clear separation of concerns.
 
-- `GeneticAlgorithm`
-- `Population`
-- `Individual`
+- `GeneticAlgorithm`: A class to control the evolutionary process.
+- `Population`: The population represents a generation of individuals...
+- `Individual`: Represents a candidate solution and encapsulates its genetic representation and fitness evaluation.
+- Crossover method
+- Mutation method
 
-We will walk through building each component step by step, from representing chromosomes to evolving populations across generations, all while maintaining solid software engineering principles. 
-
-For the sake of simplicity, the code used to generate the animations and figures is omitted but can be found in the [repo](https://github.com/mark-hobbs/ga-demo/).
+We provide a high-level overview of the implemented classes, focussing on their design and interactions. For the sake of simplicity, the code used to generate the animations and figures is omitted but can be found in the [repo](https://github.com/mark-hobbs/ga-demo/).
 
 ### `GeneticAlgorithm`
 
@@ -121,44 +121,19 @@ class Individual:
 
     def crossover(self, partner):
         """
-        Partially mapped crossover (PMX)
+        Crossover: combine the genetic material of two parent individuals to create offspring
 
         Returns
         -------
         child
         """
-        size = len(self.genes)
-        child = [-1] * size
-        a, b = sorted(np.random.choice(range(size), size=2, replace=False))
-
-        # Copy segment from self to child
-        for i in range(a, b):
-            child[i] = self.genes[i]
-
-        # Create mapping for the other parent
-        mapping = {value: index for index, value in enumerate(child) if value != -1}
-
-        # Fill in the rest from other
-        for i in range(size):
-            if i < a or i >= b:
-                value = partner.genes[i]
-                while value in mapping:
-                    value = partner.genes[mapping[value]]
-                child[i] = value
-                mapping[value] = i
-
-        return child
+        return self.crossover_method(self, partner)
 
     def mutate(self, mutation_probability):
         """
-        Mutation: Swap mutation
+        Mutation: introduce small variations in the genetic material, preventing premature convergence and maintaining diversity in the population.
         """
-        if np.random.rand() < mutation_probability:
-            idx1, idx2 = np.random.randint(0, len(self.genes), 2)
-            self.genes[idx1], self.genes[idx2] = (
-                self.genes[idx2],
-                self.genes[idx1],
-            )
+        return self.mutate_method(self, mutation_probability)
 ```
 
 ## Problem

@@ -95,6 +95,8 @@ class GeneticAlgorithm:
 
 ### `Population`
 
+The `Population` class represents all individuals within a single generation. Methods are provided for evaluating the fitness of all individuals and selecting parents for reproduction.
+
 ```python
 class Population:
 
@@ -104,9 +106,15 @@ class Population:
         self.parents = []
 
     def evaluate(self):
+        """
+        Evaluate the fitness of every individual in the population
+        """
         self.fitness = [individual.fitness() for individual in self.individuals]
 
     def select_parents(self, num_parents):
+        """
+        Rank individuals by fitness and select the strongest for reproduction
+        """
         self.parents = sorted(
             self.individuals, key=lambda x: x.fitness(), reverse=True
         )[:num_parents]
@@ -114,7 +122,7 @@ class Population:
 
 ### `Individual`
 
-The `Individual` class is the perhaps the most important... inherit from `Individual`...
+The `Individual` class represents a candidate solution and encapsulates its genetic representation and fitness evaluation. The `Individual` class abstracts... inherit from `Individual`... allowing the developed package to be applied to any optimisation problem... 
 
 ```python
 class Individual:

@@ -169,7 +169,14 @@ class Individual:
 
 The clean object-oriented design enables the user to efficiently generate an initial population, configure the genetic algorithm and initiate the evolutionary process with minimal code. Concise and readable code focusses...
 
+We demonstrate the power of good abstractions through three different problems; (1) a permutation based problem, (2) a continuous problem...
+
+### Permutation encoded chromosomes
+
 ```python
+n_points = 10
+points = [Point(np.random.rand(), np.random.rand()) for _ in range(n_points)]
+
 population_size = 25
 individuals = [Polygon(np.random.permutation(points)) for _ in range(population_size)]
 population = Population(individuals)
@@ -182,8 +189,6 @@ ga = GeneticAlgorithm(
     )
 ga.evolve()
 ```
-
-### Permutation encoded chromosomes
 
 ![](/assets/images/ga-1.gif)
 

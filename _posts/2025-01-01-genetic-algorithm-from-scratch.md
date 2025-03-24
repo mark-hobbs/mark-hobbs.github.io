@@ -39,6 +39,8 @@ We provide a high-level overview of the implemented classes, focussing on their 
 
 ### `GeneticAlgorithm`
 
+The `GeneticAlgorithm` class controls the evolutionary process. The user can select the number of generations and number of parents used for generating offspring.
+
 ```python
 class GeneticAlgorithm:
 
@@ -55,7 +57,12 @@ class GeneticAlgorithm:
         self.mutation_probability = mutation_probability
         self.fitness = []
 
-    def generate_offspring(self):
+    def _generate_offspring(self):
+        """
+        Generate a new population by combining genetic material 
+        from selected parents (high-fitness) and applying random 
+        mutations to their offspring
+        """
         new_population = []
         for _ in range(len(self.population.individuals)):
             parent_a, parent_b = random.sample(self.population.parents, 2)
@@ -65,15 +72,25 @@ class GeneticAlgorithm:
 
         self.population.individuals = new_population
 
-    def evolutionary_cycle(self):
+    def _evolutionary_cycle(self):
+        """
+        Executes one iteration of the evolutionary process:
+        - Evaluate the fitness of the population
+        - Select parents for reproduction
+        - Generates offspring to form the next generation
+        """
         self.population.evaluate()
         self.fitness.append(max(self.population.fitness))
         self.population.select_parents(self.num_parents)
-        self.generate_offspring()
+        self._generate_offspring()
 
     def evolve(self):
+        """
+        Runs the genetic algorithm for the specified number 
+        of generations.
+        """
         for _ in tqdm(range(self.num_generations), desc="Evolution"):
-            self.evolutionary_cycle()
+            self._evolutionary_cycle()
 ```
 
 ### `Population`
@@ -96,6 +113,8 @@ class Population:
 ```
 
 ### `Individual`
+
+The `Individual` class is the perhaps the most important... inherit from `Individual`...
 
 ```python
 class Individual:

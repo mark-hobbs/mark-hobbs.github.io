@@ -167,6 +167,22 @@ class Individual:
 
 ## Problem
 
+The clean object-oriented design enables the user to efficiently generate an initial population, configure the genetic algorithm and initiate the evolutionary process with minimal code. Concise and readable code focusses...
+
+```python
+population_size = 25
+individuals = [Polygon(np.random.permutation(points)) for _ in range(population_size)]
+population = Population(individuals)
+
+ga = GeneticAlgorithm(
+    population=population,
+    num_generations=100,
+    num_parents=4,
+    mutation_probability=0.05
+    )
+ga.evolve()
+```
+
 ### Permutation encoded chromosomes
 
 ![](/assets/images/ga-1.gif)

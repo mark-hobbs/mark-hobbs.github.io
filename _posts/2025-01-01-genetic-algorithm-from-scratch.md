@@ -20,9 +20,6 @@ The core components of a genetic algorithm include:
 - Crossover and mutation operators to create new offspring
 - Replacement strategies to form the next generation
 
-![](/assets/images/ga-1.gif)
-<figcaption>GA</figcaption>
-
 ## Implementation
 
 By implementing a genetic algorithm with clean OOP design, we can create a flexible and reusable framework that separates concerns and makes the genetic algorithm adaptable to various optimisation problems without having to rewrite the core evolutionary logic.
@@ -166,6 +163,14 @@ class Individual:
         return self.mutate_method(self, mutation_probability)
 ```
 
+### Crossover and mutation
+
 ## Problem
+
+### Permutation encoded chromosomes
+
+![](/assets/images/ga-1.gif)
+
+### Continuous
 
 ![](/assets/images/ga-2.gif)

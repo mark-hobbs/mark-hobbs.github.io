@@ -122,7 +122,7 @@ class Population:
 
 ### `Individual`
 
-The `Individual` class represents a candidate solution and encapsulates its genetic representation and fitness evaluation. The `Individual` class abstracts... inherit from `Individual`... allowing the developed package to be applied to any optimisation problem... 
+The `Individual` class represents a candidate solution and encapsulates its genetic representation and fitness evaluation. It serves as a base class, allowing subclasses to define problem-specific fitness functions. By inheriting from `Individual`, custom implementations can be created for various optimisation problems, making the package adaptable to different domains.
 
 ```python
 class Individual:

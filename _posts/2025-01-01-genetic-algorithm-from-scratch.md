@@ -167,9 +167,9 @@ class Individual:
 
 ## Problem
 
-The clean object-oriented design enables the user to efficiently generate an initial population, configure the genetic algorithm and initiate the evolutionary process with minimal code. Concise and readable code focusses...
+We address three different optimisation problems; (1) a permutation based problem, (2) a continuous problem... The clean abstractions afforded by good object-oriented design enable us to address very different problems with minimal changes.
 
-We demonstrate the power of good abstractions through three different problems; (1) a permutation based problem, (2) a continuous problem...
+The clean object-oriented design enables the user to efficiently generate an initial population, configure the genetic algorithm and initiate the evolutionary process with minimal code. Concise and readable code enables the user to focus on the actual problem...
 
 ### Permutation encoded chromosomes
 

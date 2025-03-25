@@ -165,9 +165,39 @@ class Individual:
 
 ### Crossover and mutation
 
+| **Crossover Method**           | **Description** | **Problem Type** |
+|--------------------------------|----------------|------------------|
+| **One-Point Crossover**       | Single crossover point; genes swapped after this point. | Binary, Continuous |
+| **Two-Point Crossover**       | Two crossover points; middle segment is swapped. | Binary, Continuous |
+| **Uniform Crossover**         | Each gene is randomly taken from either parent. | Binary, Continuous |
+| **Arithmetic Crossover**      | Offspring genes are a weighted sum of parent genes. | Continuous |
+| **Blend Crossover (BLX-α)**   | Offspring genes are chosen from an extended range of parent values. | Continuous |
+| **Simulated Binary Crossover (SBX)** | Mimics single-point crossover but for real-valued variables using probability distribution. | Continuous |
+| **Partially Mapped Crossover (PMX)** | Ensures offspring inherit ordered subsets while avoiding duplicates. | Permutation (e.g., TSP) |
+| **Order Crossover (OX)**      | Preserves sequence order while maintaining feasibility. | Permutation (e.g., TSP) |
+| **Cycle Crossover (CX)**      | Ensures each gene comes from exactly one parent while preserving positional info. | Permutation (e.g., TSP) |
+| **Heuristic Crossover**       | Offspring are a biased weighted combination of parents, favoring the fitter one. | Continuous |
+
+
+| **Mutation Method**            | **Description** | **Problem Type** |
+|--------------------------------|----------------|------------------|
+| **Bit Flip Mutation**          | Randomly flips a bit (for binary representation). | Binary |
+| **Swap Mutation**              | Two randomly chosen genes swap positions. | Permutation |
+| **Scramble Mutation**          | A subset of genes is shuffled randomly. | Permutation |
+| **Inversion Mutation**         | A segment of genes is reversed in order. | Permutation |
+| **Gaussian Mutation**          | Real-valued genes are perturbed by adding Gaussian noise. | Continuous |
+| **Uniform Mutation**           | A gene is replaced with a new random value within its range. | Continuous |
+| **Polynomial Mutation**        | Perturbs genes using a polynomial probability distribution. | Continuous |
+| **Non-uniform Mutation**       | Mutation step size decreases over generations to fine-tune solutions. | Continuous |
+| **Boundary Mutation**          | A gene is set to either its minimum or maximum allowed value. | Continuous |
+| **Adaptive Mutation**          | Mutation rate adjusts dynamically based on evolution progress. | Continuous |
+
+
 ## Problem
 
-We address three different optimisation problems; (1) a permutation based problem, (2) a continuous problem... The clean abstractions afforded by good object-oriented design enable us to address very different problems with minimal changes.
+We address two classes of optimisation problem; (1) a permutation based problem, and (2) a continuous problem. 
+
+The clean abstractions afforded by good object-oriented design enable us to address different optimisation problems with the same code.
 
 The clean object-oriented design enables the user to efficiently generate an initial population, configure the genetic algorithm and initiate the evolutionary process with minimal code. Concise and readable code enables the user to focus on the actual problem...
 

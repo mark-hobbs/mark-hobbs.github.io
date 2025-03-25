@@ -197,7 +197,9 @@ class Individual:
 
 We address two classes of optimisation problem; (1) a permutation based problem, and (2) a continuous problem. 
 
-The clean abstractions afforded by good object-oriented design enable us to address different optimisation problems with the same package. The user must subclass `Individual`, implementing the gene representation, the fitness function and problem specific constraints...
+The clean abstractions afforded by good object-oriented design enable us to address different optimisation problems with the same package. The user must subclass `Individual`, implementing the gene representation, the fitness function and problem specific constraints... 
+
+This approach ensures that the core optimisation logic remains general-purpose, making it easy to address different problems without modifying the underlying framework.
 
 The clean object-oriented design enables the user to efficiently generate an initial population, configure the genetic algorithm and initiate the evolutionary process with minimal code. Concise and readable code enables the user to focus on the actual problem...
 

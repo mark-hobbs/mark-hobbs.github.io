@@ -193,15 +193,15 @@ class Individual:
 | **Adaptive Mutation**          | Mutation rate adjusts dynamically based on evolution progress. | Continuous |
 
 
-## Problem
+## Problems
 
 We address two classes of optimisation problem; (1) a permutation based problem, and (2) a continuous problem. 
 
-The clean abstractions afforded by good object-oriented design enable us to address different optimisation problems with the same code.
+The clean abstractions afforded by good object-oriented design enable us to address different optimisation problems with the same package. The user must subclass `Individual`, implementing the gene representation, the fitness function and problem specific constraints...
 
 The clean object-oriented design enables the user to efficiently generate an initial population, configure the genetic algorithm and initiate the evolutionary process with minimal code. Concise and readable code enables the user to focus on the actual problem...
 
-### Permutation encoded chromosomes
+### Permutation type problem
 
 ```python
 n_points = 10
@@ -222,6 +222,6 @@ ga.evolve()
 
 ![](/assets/images/ga-1.gif)
 
-### Continuous
+### Continuous type problem
 
 ![](/assets/images/ga-2.gif)

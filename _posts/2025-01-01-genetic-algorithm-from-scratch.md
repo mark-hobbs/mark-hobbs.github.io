@@ -201,7 +201,6 @@ The clean abstractions afforded by good object-oriented design enable us to addr
 
 This approach ensures that the core optimisation logic remains general-purpose, making it easy to address different problems without modifying the underlying framework.
 
-The clean object-oriented design enables the user to efficiently generate an initial population, configure the genetic algorithm and initiate the evolutionary process with minimal code. Concise and readable code enables the user to focus on the actual problem...
 
 ### Permutation type problem
 
@@ -227,3 +226,7 @@ ga.evolve()
 ### Continuous type problem
 
 ![](/assets/images/ga-2.gif)
+
+## Conclusions
+
+The clean object-oriented design enables the user to efficiently generate an initial population, configure the genetic algorithm and initiate the evolutionary process with minimal code. Concise and readable code enables the user to focus on the actual problem...

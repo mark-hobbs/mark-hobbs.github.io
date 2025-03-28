@@ -7,9 +7,9 @@ draft: True
 
 View the repo: [ga-demo](https://github.com/mark-hobbs/ga-demo/)
 
-This post details the implementation of a genetic algorithm from scratch using good object-oriented programming (OOP) practices and provides a number of visual examples to help develop the readers understanding.
+This post details the implementation of a genetic algorithm from scratch and provides a number of visual examples to help develop the readers understanding. There is a strong focus on the use of good object-oriented programming (OOP) practices. Modular, extensible and maintainable...
 
-Genetic algorithms are heuristic optimisation techniques based loosely on evolutionary theory, that mimic the process of natural selection to find solutions to complex optimisation problems.
+Genetic algorithms are heuristic optimisation technique that mimic the process of natural selection. Over a long enough timeframe, ..., leading to the emergence of increasingly well-adapted solutions.
 
 In the natural world, evolution proceeds through reproduction, mutation and selection - where advantageous traits increase survival probability and are passed to future generations. This "survival of the fittest" mechanism drives biological adaptation over time. Genetic algorithms mimic this elegant natural process, creating evolving populations of solutions that progressively improve to solve complex optimisation challenges.
 
@@ -200,7 +200,6 @@ We address two classes of optimisation problem; (1) a permutation based problem,
 The clean abstractions afforded by good object-oriented design enable us to address different optimisation problems with the same package. The user must subclass `Individual`, implementing the gene representation, the fitness function and problem specific constraints... 
 
 This approach ensures that the core optimisation logic remains general-purpose, making it easy to address different problems without modifying the underlying framework.
-
 
 ### Permutation type problem
 

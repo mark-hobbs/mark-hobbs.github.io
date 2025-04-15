@@ -49,6 +49,38 @@ class Model:
         return NotImplementedError
 ```
 
+### Services
+
+Core logic: inference, validation
+
+```python
+import os
+
+from flask import jsonify
+
+from .model import Model
+
+model = Model()
+model.load(os.path.join("model", "pretrained.npz"))
+
+
+def predict(input):
+    """
+    Predict... using a pre-trained model
+    
+    Args:
+        - input
+
+    Returns:
+        - JSON response
+    """
+    try:
+        prediction = model.predict(input)
+        return jsonify({"prediction": prediction})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+```
+
 ### Routes
 
 Define the API endpoints.

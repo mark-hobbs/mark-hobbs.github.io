@@ -5,9 +5,11 @@ title: Deploying models using Flask
 draft: True
 ---
 
-This post explores the deployment of numerical and machine learning models in the cloud using Flask. By deploying models in the cloud and exposing their functionality via APIs... easily accessible, scalable and interconnected. 
+This post explores the deployment of numerical and machine learning models in the cloud using Flask. By deploying models in the cloud and exposing their functionality via APIs... easily accessible, scalable and interconnected. In most use cases a frontend will not be required...
 
 Due to the computationally expensive nature of many models... we must think more carefully about handling long running requests.
+
+Docker... Gunicorn... Flask... Celery... UV...
 
 ## File structure
 
@@ -17,7 +19,7 @@ service/
 ├── app.py             # Entrypoint for the Flask app
 ├── routes.py          # API endpoints
 ├── services.py        # Core logic: inference, validation
-├── model.py           # Load & manage the ML model
+├── model.py           # Load and manage the model
 ├── utilities.py       # Helper functions: e.g. file handling
 ├── config.py          # (Optional) Configuration settings
 ```

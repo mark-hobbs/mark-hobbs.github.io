@@ -8,3 +8,42 @@ draft: True
 This post explores the deployment of numerical and machine learning models on web servers using Flask. By deploying models in the cloud and exposing their functionality via APIs, we can make models easily accessible, scalable and interconnected. 
 
 Due to the computationally expensive nature of many models... we must think more carefully about handling long running requests.
+
+## File structure
+
+```bash
+service/
+├── __init__.py
+├── app.py             # Entrypoint for the Flask app
+├── routes.py          # API endpoints
+├── services.py        # Core logic: inference, validation
+├── model.py           # Load & manage the ML model
+├── utilities.py       # Helper functions: e.g. file handling
+├── config.py          # (Optional) Configuration settings
+```
+
+### Model
+
+```python
+
+class Model:
+
+    def __init__(self, features, targets):
+        self.features = features
+        self.targets = targets
+        self.trained = False
+
+    def train(self):
+        return NotImplementedError
+
+    def predict(self):
+        return NotImplementedError
+
+    def save(self):
+        return NotImplementedError
+
+    def load(self):
+        return NotImplementedError
+```
+
+### Docker

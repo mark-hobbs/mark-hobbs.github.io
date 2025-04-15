@@ -11,7 +11,7 @@ Due to the computationally expensive nature of many models... we must think more
 
 Docker... Gunicorn... Flask... Celery... UV...
 
-## File structure
+### File structure
 
 ```bash
 service/
@@ -27,7 +27,6 @@ service/
 ### Model
 
 ```python
-
 class Model:
 
     def __init__(self, features, targets):

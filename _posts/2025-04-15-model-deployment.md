@@ -26,6 +26,8 @@ service/
 
 ### Model
 
+`model.py`
+
 ```python
 class Model:
 
@@ -45,6 +47,23 @@ class Model:
 
     def load(self):
         return NotImplementedError
+```
+
+### Routes
+
+Define the API endpoints.
+
+```python
+from flask import request, jsonify
+
+
+from .services import predict
+
+app = Flask(__name__)
+
+@app.route("/predict", methods=["POST"])
+def predict():
+    return predict(input)
 ```
 
 ### Pretrained weights

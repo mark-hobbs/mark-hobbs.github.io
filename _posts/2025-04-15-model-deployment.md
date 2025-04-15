@@ -5,7 +5,7 @@ title: Deploying models using Flask
 draft: True
 ---
 
-This post explores the deployment of numerical and machine learning models in the cloud using Flask. By deploying models in the cloud and exposing their functionality via APIs... easily accessible, scalable and interconnected. In most use cases a frontend will not be required...
+This post explores the deployment of numerical and machine learning models in the cloud using Flask. By deploying models in the cloud and exposing their functionality via APIs... easily accessible, scalable and interconnected. In most use cases a frontend will not be required... load a pre-trained model and expose it for prediction requests...
 
 Due to the computationally expensive nature of many models... we must think more carefully about handling long running requests.
 
@@ -99,5 +99,10 @@ def predict():
 ```
 
 ### Pretrained weights
+
+### Creating task queues
+
+Supporting synchronous and/or asynchronous workflows
+
 
 ### Docker

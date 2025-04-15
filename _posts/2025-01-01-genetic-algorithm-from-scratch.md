@@ -7,9 +7,7 @@ draft: True
 
 View the repo: [ga-demo](https://github.com/mark-hobbs/ga-demo/)
 
-This post details the implementation of a genetic algorithm from scratch and provides a number of visual examples to help develop the readers understanding. Beyond teaching the reading about genetic algorithms...
-
-There is a strong focus on the use of good object-oriented programming (OOP) practices. Modular, extensible and maintainable...
+This post details the implementation of a genetic algorithm from scratch and provides a number of visual examples to help develop the readers understanding. In addition to exploring the core concepts of genetic algorithms, this post places a strong emphasis on applying good object-oriented programming (OOP) practices. Good code enables clearer thinking and allows the user to focus on the problem at hand.
 
 Genetic algorithms are heuristic optimisation technique that mimic the process of natural selection. Over a long enough timeframe, ..., leading to the emergence of increasingly well-adapted solutions.
 

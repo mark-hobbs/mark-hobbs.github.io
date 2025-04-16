@@ -172,7 +172,7 @@ class Individual:
 
 ### Crossover and mutation
 
-To enable users to change the crossover and mutation methods in a general way, we will adopt a strategy design pattern.
+To enable users to change the crossover and mutation methods in a general way, we will adopt a strategy design pattern. The chosen crossover and mutation strategy is dependent on the problem type... 
 
 | **Crossover Method**           | **Description** | **Problem Type** |
 |--------------------------------|----------------|------------------|

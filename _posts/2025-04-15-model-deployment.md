@@ -5,15 +5,20 @@ title: Deploying models using Flask
 draft: True
 ---
 
-This post explores the deployment of numerical and machine learning models in the cloud using Flask. By deploying models in the cloud and exposing their functionality via APIs... easily accessible, scalable and interconnected. 
+This post explores the deployment of numerical and machine learning models in the cloud using Flask. By deploying models in the cloud and exposing their functionality via APIs, installation barriers are eliminated thus enabling broader adoption. The benefits of deploying models in the cloud include:
 
-In most use cases a frontend will not be required... 
+- Users can utilise sophisticated models without local software installation
+- Computational resources can be scaled on demand
+- Models and services can be easily connected together to form automated workflows
+- Cross-platform compatibility
+- Updates and improvements can be rolled out centrally
 
-... load a pre-trained model and expose it for prediction requests...
-
-Due to the computationally expensive nature of many models... we must think more carefully about handling long running requests.
+We will detail the process of exposing predictions using a pre-trained model. This is relatively computationally cheap but due to the computationally expensive nature of many models, we must think more carefully about handling long running requests. In most use cases a frontend will not be required, as the primary goal is to create an accessible API endpoint.
 
 Docker... Gunicorn... Flask... Celery... UV...
+
+- Cloud platforms (AWS, Google Cloud, Azure)
+- Container services (Docker, Kubernetes)
 
 ### File structure
 
@@ -26,6 +31,7 @@ service/
 ├── model.py           # Load and manage the model
 ├── utilities.py       # Helper functions: e.g. file handling
 ├── config.py          # (Optional) Configuration settings
+run.py
 ```
 
 ### Model
@@ -112,5 +118,10 @@ Supporting synchronous and/or asynchronous workflows
 
 ### Gunicorn configuration
 
+Compute resources to use for online prediction
 
 ### Docker
+
+### Summary
+
+By following the above practices, it is possible to create robust cloud-based APIs for numerical and machine learning models, making them accessible to users without the traditional barriers to adoption.

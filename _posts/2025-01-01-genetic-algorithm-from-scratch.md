@@ -5,13 +5,20 @@ title: Genetic algorithm from scratch
 draft: True
 ---
 
-View the repo: [pyga](https://github.com/mark-hobbs/pyga/)
 
 This post details the implementation of a genetic algorithm from scratch and provides a number of visual examples to help develop the readers understanding. In addition to exploring the core concepts of genetic algorithms, this post places a strong emphasis on the adoption of good object-oriented programming (OOP) practices. Good code promotes clearer thinking and enables the user to focus on the problem at hand.
+
+All the code and examples are available in the following repo: [pyga](https://github.com/mark-hobbs/pyga/)
 
 Genetic algorithms are heuristic optimisation technique that mimic the process of natural selection. Over a long enough timeframe, ..., leading to the emergence of increasingly well-adapted solutions.
 
 In the natural world, evolution proceeds through reproduction, mutation and selection - where advantageous traits increase survival probability and are passed to future generations. This "survival of the fittest" mechanism drives biological adaptation over time. Genetic algorithms mimic this elegant natural process, creating evolving populations of solutions that progressively improve to solve complex optimisation challenges.
+
+## Implementation
+
+By implementing a genetic algorithm with clean OOP design, we can create a flexible and reusable framework that separates concerns and makes the genetic algorithm adaptable to various optimisation problems without having to rewrite the core evolutionary logic.
+
+Problem decomposition is fundamental to... Effective problem decomposition requires a deep understanding of the problem domain. Without a proper grasp of the core elements/concepts... creating inappropriate abstractions or inefficient divisions of functionality.
 
 The core components of a genetic algorithm include:
 - A population of potential solutions (individuals)
@@ -19,10 +26,6 @@ The core components of a genetic algorithm include:
 - Selection mechanisms to choose parents for reproduction
 - Crossover and mutation operators to create new offspring
 - Replacement strategies to form the next generation
-
-## Implementation
-
-By implementing a genetic algorithm with clean OOP design, we can create a flexible and reusable framework that separates concerns and makes the genetic algorithm adaptable to various optimisation problems without having to rewrite the core evolutionary logic.
 
 Genetic algorithms provide an excellent demonstration of the principles and advantages of object-oriented programming. By designing classes that encapsulate key components — such as the evolutionary process, population and individuals — we can create well-defined abstractions that promote modularity, flexibility and a clear separation of concerns.
 
@@ -201,7 +204,6 @@ To enable users to change the crossover and mutation methods in a general way, w
 | **Boundary Mutation**          | A gene is set to either its minimum or maximum allowed value. | Continuous |
 | **Adaptive Mutation**          | Mutation rate adjusts dynamically based on evolution progress. | Continuous |
 
-
 ## Problems
 
 We address two classes of optimisation problem; (1) a permutation based problem, and (2) a continuous problem. 
@@ -234,6 +236,14 @@ ga.evolve()
 ### Continuous type problem
 
 ![](/assets/images/ga-2.gif)
+
+## Packaging
+
+By separating reusable functionality from application specific logic and packaging...
+
+... tightly coupled solutions into modular building blocks that can be installed, shared and maintained independently. 
+
+When core components (like optimisation methods) are properly abstracted and packaged, they become valuable assets across multiple projects rather than remaining trapped in single-use implementations. This separation enhances code quality, promotes reusability, and enables collaborative development at scale.
 
 ## Conclusions
 

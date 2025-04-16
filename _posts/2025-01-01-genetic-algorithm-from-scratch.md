@@ -124,6 +124,9 @@ The `Individual` class represents a candidate solution and encapsulates its gene
 ```python
 class Individual:
 
+    _crossover_method = None
+    _mutation_method = None
+
     def __init__(self, genes):
         self.genes = genes
         self._fitness = None
@@ -152,7 +155,9 @@ class Individual:
         -------
         child
         """
-        return self.crossover_method(self, partner)
+        if self._crossover_method is None:
+            raise NotImplementedError("Crossover method not defined.")
+        return self._crossover_method(self, partner)
 
     def mutate(self, mutation_probability):
         """
@@ -160,10 +165,14 @@ class Individual:
         preventing premature convergence and maintaining diversity 
         in the population.
         """
-        return self.mutate_method(self, mutation_probability)
+        if self._mutate_method is None:
+            raise NotImplementedError("Mutation method not defined.")
+        return self._mutate_method(self, mutation_probability)
 ```
 
 ### Crossover and mutation
+
+To enable users to change the crossover and mutation methods in a general way, we will adopt a strategy design pattern.
 
 | **Crossover Method**           | **Description** | **Problem Type** |
 |--------------------------------|----------------|------------------|

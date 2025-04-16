@@ -5,7 +5,7 @@ title: Genetic algorithm from scratch
 draft: True
 ---
 
-View the repo: [ga-demo](https://github.com/mark-hobbs/ga-demo/)
+View the repo: [pyga](https://github.com/mark-hobbs/pyga/)
 
 This post details the implementation of a genetic algorithm from scratch and provides a number of visual examples to help develop the readers understanding. In addition to exploring the core concepts of genetic algorithms, this post places a strong emphasis on applying good object-oriented programming (OOP) practices. Good code enables clearer thinking and allows the user to focus on the problem at hand.
 

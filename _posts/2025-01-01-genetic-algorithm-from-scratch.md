@@ -18,24 +18,17 @@ Genetic algorithms are heuristic optimisation technique that mimic the process o
 
 By implementing a genetic algorithm with clean OOP design, we can create a flexible and reusable framework that separates concerns and makes the genetic algorithm adaptable to various optimisation problems without having to rewrite the core evolutionary logic.
 
-Problem decomposition is fundamental to... Effective problem decomposition requires a deep understanding of the problem domain. Without a proper grasp of the core elements/concepts... creating inappropriate abstractions or inefficient divisions of functionality.
-
-The core components of a genetic algorithm include:
-- A population of potential solutions (individuals)
-- A fitness function to evaluate how good each solution is
-- Selection mechanisms to choose parents for reproduction
-- Crossover and mutation operators to create new offspring
-- Replacement strategies to form the next generation
-
 Genetic algorithms provide an excellent demonstration of the principles and advantages of object-oriented programming. By designing classes that encapsulate key components — such as the evolutionary process, population and individuals — we can create well-defined abstractions that promote modularity, flexibility and a clear separation of concerns.
+
+Problem decomposition is fundamental to... Effective problem decomposition requires a deep understanding of the problem domain. Without a proper grasp of the core elements/concepts... creating inappropriate abstractions or inefficient divisions of functionality.
 
 - `GeneticAlgorithm`: A class to control the evolutionary process.
 - `Population`: The population represents a generation of individuals...
 - `Individual`: Represents a candidate solution and encapsulates its genetic representation and fitness evaluation.
-- Crossover method
-- Mutation method
+- Crossover methods `crossover(individual, partner)`: ... create new offspring.
+- Mutation methods `mutate(individual)`: 
 
-We provide a high-level overview of the implemented classes, focussing on their design and interactions. For the sake of simplicity, the code used to generate the animations and figures is omitted but can be found in the [repo](https://github.com/mark-hobbs/ga-demo/).
+We provide a high-level overview of the implemented classes, focussing on their design and interactions. For the sake of simplicity, the code used to generate the animations and figures is omitted but can be found in the [repo](https://github.com/mark-hobbs/pyga/).
 
 ### `GeneticAlgorithm`
 

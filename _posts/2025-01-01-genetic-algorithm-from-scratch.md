@@ -10,9 +10,9 @@ This post details the implementation of a genetic algorithm from scratch and pro
 
 All the code and examples are available in the following repo: [pyga](https://github.com/mark-hobbs/pyga/)
 
-Genetic algorithms are heuristic optimisation technique that mimic the process of natural selection. Over a long enough timeframe, ..., leading to the emergence of increasingly well-adapted solutions.
+Genetic algorithms are heuristic optimisation technique that mimic the process of natural selection. Beginning with a population of candidate solutions (or individuals), from which the best solutions (fittest individuals) are selected for reproduction (survival of the fittest). The fittest individuals produce offspring that form a new population (generation). The fittest individuals in each new generation are selected for breeding, and the process is repeated over many generations, leading to the emergence of increasingly optimal solutions.
 
-In the natural world, evolution proceeds through reproduction, mutation and selection - where advantageous traits increase survival probability and are passed to future generations. This "survival of the fittest" mechanism drives biological adaptation over time. Genetic algorithms mimic this elegant natural process, creating evolving populations of solutions that progressively improve to solve complex optimisation challenges.
+<!-- In the natural world, evolution proceeds through reproduction, mutation and selection - where advantageous traits increase survival probability and are passed to future generations. This "survival of the fittest" mechanism drives biological adaptation over time. Genetic algorithms mimic this elegant natural process, creating evolving populations of solutions that progressively improve to solve complex optimisation challenges. -->
 
 ## Implementation
 

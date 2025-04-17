@@ -237,13 +237,15 @@ ga.evolve()
 
 ![](/assets/images/ga-2.gif)
 
+![](/assets/images/ga-3.gif)
+
 ## Packaging
 
 By separating reusable functionality from application specific logic and packaging...
 
 ... tightly coupled solutions into modular building blocks that can be installed, shared and maintained independently. 
 
-When core components (like optimisation methods) are properly abstracted and packaged, they become valuable assets across multiple projects rather than remaining trapped in single-use implementations. This separation enhances code quality, promotes reusability, and enables collaborative development at scale.
+When core components (like optimisation methods) are properly abstracted and packaged, they become valuable assets across multiple projects rather than remaining trapped in single-use implementations. This separation enhances code quality, promotes reusability and enables collaborative development.
 
 ## Conclusions
 

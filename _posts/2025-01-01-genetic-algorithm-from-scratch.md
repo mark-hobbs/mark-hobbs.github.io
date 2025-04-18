@@ -170,6 +170,8 @@ class Individual:
 
 To enable users to change the crossover and mutation methods in a general way, we will adopt a strategy design pattern. The chosen crossover and mutation strategy is dependent on the problem type... 
 
+The function signature... `crossover(individual, partner)`... `mutate(individual)`... 
+
 | **Crossover Method**           | **Description** | **Problem Type** |
 |--------------------------------|----------------|------------------|
 | **One-Point Crossover**       | Single crossover point; genes swapped after this point. | Binary, Continuous |

@@ -170,7 +170,14 @@ class Individual:
 
 To enable users to change the crossover and mutation methods in a general way, we will adopt a strategy design pattern. The chosen crossover and mutation strategy is dependent on the problem type... 
 
-The function signature... `crossover(individual, partner)`... `mutate(individual)`... 
+To enable users to change the crossover and mutation methods in a general way, we will adopt a strategy design pattern. The chosen crossover and mutation strategy is dependent on the problem type (e.g. continuous, binary, permutation-based), allowing flexibility and extensibility without modifying the core genetic algorithm logic.
+
+The function signatures for the crossover and mutation methods must follow a standard interface to ensure compatibility:
+
+- `crossover(individual, partner)`: Takes two individuals (typically represented as arrays of parameters) and returns one or more offspring.
+- `mutate(individual)`: Applies a mutation operation to a single individual and returns the mutated individual.
+
+This design allows new strategies to be added as modular components, making the code adaptable to a wide range of optimisation problems.
 
 | **Crossover Method**           | **Description** | **Problem Type** |
 |--------------------------------|----------------|------------------|

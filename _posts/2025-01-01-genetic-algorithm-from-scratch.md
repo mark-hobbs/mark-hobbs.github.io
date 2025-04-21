@@ -18,15 +18,15 @@ All the code and examples are available in the following repo: [pyga](https://gi
 
 By implementing a genetic algorithm with clean OOP design, we can create a flexible and reusable framework that separates concerns and makes the genetic algorithm adaptable to various optimisation problems without having to rewrite the core evolutionary logic.
 
-Genetic algorithms provide an excellent demonstration of the principles and advantages of object-oriented programming. By designing classes that encapsulate key components — such as the evolutionary process, population and individuals — we can create well-defined abstractions that promote modularity, flexibility and a clear separation of concerns.
+Genetic algorithms provide an excellent demonstration of the principles and advantages of object-oriented programming. By designing classes that encapsulate key components — such as the evolutionary process, population and individuals — we can create well-defined abstractions that promote modularity, flexibility and a clear separation of concerns. 
 
-Problem decomposition is fundamental to... Effective problem decomposition requires a deep understanding of the problem domain. Without a proper grasp of the core elements/concepts... creating inappropriate abstractions or inefficient divisions of functionality.
+A genetic algorithm can be broadly decomposed into the following logical units:
 
 - `GeneticAlgorithm`: A class to control the evolutionary process.
-- `Population`: The population represents a generation of individuals...
+- `Population`: The population class represents a generation of individuals...
 - `Individual`: Represents a candidate solution and encapsulates its genetic representation and fitness evaluation.
-- Crossover methods `crossover(individual, partner)`: ... create new offspring.
-- Mutation methods `mutate(individual)`: 
+- Crossover methods `crossover(individual, partner)`: A function that... create new offspring.
+- Mutation methods `mutate(individual)`: A function...
 
 We provide a high-level overview of the implemented classes, focussing on their design and interactions. For the sake of simplicity, the code used to generate the animations and figures is omitted but can be found in the [repo](https://github.com/mark-hobbs/pyga/).
 
@@ -250,3 +250,5 @@ When core components (like optimisation methods) are properly abstracted and pac
 ## Conclusions
 
 The clean object-oriented design enables the user to efficiently generate an initial population, configure the genetic algorithm and initiate the evolutionary process with minimal code. Concise and readable code enables the user to focus on the actual problem...
+
+Problem decomposition is fundamental to... Effective problem decomposition requires a deep understanding of the problem domain. Without a proper grasp of the core elements/concepts... creating inappropriate abstractions or inefficient divisions of functionality.

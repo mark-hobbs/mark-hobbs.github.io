@@ -18,8 +18,6 @@ All the code and examples are available in the following repo: [pyga](https://gi
 
 By implementing a genetic algorithm with clean OOP design, we can create a flexible and reusable framework that separates concerns and makes the genetic algorithm adaptable to various optimisation problems without having to rewrite the core evolutionary logic.
 
-Genetic algorithms provide an excellent demonstration of the principles and advantages of object-oriented programming. By designing classes that encapsulate key components — such as the evolutionary process, population and individuals — we can create well-defined abstractions that promote modularity, flexibility and a clear separation of concerns. 
-
 A genetic algorithm can be broadly decomposed into the following logical units:
 
 - `GeneticAlgorithm`: A class to control the evolutionary process.
@@ -248,6 +246,8 @@ By separating reusable functionality from application specific logic and packagi
 When core components (like optimisation methods) are properly abstracted and packaged, they become valuable assets across multiple projects rather than remaining trapped in single-use implementations. This separation enhances code quality, promotes reusability and enables collaborative development.
 
 ## Conclusions
+
+Genetic algorithms provide an excellent demonstration of the principles and advantages of object-oriented programming. By designing classes that encapsulate key components — such as the evolutionary process, population and individuals — we can create well-defined abstractions that promote modularity, flexibility and a clear separation of concerns.
 
 The clean object-oriented design enables the user to efficiently generate an initial population, configure the genetic algorithm and initiate the evolutionary process with minimal code. Concise and readable code enables the user to focus on the actual problem...
 

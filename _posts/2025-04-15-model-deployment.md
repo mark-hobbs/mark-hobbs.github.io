@@ -154,6 +154,10 @@ For models that take a long time to run, serving prediction directly from the Fl
 
 Supporting synchronous and/or asynchronous workflows
 
+### Cloud-native parallelism
+
+For trivially parallel tasks, such as... genetic algorithm... take advantage of scalable cloud infrastructure.
+
 ## Summary
 
 By following the above practices, it is possible to create robust cloud-based APIs for numerical and machine learning models, making them accessible to users without the traditional barriers to adoption.

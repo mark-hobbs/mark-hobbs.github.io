@@ -154,9 +154,11 @@ For models that take a long time to run, serving prediction directly from the Fl
 
 Supporting synchronous and/or asynchronous workflows
 
-### Cloud-native parallelism
+### Cloud-native parallelism (Kubernetes + Horizontal Pod Autoscaling)
 
 For trivially parallel tasks, such as... genetic algorithm... take advantage of scalable cloud infrastructure.
+
+Kubernetes... Horizontal Pod Autoscaling. Horizontal scaling means that the response is to deploy more Pods. This is different from *vertical* scaling, which for Kubernetes would mean assigning more resources (for example: memory or CPU) to the Pods that are already running for the workload.
 
 ## Summary
 

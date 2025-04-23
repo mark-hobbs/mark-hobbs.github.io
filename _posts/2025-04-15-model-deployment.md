@@ -114,7 +114,7 @@ def predict():
 It is now possible to serve the microservice locally by simply running `python run.py`. The user can test the application: 
 
 ```bash
-curl -X POST http://server-address/predict -F ...
+curl -X POST http://server-address/predict -F "file=@input.csv"
 ```
 
 To take the microservice from running locally to production-ready deployment...

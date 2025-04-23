@@ -108,6 +108,17 @@ def predict():
 
 ### Pretrained weights
 
+
+### Running locally
+
+It is now possible to serve the microservice locally by simply running `python run.py`. The user can test the application: 
+
+```bash
+curl -X POST http://server-address/predict -F ...
+```
+
+To take the microservice from running locally to production-ready deployment...
+
 ### Creating task queues
 
 For models that take a long time to run, serving prediction directly from the Flask route can block the web server.

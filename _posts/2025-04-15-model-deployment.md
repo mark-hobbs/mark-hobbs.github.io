@@ -24,14 +24,12 @@ Docker... Gunicorn... Flask... Celery... UV...
 
 ```bash
 service/
-├── __init__.py
-├── app.py             # Entrypoint for the Flask app
-├── routes.py          # API endpoints
-├── services.py        # Core logic: inference, validation
+├── app.py             # Flask app setup and routing
 ├── model.py           # Load and manage the model
-├── utilities.py       # Helper functions: e.g. file handling
-├── config.py          # (Optional) Configuration settings
-run.py
+├── services.py        # Logic or processing services (decouple from app.py)
+├── utils.py           # Helper functions: e.g. file handling
+├── pretrained.npz     # Model weights
+run.py                 # Entry point
 ```
 
 ### Model

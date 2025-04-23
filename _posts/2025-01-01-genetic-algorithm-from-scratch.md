@@ -88,6 +88,8 @@ class GeneticAlgorithm:
 
 The `Population` class represents all individuals within a single generation. Methods are provided for evaluating the fitness of all individuals and selecting parents for reproduction.
 
+Evaluating the fitness of each individual in the population is an embarrassingly parallel process. In the below implementation, the `evaluate` method computes the fitness of every individual in serial; however, this process could be easily parallelised on a traditional cluster or cloud infrastructure... Dask, Ray, Kubernetes (horizontal scaling)...
+
 ```python
 class Population:
 

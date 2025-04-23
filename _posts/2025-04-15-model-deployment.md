@@ -119,18 +119,41 @@ curl -X POST http://server-address/predict -F "file=@input.csv"
 
 To take the microservice from running locally to production-ready deployment...
 
+## Deployment
+
+### Docker
+
+```docker
+FROM python:3.11-slim
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# Set workdir
+WORKDIR /app
+
+# Copy and install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the code
+COPY . .
+
+# Command to run the app using gunicorn
+CMD ["gunicorn", "service.app:app", "--bind", "0.0.0.0:5000", "--workers=2"]
+```
+
+### Gunicorn configuration
+
+Compute resources to use for online prediction
+
 ### Creating task queues
 
 For models that take a long time to run, serving prediction directly from the Flask route can block the web server.
 
 Supporting synchronous and/or asynchronous workflows
 
-### Gunicorn configuration
-
-Compute resources to use for online prediction
-
-### Docker
-
-### Summary
+## Summary
 
 By following the above practices, it is possible to create robust cloud-based APIs for numerical and machine learning models, making them accessible to users without the traditional barriers to adoption.

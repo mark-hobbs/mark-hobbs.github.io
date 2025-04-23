@@ -8,7 +8,7 @@ draft: True
 
 This post details the implementation of a genetic algorithm from scratch and provides a number of visual examples to help develop the readers understanding. In addition to exploring the core concepts of genetic algorithms, this post places a strong emphasis on the adoption of good object-oriented programming (OOP) practices. Good code promotes clearer thinking, enabling the user to focus on the problem at hand.
 
-Genetic algorithms are heuristic optimisation technique that mimic the process of natural selection. Beginning with a population of candidate solutions (or individuals), from which the best solutions (fittest individuals) are selected for reproduction (survival of the fittest). The fittest individuals produce offspring that form a new population (generation). The fittest individuals in each new generation are selected for breeding, and the process is repeated over many generations, leading to the emergence of increasingly optimal solutions.
+Genetic algorithms are a class of heuristic optimisation techniques that mimic the process of natural selection. Beginning with a population of candidate solutions (or individuals), from which the best solutions (fittest individuals) are selected for reproduction (survival of the fittest). The fittest individuals produce offspring that form a new population (generation). The fittest individuals in each new generation are selected for breeding, and the process is repeated over many generations, leading to the emergence of increasingly optimal solutions.
 
 All the code and examples are available in the following repo: [pyga](https://github.com/mark-hobbs/pyga/)
 

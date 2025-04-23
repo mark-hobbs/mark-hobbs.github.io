@@ -117,6 +117,8 @@ It is now possible to serve the microservice locally by simply running `python r
 curl -X POST http://server-address/predict -F "file=@input.csv"
 ```
 
+The prediction result is returned in a JSON format...
+
 To take the microservice from running locally to production-ready deployment...
 
 ## Deployment

@@ -69,7 +69,7 @@ from flask import jsonify
 from .model import Model
 
 model = Model()
-model.load(os.path.join("model", "pretrained.npz"))
+model.load(os.path.join("service", "pretrained.npz"))
 
 
 def predict(input):

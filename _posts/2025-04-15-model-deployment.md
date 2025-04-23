@@ -156,7 +156,9 @@ For models that take a long time to run, serving prediction directly from the Fl
 
 Supporting synchronous and/or asynchronous workflows
 
-### Cloud-native parallelism (Kubernetes + Horizontal Pod Autoscaling)
+### Cloud-native parallelism (horizontal cloud bursting)
+
+Kubernetes + Horizontal Pod Autoscaling
 
 For trivially parallel tasks, such as... genetic algorithm... take advantage of scalable cloud infrastructure.
 

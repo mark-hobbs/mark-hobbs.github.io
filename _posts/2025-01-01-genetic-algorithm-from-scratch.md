@@ -204,6 +204,14 @@ This design allows new strategies to be added as modular components, making the 
 | **Boundary Mutation**          | A gene is set to either its minimum or maximum allowed value. | Continuous |
 | **Adaptive Mutation**          | Mutation rate adjusts dynamically based on evolution progress. | Continuous |
 
+## Packaging
+
+By separating reusable functionality from application specific logic and packaging...
+
+... tightly coupled solutions into modular building blocks that can be installed, shared and maintained independently. 
+
+When core components (like optimisation methods) are properly abstracted and packaged, they become valuable assets across multiple projects rather than remaining trapped in single-use implementations. This separation enhances code quality, promotes reusability and enables collaborative development.
+
 ## Problems
 
 We address two classes of optimisation problem; (1) a permutation based problem, and (2) a continuous problem. 
@@ -239,13 +247,6 @@ ga.evolve()
 
 ![](/assets/images/ga-3.gif)
 
-## Packaging
-
-By separating reusable functionality from application specific logic and packaging...
-
-... tightly coupled solutions into modular building blocks that can be installed, shared and maintained independently. 
-
-When core components (like optimisation methods) are properly abstracted and packaged, they become valuable assets across multiple projects rather than remaining trapped in single-use implementations. This separation enhances code quality, promotes reusability and enables collaborative development.
 
 ## Conclusions
 

@@ -16,15 +16,15 @@ All the code and examples are available in the following repo: [pyga](https://gi
 
 ## Implementation
 
-By implementing a genetic algorithm with clean OOP design, we can create a flexible and reusable framework that separates concerns and makes the genetic algorithm adaptable to various optimisation problems without having to rewrite the core evolutionary logic.
+By implementing a genetic algorithm with a clean object-oriented design, we can create a flexible and reusable framework that separates concerns and is adaptable to various optimisation problems without having to rewrite the core evolutionary logic.
 
 A genetic algorithm can be broadly decomposed into the following logical units:
 
-- `GeneticAlgorithm`: A class to control the evolutionary process.
-- `Population`: The population class represents a generation of individuals...
-- `Individual`: Represents a candidate solution and encapsulates its genetic representation and fitness evaluation.
-- Crossover methods `crossover(individual, partner)`: A function that... create new offspring.
-- Mutation methods `mutate(individual)`: A function...
+- `GeneticAlgorithm`: A class that controls the evolutionary process.
+- `Population`: A class that represents a generation of individuals.
+- `Individual`: A class that represents a candidate solution and encapsulates its genetic representation and fitness evaluation.
+- `crossover(individual, partner)`: A function that combines the genes of two individuals to produce new offspring.
+- `mutate(individual)`: A function that randomly mutates the gene of an individual in order to maintain diversity in the gene pool.
 
 We provide a high-level overview of the implemented classes, focussing on their design and interactions. For the sake of simplicity, the code used to generate the animations and figures is omitted but can be found in the [repo](https://github.com/mark-hobbs/pyga/).
 

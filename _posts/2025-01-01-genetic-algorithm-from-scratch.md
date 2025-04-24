@@ -30,7 +30,7 @@ We provide a high-level overview of the implemented classes, focussing on their 
 
 ### `GeneticAlgorithm`
 
-The `GeneticAlgorithm` class controls the evolutionary process. The user can select the number of generations and number of parents used for generating offspring.
+The `GeneticAlgorithm` class controls the evolutionary process. The user can select the number of generations and number of parents used for generating offspring. There is only a single public method... `evolve`
 
 ```python
 class GeneticAlgorithm:

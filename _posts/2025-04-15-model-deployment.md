@@ -22,6 +22,8 @@ Docker... Gunicorn... Flask... Celery... UV...
 
 ### File structure
 
+The service adopts a modular design that cleanly separates concerns and enhances maintainability. 
+
 ```bash
 service/
 ├── app.py             # Flask app setup and routing
@@ -32,9 +34,26 @@ service/
 run.py                 # Entry point
 ```
 
-### Model
+### `app.py`
 
-`model.py`
+This file sets up the Flask application and defines the API routes. It acts as the interface between the user and the internal logic, forwarding requests to the appropriate service functions.
+
+```python
+from flask import request, jsonify
+
+
+from .services import predict
+
+app = Flask(__name__)
+
+@app.route("/predict", methods=["POST"])
+def predict():
+    return predict(input)
+```
+
+### `model.py`
+
+Responsible for loading and managing the model. By isolating model-related operations here, the service keeps model logic separate from routing and processing concerns.
 
 ```python
 class Model:
@@ -57,9 +76,9 @@ class Model:
         return NotImplementedError
 ```
 
-### Services
+### `services.py`
 
-Core logic: inference, validation
+Contains the core business logic or processing functions. This decouples the application logic from the API layer, making the system more testable and easier to extend.
 
 ```python
 import os
@@ -89,25 +108,17 @@ def predict(input):
         return jsonify({"error": str(e)}), 500
 ```
 
-### Routes
+### `utils.py`
 
-Define the API endpoints.
+Hosts helper functions used across the service, such as file handling or data preprocessing. This avoids duplication and keeps utility logic out of the main service code.
 
-```python
-from flask import request, jsonify
+### `pretrained.npz`
 
+Pre-trained model weights... The model weights are loaded by `model.py` and used to initialise the model on startup.
 
-from .services import predict
+### `run.py`
 
-app = Flask(__name__)
-
-@app.route("/predict", methods=["POST"])
-def predict():
-    return predict(input)
-```
-
-### Pretrained weights
-
+The main entry point to the application, typically used to start the Flask server. Keeping this separate allows for easy deployment and testing.
 
 ### Running locally
 

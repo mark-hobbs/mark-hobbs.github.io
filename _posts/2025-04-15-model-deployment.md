@@ -33,7 +33,7 @@ run.py                 # Entry point
 
 ### `app.py`
 
-This module sets up the Flask application and defines the API endpoints. It serves as the interface between the user and the underlying logic, routing incoming requests to the appropriate service functions.
+This module sets up the Flask application and defines the API endpoints. It serves as the interface between the user and the underlying logic, routing incoming requests to the appropriate service functions. While this example demonstrates a single endpoint, `/predict`, other endpoints, such as `/train`, can easily be added to expand the functionality of the application.
 
 ```python
 from flask import Flask, request

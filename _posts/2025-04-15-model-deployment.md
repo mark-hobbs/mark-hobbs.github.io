@@ -36,7 +36,7 @@ run.py                 # Entry point
 This module sets up the Flask application and defines the API endpoints. It serves as the interface between the user and the underlying logic, routing incoming requests to the appropriate service functions.
 
 ```python
-from flask import Flask
+from flask import Flask, request
 
 import services
 
@@ -47,6 +47,7 @@ def predict():
     """
     Handle prediction requests via POST and return the result as JSON
     """
+    input = request.get_json()
     return services.predict(input)
 ```
 

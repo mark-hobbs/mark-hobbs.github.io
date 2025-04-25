@@ -17,7 +17,7 @@ We will detail the process of exposing predictions using a pre-trained model. Th
 
 We refer to the framework that delivers this model functionality as a *service* (or *microservice*). While definitions of microservices vary, the core idea remains simple: a service provides a well-defined capability that accepts input and returns output - cleanly and reliably.
 
-### File structure
+### Service structure
 
 The service adopts a modular design that cleanly separates concerns and enhances maintainability. 
 
@@ -33,19 +33,21 @@ run.py                 # Entry point
 
 ### `app.py`
 
-This file sets up the Flask application and defines the API routes. It acts as the interface between the user and the internal logic, forwarding requests to the appropriate service functions.
+This module sets up the Flask application and defines the API endpoints. It serves as the interface between the user and the underlying logic, routing incoming requests to the appropriate service functions.
 
 ```python
 from flask import request, jsonify
 
-
-from .services import predict
+import services
 
 app = Flask(__name__)
 
 @app.route("/predict", methods=["POST"])
 def predict():
-    return predict(input)
+    """
+    Handle prediction requests via POST and return the result as JSON
+    """
+    return services.predict(input)
 ```
 
 ### `model.py`

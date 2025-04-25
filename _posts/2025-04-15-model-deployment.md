@@ -47,7 +47,7 @@ def predict():
     """
     Handle prediction requests via POST and return the result as JSON
     """
-    input = request.get_json()
+    input = request.values
     return services.predict(input)
 ```
 

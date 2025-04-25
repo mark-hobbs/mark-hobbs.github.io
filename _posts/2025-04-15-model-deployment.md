@@ -36,7 +36,7 @@ run.py                 # Entry point
 This module sets up the Flask application and defines the API endpoints. It serves as the interface between the user and the underlying logic, routing incoming requests to the appropriate service functions.
 
 ```python
-from flask import request, jsonify
+from flask import Flask
 
 import services
 

@@ -47,33 +47,7 @@ def predict():
     """
     Handle prediction requests via POST and return the result as JSON
     """
-    input = request.values
-    return services.predict(input)
-```
-
-### `model.py`
-
-Responsible for loading and managing the model. By isolating model-related operations here, the service keeps model logic separate from routing and processing concerns.
-
-```python
-class Model:
-
-    def __init__(self, features, targets):
-        self.features = features
-        self.targets = targets
-        self.trained = False
-
-    def train(self):
-        return NotImplementedError
-
-    def predict(self):
-        return NotImplementedError
-
-    def save(self):
-        return NotImplementedError
-
-    def load(self):
-        return NotImplementedError
+    return services.predict(request.values)
 ```
 
 ### `services.py`
@@ -102,10 +76,39 @@ def predict(input):
         - JSON response
     """
     try:
-        prediction = model.predict(input)
-        return jsonify({"prediction": prediction})
+        return jsonify({"prediction": model.predict(input)})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+```
+
+### `model.py`
+
+A generic model class that abstracts the complexity of the numerical or machine learning model...
+
+This example is intended to be very generic and attributes and methods of the `Model` class will be problem dependent.
+
+One would expect the model class to have a predict (`model.predict()`) or run (`model.run()`) method.
+
+
+```python
+class Model:
+
+    def __init__(self, features, targets):
+        self.features = features
+        self.targets = targets
+        self.trained = False
+
+    def train(self):
+        return NotImplementedError
+
+    def predict(self):
+        return NotImplementedError
+
+    def save(self):
+        return NotImplementedError
+
+    def load(self):
+        return NotImplementedError
 ```
 
 ### `utils.py`

@@ -52,7 +52,9 @@ def predict():
 
 ### `services.py`
 
-Contains the core business logic or processing functions. This decouples the application logic from the API layer, making the system more testable and easier to extend.
+Contains the core business logic or processing functions. This decouples the application logic from the API layer, making the system more testable and easier to extend. 
+
+Custom functionality will be likely be required to convert the input data (`request.{}`) into a suitable format. The input could be anything, for example, a single input parameter... 3D mesh file...
 
 ```python
 import os

@@ -87,7 +87,7 @@ def predict(input):
 
 A generic model class that abstracts the complexity of the numerical or machine learning model...
 
-This example is intended to be very generic and attributes and methods of the `Model` class will be problem dependent.
+This example is intended to be general and attributes and methods of the `Model` class will be problem dependent.
 
 One would expect the model class to have a predict (`model.predict()`) or run (`model.run()`) method.
 

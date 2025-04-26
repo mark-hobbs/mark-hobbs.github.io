@@ -125,6 +125,14 @@ Pre-trained model weights... The model weights are loaded by `model.py` and used
 
 The main entry point to the application, typically used to start the Flask server. Keeping this separate allows for easy deployment and testing.
 
+```python
+from service.app import app
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5001, debug=True, threaded=True)
+```
+
 ### Running locally
 
 It is now possible to serve the microservice locally by simply running `python run.py`. The user can test the application: 

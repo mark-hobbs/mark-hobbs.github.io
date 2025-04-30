@@ -17,7 +17,7 @@ We will detail the process of exposing predictions using a pre-trained model. Th
 
 We refer to the framework that delivers this model functionality as a *service* (or *microservice*). While definitions of microservices vary, the core idea remains simple: a service provides a well-defined capability that accepts input and returns output - cleanly and reliably.
 
-### Service structure
+### Building a service
 
 The service adopts a modular design that cleanly separates concerns and enhances maintainability. 
 

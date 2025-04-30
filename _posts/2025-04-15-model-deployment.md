@@ -54,7 +54,7 @@ def predict():
 
 The `services` module contains the core business logic or processing functions. This decouples the application logic from the API layer, making the system more testable and easier to extend. 
 
-Custom functionality will likely be required to convert the input data - whether passed as query parameters, uploaded files, or JSON bodies — into a suitable format. Inputs might range from a single parameter to a large 3D mesh. This is where `services.py` acts as the bridge between raw requests and meaningful model inputs.
+Custom functionality will likely be required to convert the input data - whether passed as query parameters, uploaded files, or JSON bodies - into a suitable format. Inputs might range from a single parameter to a large 3D mesh. This is where `services.py` acts as the bridge between raw requests and meaningful model inputs.
 
 ```python
 import os

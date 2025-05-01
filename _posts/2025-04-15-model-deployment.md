@@ -17,7 +17,13 @@ We will detail the process of exposing predictions using a pre-trained model. Th
 
 We refer to the framework that delivers this model functionality as a *service* (or *microservice*). While definitions of microservices vary, the core idea remains simple: a service provides a well-defined capability that accepts input and returns output - cleanly and reliably.
 
-### Building a service
+## Service
+
+### Functionality
+
+Deliver predictions for a standard regression task: estimate the target value $Y$ based on four input features $(X_1, X_2, X_3, X_4)$. The model has been pre-trained on a large dataset and is capable of making near-instant predictions.
+
+### Design
 
 The service adopts a modular design that cleanly separates concerns and enhances maintainability. 
 

@@ -96,29 +96,67 @@ A generic `Model` base class that abstracts the complexity of the numerical or m
 This class is intentionally minimal and problem-agnostic. While not all models will require methods like `train` or `save`, these are included as common entry points to encourage consistency across different implementations. Subclasses should override only the methods relevant to their use case.
 
 ```python
-class Model:
+from abc import ABC, abstractmethod
 
-    def __init__(self, features=None, targets=None):
-        self.features = features
-        self.targets = targets
+
+class Model(ABC):
+    """
+    Abstract base class for all models
+    """
+
+    def __init__(self):
         self.trained = False
 
-    def predict(self):
-        return NotImplementedError("predict() is not implemented")
+    @abstractmethod
+    def predict(self, X):
+        pass
 
-    def train(self):
-        return NotImplementedError("train() is not implemented")
+    def fit(self, X, y):
+        raise NotImplementedError("This model type does not support training")
 
     def save(self):
-        return NotImplementedError("save() is not implemented")
+        raise NotImplementedError("This model type does not support saving")
 
     def load(self):
-        return NotImplementedError("load() is not implemented")
+        raise NotImplementedError("This model type does not support loading")
+
+
+import GPy
+import pickle
+
+
+class GPR(Model):
+    """
+    Gaussian Process Regression
+    """
+
+    def __init__(self, input_dim, kernel=None):
+        super().__init__()
+        self.kernel = kernel or GPy.kern.RBF(input_dim=input_dim)
+        self.model = None
+
+    def predict(self, X):
+        return self.model.predict(X)
+
+    def load(self, file):
+        with open(file, "rb") as f:
+            self.model = pickle.load(f)
+            self.trained = True
 ```
 
 ### `utils.py`
 
 Hosts helper functions used across the service, such as file handling and data preprocessing. This avoids duplication and keeps general utilities and tools out of the main service code.
+
+```python
+def json_to_ndarray(data):
+    """
+    Convert JSON data to a NumPy array.
+    """
+    import numpy as np
+
+    return np.array([[data["x1"], data["x2"], data["x3"], data["x4"]]])
+```
 
 ### `pretrained.npz`
 

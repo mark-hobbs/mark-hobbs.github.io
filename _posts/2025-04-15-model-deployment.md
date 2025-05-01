@@ -7,11 +7,11 @@ draft: True
 
 This post explores the deployment of numerical and machine learning models in the cloud using Flask. By deploying models in the cloud and exposing their functionality via APIs, installation barriers are eliminated thus enabling broader adoption. The benefits of deploying models in the cloud include:
 
-- Users can utilise sophisticated models without local software installation
-- Computational resources can be scaled on demand
-- Models and services can be easily connected together to form automated workflows
-- Cross-platform compatibility
-- Updates and improvements can be rolled out centrally
+- **No local setup required:** Users can access complex models via a simple HTTP request, with no need to install dependencies or configure environments.
+- **Seamless integration:** Easily connect models with other services to build automated workflows.
+- **Cross-platform accessibility:** APIs work consistently across devices and operating systems.
+- **Elastic scalability:** Cloud infrastructure allows computational resources to be scaled up or down based on demand.
+- **Centralised updates:** Models can be improved or retrained, and changes take effect immediately for all users without requiring reinstallation.
 
 We will detail the process of exposing predictions using a pre-trained model. This is relatively computationally cheap but due to the computationally expensive nature of many models, we must think more carefully about handling long running requests. In most use cases a frontend will not be required, as the primary goal is to create an accessible API endpoint.
 
@@ -148,6 +148,8 @@ The server returns the prediction results in a JSON format.
 ## Deploying in a production environment
 
 To take the microservice from running locally to production-ready deployment...
+
+... expose the service to allow users to call the `/predict` endpoint.
 
 - Cloud platforms (AWS, Google Cloud, Azure)
 - Container services (Docker, Kubernetes)

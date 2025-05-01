@@ -30,7 +30,7 @@ The service adopts a modular design that cleanly separates concerns and enhances
 ```bash
 service/
 ├── app.py             # Flask app setup and routing
-├── model.py           # Load and manage the model
+├── model.py           # Model class
 ├── services.py        # Logic or processing services (decouple from app.py)
 ├── utils.py           # Helper functions: e.g. file handling
 ├── pretrained.npz     # Model weights

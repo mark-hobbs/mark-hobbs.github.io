@@ -112,11 +112,11 @@ class Model:
 
 ### `utils.py`
 
-Hosts helper functions used across the service, such as file handling or data preprocessing. This avoids duplication and keeps utility logic out of the main service code.
+Hosts helper functions used across the service, such as file handling and data preprocessing. This avoids duplication and keeps general utilities and tools out of the main service code.
 
 ### `pretrained.npz`
 
-Pre-trained model weights... The model weights are loaded by `model.py` and used to initialise the model on startup.
+Contains pre-trained model weights that are loaded by the `Model` instance during initialisation. This enables the service to make predictions without requiring re-training on startup.
 
 ### `run.py`
 
@@ -132,16 +132,22 @@ if __name__ == "__main__":
 
 ### Running locally
 
-It is now possible to serve the microservice locally by simply running `python run.py`. The user can test the application: 
+To run the microservice locally, execute:
+
+```bash
+python run.py
+``` 
+
+You can then test the application by sending a request to the `/predict` endpoint: 
 
 ```bash
 curl -X POST http://localhost:5001/predict -F "file=@input.csv"
 ```
-The prediction result is returned in a JSON format...
+The server returns the prediction results in a JSON format.
+
+## Deploying in a production environment
 
 To take the microservice from running locally to production-ready deployment...
-
-## Deployment
 
 - Cloud platforms (AWS, Google Cloud, Azure)
 - Container services (Docker, Kubernetes)

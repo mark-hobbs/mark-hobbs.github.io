@@ -53,7 +53,7 @@ def predict():
     """
     Handle prediction requests via POST and return the result as JSON
     """
-    return services.predict(request.values)
+    return services.predict(request.json)
 ```
 
 ### `services.py`

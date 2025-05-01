@@ -44,9 +44,10 @@ The `app` module sets up the Flask application and defines the API endpoints. It
 ```python
 from flask import Flask, request
 
-import services
+from . import services
 
 app = Flask(__name__)
+
 
 @app.route("/predict", methods=["POST"])
 def predict():

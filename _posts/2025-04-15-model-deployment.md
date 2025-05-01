@@ -129,7 +129,7 @@ import pickle
 
 class GPR(Model):
     """
-    Gaussian Process Regression
+    Pre-trained Gaussian Process Regression model
     """
 
     def __init__(self, input_dim, kernel=None):

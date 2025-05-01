@@ -25,7 +25,7 @@ Deliver predictions for a standard regression task: estimate the target value $Y
 
 ### Design
 
-The service adopts a modular design that cleanly separates concerns and enhances maintainability. 
+The service adopts a modular design that cleanly separates concerns and enhances maintainability. All the code can be found [here](https://github.com/mark-hobbs/articles/tree/main/model-deployment).
 
 ```bash
 service/
@@ -187,9 +187,28 @@ python run.py
 You can then test the application by sending a request to the `/predict` endpoint: 
 
 ```bash
-curl -X POST http://localhost:5001/predict -F "file=@input.csv"
+curl -X POST http://localhost:5001/predict  -H "Content-Type: application/json" -d @input.json
 ```
+
+Where the input file is structured as follows:
+
+```json
+{
+    "x1": 0.51,
+    "x2": 0.76,
+    "x3": 0.94,
+    "x4": 0.72
+  }
+```
+
 The server returns the prediction results in a JSON format.
+
+```json
+{
+  "mean": -0.4507921664044261,
+  "variance": 2.2272495243669255e-06
+}
+```
 
 ## Deploying in a production environment
 

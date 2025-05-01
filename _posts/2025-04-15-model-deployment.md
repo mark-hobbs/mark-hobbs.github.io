@@ -85,32 +85,29 @@ def predict(input):
 
 ### `model.py`
 
-A generic model class that abstracts the complexity of the numerical or machine learning model...
+A generic `Model` base class that abstracts the complexity of the numerical or machine learning model behind a consistent interface. 
 
-This example is intended to be general and attributes and methods of the `Model` class will be problem dependent.
-
-One would expect the model class to have a predict (`model.predict()`) or run (`model.run()`) method.
-
+This class is intentionally minimal and problem-agnostic. While not all models will require methods like `train` or `save`, these are included as common entry points to encourage consistency across different implementations. Subclasses should override only the methods relevant to their use case.
 
 ```python
 class Model:
 
-    def __init__(self, features, targets):
+    def __init__(self, features=None, targets=None):
         self.features = features
         self.targets = targets
         self.trained = False
 
-    def train(self):
-        return NotImplementedError
-
     def predict(self):
-        return NotImplementedError
+        return NotImplementedError("predict() is not implemented")
+
+    def train(self):
+        return NotImplementedError("train() is not implemented")
 
     def save(self):
-        return NotImplementedError
+        return NotImplementedError("save() is not implemented")
 
     def load(self):
-        return NotImplementedError
+        return NotImplementedError("load() is not implemented")
 ```
 
 ### `utils.py`

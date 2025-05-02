@@ -2,7 +2,7 @@
 layout: post
 author: Mark Hobbs
 title: Deploying models using Flask
-draft: True
+draft: False
 ---
 
 This post explores the deployment of numerical and machine learning models in the cloud using Flask. By deploying models in the cloud and exposing their functionality via APIs, installation barriers are eliminated thus enabling broader adoption. The benefits of deploying models in the cloud include:

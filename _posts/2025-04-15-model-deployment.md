@@ -223,7 +223,7 @@ While the service now runs locally, making it available to others requires deplo
 - Containerise the service using Docker to encapsulate the environment and dependencies
 - Serve the application using a production-grade WSGI server such as Gunicorn
 - Deploy the container to a scalable cloud platform (e.g. AWS, Azure, GCP or a Kubernetes cluster)
-- Expose the service via a stable endpoint (e.g. https://example.com/model/predict)
+- Expose the service via a stable endpoint (e.g. `https://example.com/model/predict`)
 
 A key advantage of deploying in the cloud is the ability to scale automatically in both directions - vertically, by allocating more powerful compute resources, and horizontally, by adding multiple independent instances that can run concurrently. This makes a cloud-based approach particularly well-suited to handling embarrassingly parallel workloads, such as those encountered in design of experiments or population-based optimisation methods, where many independent model evaluations can be run simultaneously with minimal overhead.
 

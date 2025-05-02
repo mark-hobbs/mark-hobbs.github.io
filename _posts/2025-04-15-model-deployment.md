@@ -268,6 +268,4 @@ Kubernetes... Horizontal Pod Autoscaling. Horizontal scaling means that the resp
 
 ## Summary
 
-By following the above practices, it is possible to create robust cloud-based APIs for numerical and machine learning models, making them accessible to users without the traditional barriers to adoption.
-
-Although this post focuses on a lightweight regression model, the architecture is extensible to more complex or resource-intensive models with appropriate design considerations (e.g., asynchronous processing, queuing, or job scheduling).
+By following the above practices, it is possible to create robust cloud-based APIs for numerical and machine learning models, making them accessible to users without the traditional barriers to adoption.  While this post uses a simple regression model for illustration, the architecture can easily scale to more complex or compute-intensive models with features like asynchronous processing, job queues, and scheduling. This approach also enables seamless integration between models, paving the way for fully automated end-to-end workflows.

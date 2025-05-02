@@ -218,41 +218,20 @@ The server returns the prediction results in a JSON format.
 
 ## Deploying in a production environment
 
-To take the microservice from running locally to production-ready deployment...
+While the service now runs locally, making it available to others requires deployment to a production environment. Thanks to containerisation tools like [Docker](https://www.docker.com/) and modern cloud platforms, this process is now straightforward. It is not the purpose of this article to explain this process in detail but the typical steps are as follows:
 
-... expose the service to allow users to call the `/predict` endpoint.
+- Containerise the service using Docker to encapsulate the environment and dependencies
+- Serve the application using a production-grade WSGI server such as Gunicorn
+- Deploy the container to a scalable cloud platform (e.g. AWS, Azure, GCP or a Kubernetes cluster)
+- Expose the service via a stable endpoint (e.g. https://example.com/model/predict)
 
-- Cloud platforms (AWS, Google Cloud, Azure)
-- Container services (Docker, Kubernetes)
+A key advantage of deploying in the cloud is the ability to scale automatically in both directions - vertically, by allocating more powerful compute resources, and horizontally, by adding multiple independent instances that can run concurrently. This makes a cloud-based approach particularly well-suited to handling embarrassingly parallel workloads, such as those encountered in design of experiments or population-based optimisation methods, where many independent model evaluations can be run simultaneously with minimal overhead.
 
-### Docker
+## Summary
 
-```docker
-FROM python:3.11-slim
+By following the above practices, it is possible to create robust cloud-based APIs for numerical and machine learning models, making them accessible to users without the traditional barriers to adoption.  While this post uses a simple regression model for illustration, the architecture can easily scale to more complex or compute-intensive models with features like asynchronous processing, job queues and scheduling. This approach also enables seamless integration between models, paving the way for fully automated end-to-end workflows.
 
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-
-# Set workdir
-WORKDIR /app
-
-# Copy and install dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the rest of the code
-COPY . .
-
-# Command to run the app using gunicorn
-CMD ["gunicorn", "service.app:app", "--bind", "0.0.0.0:5000", "--workers=2"]
-```
-
-### Gunicorn configuration
-
-Compute resources to use for online prediction
-
-### Creating task queues
+<!-- ### Creating task queues
 
 For models that take a long time to run, serving prediction directly from the Flask route can block the web server.
 
@@ -264,8 +243,4 @@ Kubernetes + Horizontal Pod Autoscaling
 
 For trivially parallel tasks, such as... genetic algorithm... take advantage of scalable cloud infrastructure.
 
-Kubernetes... Horizontal Pod Autoscaling. Horizontal scaling means that the response is to deploy more Pods. This is different from *vertical* scaling, which for Kubernetes would mean assigning more resources (for example: memory or CPU) to the Pods that are already running for the workload.
-
-## Summary
-
-By following the above practices, it is possible to create robust cloud-based APIs for numerical and machine learning models, making them accessible to users without the traditional barriers to adoption.  While this post uses a simple regression model for illustration, the architecture can easily scale to more complex or compute-intensive models with features like asynchronous processing, job queues and scheduling. This approach also enables seamless integration between models, paving the way for fully automated end-to-end workflows.
+Kubernetes... Horizontal Pod Autoscaling. Horizontal scaling means that the response is to deploy more Pods. This is different from *vertical* scaling, which for Kubernetes would mean assigning more resources (for example: memory or CPU) to the Pods that are already running for the workload. -->

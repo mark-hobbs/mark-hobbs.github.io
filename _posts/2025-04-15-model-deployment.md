@@ -17,11 +17,11 @@ We will detail the process of exposing predictions using a pre-trained model. Th
 
 We refer to the framework that delivers this model functionality as a *service* (or *microservice*). While definitions of microservices vary, the core idea remains simple: a service provides a well-defined capability that accepts input and returns output - cleanly and reliably.
 
-## Service
+## Building the service
 
 ### Functionality
 
-Deliver predictions for a standard regression task: estimate the target value $Y$ based on four input features $(X_1, X_2, X_3, X_4)$. The model has been pre-trained on a large dataset and is capable of making near-instant predictions.
+The service exposes a pre-trained regression model that predicts the value of a continuous target variable $Y$ from four input features $(X_1, X_2, X_3, X_4)$. Once deployed, the model can be accessed via a lightweight API call, returning predictions in real time with minimal computational overhead.
 
 ### Design
 
@@ -264,3 +264,5 @@ Kubernetes... Horizontal Pod Autoscaling. Horizontal scaling means that the resp
 ## Summary
 
 By following the above practices, it is possible to create robust cloud-based APIs for numerical and machine learning models, making them accessible to users without the traditional barriers to adoption.
+
+Although this post focuses on a lightweight regression model, the architecture is extensible to more complex or resource-intensive models with appropriate design considerations (e.g., asynchronous processing, queuing, or job scheduling).

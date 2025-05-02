@@ -29,12 +29,12 @@ The service adopts a modular design that cleanly separates concerns and enhances
 
 ```bash
 service/
-├── app.py             # Flask app setup and routing
-├── model.py           # Model class
-├── services.py        # Logic or processing services (decouple from app.py)
-├── utils.py           # Helper functions: e.g. file handling
-├── pretrained.npz     # Model weights
-run.py                 # Entry point
+├── app.py
+├── model.py
+├── services.py
+├── utils.py
+├── pretrained-model.pkl
+run.py
 ```
 
 ### `app.py`
@@ -97,6 +97,8 @@ def predict(input):
 A generic `Model` base class that abstracts the complexity of the numerical or machine learning model behind a consistent interface. 
 
 This class is intentionally minimal and problem-agnostic. While not all models will require methods like `train` or `save`, these are included as common entry points to encourage consistency across different implementations. Subclasses should override only the methods relevant to their use case.
+
+The `GPR` class is a specific implementation of the `Model` interface for Gaussian Process Regression (GPR) using the `GPy` library. It assumes that the model has been pre-trained and saved to disk. The load method deserialises a trained `GPRegression` instance, while `predict` provides access to its prediction functionality. This class does not support training or saving, as model fitting occurs offline.
 
 ```python
 from abc import ABC, abstractmethod
@@ -164,9 +166,9 @@ def json_to_ndarray(data):
     return np.array([[data["x1"], data["x2"], data["x3"], data["x4"]]])
 ```
 
-### `pretrained.npz`
+### `pretrained-model.pkl`
 
-Contains pre-trained model weights that are loaded by the `Model` instance during initialisation. This enables the service to make predictions without requiring re-training on startup.
+Contains pre-trained model weights that are loaded by the `Model` instance during initialisation. In this case, the training process occurs offline, and the trained model is serialised to disk. This approach enables the service to make predictions immediately at startup without requiring re-training, and ensures that potentially sensitive training data remains separate.
 
 ### `run.py`
 

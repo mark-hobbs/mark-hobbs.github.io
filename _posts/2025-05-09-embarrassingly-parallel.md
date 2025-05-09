@@ -13,6 +13,7 @@ from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 
 class ModelManager:
+
     def __init__(self, image_name: str, n_workers: int = 4, base_io_dir: str = "/tmp/model_manager_io"):
         self.image_name = image_name
         self.n_workers = n_workers
@@ -23,7 +24,9 @@ class ModelManager:
         self.base_io_dir.mkdir(parents=True, exist_ok=True)
 
     def _run_container_with_io(self, input_data: str, index: int):
-        """Runs one container with isolated input and output."""
+        """
+        Runs one container with isolated input and output
+        """
         job_id = f"job_{index}_{uuid.uuid4().hex[:6]}"
         job_dir = self.base_io_dir / job_id
         input_file = job_dir / "input.txt"
@@ -42,7 +45,9 @@ class ModelManager:
         return container, job_dir
 
     def run_parallel(self, input_list: list[str]):
-        """Run containers with per-instance input in parallel."""
+        """
+        Run containers with per-instance input in parallel
+        """
         if len(input_list) > self.n_workers:
             raise ValueError("More input sets than available workers")
 
@@ -55,7 +60,9 @@ class ModelManager:
             self.containers, self.job_dirs = zip(*results)
 
     def collect_outputs(self):
-        """Collect outputs from the finished containers."""
+        """
+        Collect outputs from the finished containers
+        """
         outputs = []
         for container, job_dir in zip(self.containers, self.job_dirs):
             container.wait()

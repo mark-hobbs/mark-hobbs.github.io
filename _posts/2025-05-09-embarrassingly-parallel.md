@@ -105,3 +105,68 @@ for i, output in enumerate(results):
     print(f"Output from worker {i}:\n{output}")
 ```
 
+## `ModelManager` with dynamic container creation
+
+```python
+import os
+import uuid
+import docker
+from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+class ModelManager:
+    def __init__(self, image_name: str, max_parallel: int = None, base_io_dir: str = "/tmp/model_manager_io"):
+        self.image_name = image_name
+        self.client = docker.from_env()
+        self.max_parallel = max_parallel or os.cpu_count()
+        self.base_io_dir = Path(base_io_dir)
+        self.base_io_dir.mkdir(parents=True, exist_ok=True)
+
+    def _run_task(self, task_id: int, input_data: str):
+        job_id = f"job_{task_id}_{uuid.uuid4().hex[:6]}"
+        job_dir = self.base_io_dir / job_id
+        input_file = job_dir / "input.txt"
+        output_file = job_dir / "output.txt"
+
+        job_dir.mkdir(parents=True, exist_ok=True)
+        input_file.write_text(input_data)
+
+        container = self.client.containers.run(
+            self.image_name,
+            command=f"python run_model.py /data/input.txt /data/output.txt",
+            volumes={str(job_dir): {'bind': '/data', 'mode': 'rw'}},
+            detach=True,
+            auto_remove=True
+        )
+
+        container.wait()
+        result = output_file.read_text() if output_file.exists() else None
+        return task_id, result
+
+    def run_tasks(self, input_list: list[str]) -> list[str]:
+        outputs = [None] * len(input_list)
+
+        with ThreadPoolExecutor(max_workers=self.max_parallel) as executor:
+            futures = {
+                executor.submit(self._run_task, i, data): i
+                for i, data in enumerate(input_list)
+            }
+
+            for future in as_completed(futures):
+                task_id, result = future.result()
+                outputs[task_id] = result
+
+        return outputs
+```
+
+**Example usage**
+
+```python
+inputs = [f"param1={i}\nparam2={i*2}" for i in range(10)]
+manager = ModelManager("my_model_image", max_parallel=5)
+
+results = manager.run_tasks(inputs)
+
+for i, out in enumerate(results):
+    print(f"[Task {i}] Output: {out}")
+```

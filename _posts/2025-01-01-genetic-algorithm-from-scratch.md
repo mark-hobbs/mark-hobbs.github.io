@@ -206,11 +206,15 @@ This design allows new strategies to be added as modular components, making the 
 
 ## Packaging
 
+By packaging the code... distributing reusable code...
+
 By separating reusable functionality from application specific logic and packaging...
 
 ... tightly coupled solutions into modular building blocks that can be installed, shared and maintained independently. 
 
 When core components (like optimisation methods) are properly abstracted and packaged, they become valuable assets across multiple projects rather than remaining trapped in single-use implementations. This separation enhances code quality, promotes reusability and enables collaborative development.
+
+The `pyga` package can be installed locally using the following command `pip install git+https://github.com/mark-hobbs/pyga.git`.
 
 ## Problems
 

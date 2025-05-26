@@ -206,7 +206,9 @@ This design allows new strategies to be added as modular components, making the 
 
 ## Packaging
 
-By packaging the code... distributing reusable code...
+By packaging the code, it can be easily shared, installed and used by others. Many engineers and researchers conflate general-purpose components such as solvers or optimisers with specific applications, resulting in tightly coupled code that is difficult to reuse or extend.
+
+Distributing reusable code...
 
 By separating reusable functionality from application specific logic and packaging...
 

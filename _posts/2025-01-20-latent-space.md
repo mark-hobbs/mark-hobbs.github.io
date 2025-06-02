@@ -14,6 +14,8 @@ This post introduces the concept of a latent space and highlights its utility in
 - By shifting optimisation to the latent space, as opposed to optimising the high-dimensional design representation, optimal designs can be identified much more efficiently.
 - Parametrising the design problem is perhaps the most challenging problem...
 
+[mark-hobbs/vae](https://github.com/mark-hobbs/vae/tree/main)
+
 ## Motivation
 
 Two major factors that limit our ability to do engineering better are: (1) the computational expense of numerical simulations, and (2) our ability to concisely quantify how different shapes (or designs) are related (our ability to smoothly interpolate between different designs).
@@ -239,7 +241,6 @@ Each shape is represented by 100 ordered $(x, y)$ coordinate pairs, resulting in
 ![](/assets/images/latent-space-visualisation.gif)
 
 ![](/assets/images/latent-space-points.gif)
-
 
 ## Generative modelling
 

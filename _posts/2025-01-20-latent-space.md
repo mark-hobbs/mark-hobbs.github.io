@@ -228,6 +228,17 @@ def loss_function(self, reconstructed_x, x, mean, logvar, beta=1.0):
     return mse + beta * kl_divergence
 ```
 
+```python
+def reconstruction_loss():
+    return nn.functional.mse_loss(reconstructed_x, x, reduction="sum")
+
+def similarity_loss():
+    return -0.5 * torch.sum(1 + logvar - mean.pow(2) - logvar.exp())
+
+def loss():
+    return reconstruction_loss() + similarity_loss()
+```
+
 ## Visualising the latent space
 
 Each shape is represented by 100 ordered $(x, y)$ coordinate pairs, resulting in a 200-dimensional vector. The objective is to learn a low-dimensional latent space with only 2 dimensions that captures the core geometric features of each shape. 

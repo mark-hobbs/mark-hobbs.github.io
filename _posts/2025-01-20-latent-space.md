@@ -188,8 +188,19 @@ def decode(self, z):
 
 ### Loss function
 
+| Loss Term | When to use                           | Assumes                          |
+| --------- | ------------------------------------- | -------------------------------- |
+| **BCE**   | Binary or \[0,1] normalised inputs    | Bernoulli pixels                 |
+| **MSE**   | Real-valued continuous inputs         | Gaussian noise                   |
+| **β-VAE** | Need for disentangled representations | Gaussian noise (plus KL control) |
+
+Each loss function is a trade-off between accurate reconstruction and learning a smooth well-structured latent space.
+
 ```python
 def loss_function(self, reconstructed_x, x, mean, logvar):
+    """
+    Binary Cross-Entropy (BCE) + KL Divergence
+    """
     bce = nn.functional.binary_cross_entropy(reconstructed_x, x, reduction="sum")
     kl_divergence = -0.5 * torch.sum(1 + logvar - mean.pow(2) - logvar.exp())
     return bce + kl_divergence
@@ -197,6 +208,9 @@ def loss_function(self, reconstructed_x, x, mean, logvar):
 
 ```python
 def loss_function(self, reconstructed_x, x, mean, logvar):
+    """
+    Mean Squared Error (MSE) + KL Divergence
+    """
     mse = nn.functional.mse_loss(reconstructed_x, x, reduction="sum")
     kl_divergence = -0.5 * torch.sum(1 + logvar - mean.pow(2) - logvar.exp())
     return mse + kl_divergence
@@ -204,12 +218,17 @@ def loss_function(self, reconstructed_x, x, mean, logvar):
 
 ```python
 def loss_function(self, reconstructed_x, x, mean, logvar, beta=1.0):
+    """
+    MSE + β-scaled KL Divergence (β-VAE)
+    """
     mse = nn.functional.mse_loss(reconstructed_x, x, reduction="sum")
     kl_divergence = -0.5 * torch.sum(1 + logvar - mean.pow(2) - logvar.exp())
     return mse + beta * kl_divergence
 ```
 
 ## Visualising the latent space
+
+Each shape is represented by 100 ordered $(x, y)$ coordinate pairs, resulting in a 200-dimensional vector. The objective is to learn a low-dimensional latent space with only 2 dimensions that captures the core geometric features of each shape. 
 
 ![](/assets/images/latent-space-grid-1.png)
 
@@ -221,14 +240,12 @@ def loss_function(self, reconstructed_x, x, mean, logvar, beta=1.0):
 
 ![](/assets/images/latent-space-points.gif)
 
-[Latent space visualisation example 1](https://medium.com/@outerrencedl/a-simple-autoencoder-and-latent-space-visualization-with-pytorch-568e4cd2112a)
-
-[Latent space visualisation example 2](https://towardsdatascience.com/difference-between-autoencoder-ae-and-variational-autoencoder-vae-ed7be1c038f2)
-
-[Latent space visualisation example 2 - 2D shape distribution](https://www.youtube.com/watch?v=sV2FOdGqlX0&t=38s&ab_channel=AqeelAnwar)
 
 ## Generative modelling
 
 ## References
 
-[Encoding and exploring latent design space of optimal material structures via a VAE-LSTM model](https://doi.org/10.1016/j.finmec.2021.100054)
+- [Encoding and exploring latent design space of optimal material structures via a VAE-LSTM model](https://doi.org/10.1016/j.finmec.2021.100054)
+- [Latent space visualisation example 1](https://medium.com/@outerrencedl/a-simple-autoencoder-and-latent-space-visualization-with-pytorch-568e4cd2112a)
+- [Latent space visualisation example 2](https://towardsdatascience.com/difference-between-autoencoder-ae-and-variational-autoencoder-vae-ed7be1c038f2)
+- [Latent space visualisation example 2 - 2D shape distribution](https://www.youtube.com/watch?v=sV2FOdGqlX0&t=38s&ab_channel=AqeelAnwar)

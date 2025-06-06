@@ -239,7 +239,7 @@ A key advantage of deploying in the cloud is the ability to scale automatically 
 
 ## Running locally with Docker
 
-A detailed explanation of the deployment process is beyond the scope of this article, but it is helpful to outline the process of running the application locally using Docker. There are three steps: (1) write a `Dockerfile`, (2) build the Docker image and (3) run the resulting container. While deploying to a production environment involves additional considerations, the core ideas remain the same.
+A detailed explanation of the deployment process is beyond the scope of this article, but it is helpful to outline the process of running the application locally using Docker. There are three steps: (1) write a `Dockerfile`, (2) build the Docker image and (3) run a container from the image. While deploying to a production environment involves additional considerations, the core ideas remain the same.
 
 The first step is to write a `Dockerfile`.
 

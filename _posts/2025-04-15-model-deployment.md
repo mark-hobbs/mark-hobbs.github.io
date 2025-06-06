@@ -182,6 +182,16 @@ if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5001, debug=True, threaded=True)
 ```
 
+<!-- ### `pyproject.toml`
+
+`pyproject.toml` is a configuration file used by packaging tools
+
+### `uv.lock`
+
+`uv` is an extremely fast Python package and project manager that is designed as a drop-in replacement for `pip` and `pip-tools` workflows. `uv` is quickly becoming the default Python package manager... 
+
+`uv.lock` is a cross-platform lockfile that contains exact information about your projects dependencies. `uv.lock` resolves the dependencies declared in `pyproject.toml`.  -->
+
 ### Running locally
 
 To run the microservice locally, execute:
@@ -226,6 +236,42 @@ While the service now runs locally, making it available to others requires deplo
 - Expose the service via a stable endpoint (e.g. `https://example.com/model/predict`)
 
 A key advantage of deploying in the cloud is the ability to scale automatically in both directions - vertically, by allocating more powerful compute resources, and horizontally, by adding multiple independent instances that can run concurrently. This makes a cloud-based approach particularly well-suited to handling embarrassingly parallel workloads, such as those encountered in design of experiments or population-based optimisation methods, where many independent model evaluations can be run simultaneously.
+
+## Running locally with Docker
+
+Whilst a detailed explanation of the deployment process is beyond the scope of this article, it is worth outlining how to run the application locally using Docker. This involves writing a `Dockerfile`, building a Docker image and running the resulting container. While deploying to a production environment involves additional considerations, the core principles remain the same.
+
+### `Dockerfile`
+
+The `Dockerfile` used to build the image is detailed below:
+
+```dockerfile
+FROM python:3.11
+
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+WORKDIR /app
+
+COPY pyproject.toml uv.lock ./
+
+RUN uv sync --locked
+
+COPY . .
+
+CMD ["uv", "run", "python", "run.py"]
+```
+
+**Build the Docker image**
+
+```bash
+docker build .
+```
+
+**Run the container**
+
+```bash
+docker run -p 5001:5001 acd5ec9ca57e
+```
 
 ## Summary
 

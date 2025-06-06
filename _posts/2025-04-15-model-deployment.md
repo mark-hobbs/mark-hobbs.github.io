@@ -261,13 +261,15 @@ COPY . .
 CMD ["uv", "run", "python", "run.py"]
 ```
 
-**Build the Docker image**
+### Building the Docker image and running the container
+
+To build the Docker image from the current directory, execute:
 
 ```bash
 docker build .
 ```
 
-**Run the container**
+Then, run a container from the image and expose the required port:
 
 ```bash
 docker run -p 5001:5001 acd5ec9ca57e

@@ -241,9 +241,7 @@ A key advantage of deploying in the cloud is the ability to scale automatically 
 
 A detailed explanation of the deployment process is beyond the scope of this article, but it is worth outlining how to run the application locally using Docker. This involves writing a `Dockerfile`, building a Docker image and running the resulting container. While deploying to a production environment involves additional considerations, the core principles remain the same.
 
-### `Dockerfile`
-
-The `Dockerfile` used to build the image is detailed below:
+The first step is to write a `Dockerfile`.
 
 ```dockerfile
 FROM python:3.11
@@ -261,19 +259,19 @@ COPY . .
 CMD ["uv", "run", "python", "run.py"]
 ```
 
-### Building the Docker image and running the container
-
-To build the Docker image from the current directory, execute:
+Then, to build the Docker image from the current directory, execute:
 
 ```bash
 docker build .
 ```
 
-Then, run a container from the image and expose the required port:
+Finally, run a container from the image and expose the required port:
 
 ```bash
 docker run -p 5001:5001 acd5ec9ca57e
 ```
+
+It is now possible to send a request to the `/predict` endpoint by following the same process [detailed above](#running-locally).
 
 ## Summary
 

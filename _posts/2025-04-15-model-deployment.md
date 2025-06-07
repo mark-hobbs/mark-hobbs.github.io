@@ -262,13 +262,13 @@ CMD ["uv", "run", "python", "run.py"]
 Then, to build the Docker image from the current directory, execute:
 
 ```bash
-docker build .
+docker build -t <image-name>:<tag> <path-to-Dockerfile>
 ```
 
 Finally, run a container from the image and expose the required port:
 
 ```bash
-docker run -p 5001:5001 acd5ec9ca57e
+docker run -p 5001:5001 <image-name>:<tag>
 ```
 
 It is now possible to send a request to the `/predict` endpoint by following the same process [detailed above](#running-locally).

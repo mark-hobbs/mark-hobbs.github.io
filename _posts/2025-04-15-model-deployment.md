@@ -243,7 +243,7 @@ A detailed explanation of the deployment process is beyond the scope of this art
 
 The first step is to write a `Dockerfile`.
 
-```dockerfile
+```bash
 FROM python:3.11
 
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/

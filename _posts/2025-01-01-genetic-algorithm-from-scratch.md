@@ -256,7 +256,7 @@ ga.evolve()
 
 ## Conclusions
 
-Genetic algorithms provide an excellent demonstration of the principles and advantages of object-oriented programming. By designing classes that encapsulate key components — such as the evolutionary process, population and individuals — we can create well-defined abstractions that promote modularity, flexibility and a clear separation of concerns.
+Genetic algorithms provide an excellent demonstration of the principles and advantages of object-oriented programming. By designing classes that encapsulate key components - such as the evolutionary process, population and individuals - we can create well-defined abstractions that promote modularity, flexibility and a clear separation of concerns.
 
 The clean object-oriented design enables the user to efficiently generate an initial population, configure the genetic algorithm and initiate the evolutionary process with minimal code. Concise and readable code enables the user to focus on the actual problem...
 

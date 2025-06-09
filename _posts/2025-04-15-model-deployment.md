@@ -244,18 +244,25 @@ A detailed explanation of the deployment process is beyond the scope of this art
 The first step is to write a `Dockerfile`.
 
 ```bash
+# Official Python 3.11 image
 FROM python:3.11
 
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+# Copy the 'uv' package manager binary into the /bin directory
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
 
+# Set the working directory to /app
 WORKDIR /app
 
+# Copy dependency declarations into the container
 COPY pyproject.toml uv.lock ./
 
+# Install dependencies
 RUN uv sync --locked
 
+# Copy project source code into the container
 COPY . .
 
+# Run the service by default
 CMD ["uv", "run", "python", "run.py"]
 ```
 

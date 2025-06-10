@@ -173,7 +173,8 @@ The function signatures for the crossover and mutation methods must follow a sta
 - `crossover(individual, partner)`: Takes two individuals and returns one or more offspring.
 - `mutate(individual)`: Applies a mutation operation to a single individual and returns the mutated individual.
 
-This design allows new strategies to be added as modular components, making the code adaptable to a wide range of optimisation problems.
+This design allows new strategies to be added as modular components, making the code adaptable to a wide range of optimisation problems. Users define the `_crossover_method` and `_mutation_method` when subclassing `Individual`.
+
 
 <!-- | **Crossover Method**           | **Description** | **Problem Type** |
 |--------------------------------|----------------|------------------|

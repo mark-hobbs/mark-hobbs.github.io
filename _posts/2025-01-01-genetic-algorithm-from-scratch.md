@@ -12,8 +12,6 @@ Genetic algorithms are a class of heuristic optimisation techniques that mimic t
 
 All the code and examples are available in the following repo: [pyga](https://github.com/mark-hobbs/pyga/)
 
-<!-- In the natural world, evolution proceeds through reproduction, mutation and selection - where advantageous traits increase survival probability and are passed to future generations. This "survival of the fittest" mechanism drives biological adaptation over time. Genetic algorithms mimic this elegant natural process, creating evolving populations of solutions that progressively improve to solve complex optimisation challenges. -->
-
 ## Implementation
 
 By implementing a genetic algorithm with a clean object-oriented design, we can create a flexible and reusable framework that separates concerns and is adaptable to various optimisation problems without having to rewrite the core evolutionary logic.
@@ -177,7 +175,7 @@ The function signatures for the crossover and mutation methods must follow a sta
 
 This design allows new strategies to be added as modular components, making the code adaptable to a wide range of optimisation problems.
 
-| **Crossover Method**           | **Description** | **Problem Type** |
+<!-- | **Crossover Method**           | **Description** | **Problem Type** |
 |--------------------------------|----------------|------------------|
 | **One-Point Crossover**       | Single crossover point; genes swapped after this point. | Binary, Continuous |
 | **Two-Point Crossover**       | Two crossover points; middle segment is swapped. | Binary, Continuous |
@@ -202,7 +200,7 @@ This design allows new strategies to be added as modular components, making the 
 | **Polynomial Mutation**        | Perturbs genes using a polynomial probability distribution. | Continuous |
 | **Non-uniform Mutation**       | Mutation step size decreases over generations to fine-tune solutions. | Continuous |
 | **Boundary Mutation**          | A gene is set to either its minimum or maximum allowed value. | Continuous |
-| **Adaptive Mutation**          | Mutation rate adjusts dynamically based on evolution progress. | Continuous |
+| **Adaptive Mutation**          | Mutation rate adjusts dynamically based on evolution progress. | Continuous | -->
 
 ## Packaging
 

@@ -205,7 +205,7 @@ Users define the `_crossover_method` and `_mutation_method` when subclassing `In
 
 ## Packaging
 
-By packaging the code, it can be easily shared, installed and used by others. Many engineers and researchers conflate general-purpose components such as solvers or optimisers with specific applications, resulting in tightly coupled code that is difficult to reuse or extend.
+By packaging the code, it can be easily shared, installed and used by others. Inexperienced programmers often conflate general-purpose components such as optimisers with specific applications, resulting in tightly coupled code that is difficult to reuse or extend.
 
 Distributing reusable code...
 

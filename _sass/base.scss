@@ -77,8 +77,9 @@ figure figcaption {
   margin-right: auto;
 }
 
-// Inline code
-p code {
+// Inline code (paragraphs and list items)
+p code,
+li code {
   background-color: #FFF1E0;
   padding: 0.2em 0.4em;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;

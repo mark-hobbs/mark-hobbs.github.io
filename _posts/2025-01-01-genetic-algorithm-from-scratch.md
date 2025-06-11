@@ -6,7 +6,7 @@ draft: True
 ---
 
 
-This post details the implementation of a genetic algorithm from scratch and provides a number of visual examples to help develop the readers understanding. In addition to exploring the core concepts of genetic algorithms, this post places a strong emphasis on the importance of good object-oriented programming (OOP) practices and effective abstraction. Carefully designed abstractions improve usability and extensibility.
+This post details the implementation of a genetic algorithm from scratch and provides a number of visual examples to help develop the readers understanding. In addition to exploring the core concepts of genetic algorithms, this post places a strong emphasis on the importance of good object-oriented programming (OOP) practices and effective abstraction. Carefully designed abstractions are key to usability and extensibility.
 
 Genetic algorithms are a class of heuristic optimisation techniques that mimic the process of natural selection. Beginning with a population of candidate solutions (or individuals), from which the best solutions (fittest individuals) are selected for reproduction (survival of the fittest). The fittest individuals produce offspring that form a new population (generation). The fittest individuals in each new generation are selected for breeding, and the process is repeated over many generations, leading to the emergence of increasingly optimal solutions.
 

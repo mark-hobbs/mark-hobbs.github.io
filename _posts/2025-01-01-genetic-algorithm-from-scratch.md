@@ -205,19 +205,6 @@ Users define the `_crossover_method` and `_mutation_method` when subclassing `In
 | **Boundary Mutation**          | A gene is set to either its minimum or maximum allowed value. | Continuous |
 | **Adaptive Mutation**          | Mutation rate adjusts dynamically based on evolution progress. | Continuous | -->
 
-## Abstraction
-
-Carefully designed abstractions are the key to writing usable and extensible code.
-
-It is a common misconception that the purpose of abstraction is to remove repetition. Whilst it might to a degree serve this purpose, the most important job of a good abstraction is to remove dependencies. Good abstractions provide interfaces that reduce coupling...
-
-
-- Single responsibility principle
-- Separation of concerns
-- Dependency extraction
-- Loose-coupling
-- Interfaces
-
 ## Packaging
 
 By packaging the code, it can be easily shared, installed and used by others. Inexperienced programmers often conflate general-purpose components such as optimisers with specific applications, resulting in tightly coupled code that is difficult to reuse or extend.
@@ -231,6 +218,20 @@ By separating reusable functionality from application specific logic and packagi
 When core components (like optimisation methods) are properly abstracted and packaged, they become valuable assets across multiple projects rather than remaining trapped in single-use implementations. This separation enhances code quality, promotes reusability and enables collaborative development.
 
 The `pyga` package can be installed locally using the following command `pip install git+https://github.com/mark-hobbs/pyga.git`.
+
+## Abstraction
+
+Carefully designed abstractions are the key to writing usable and extensible code. Abstraction is the process of managing complexity by only exposing the essential features of an object/system and hiding the lower-level implementation details.
+
+It is a common misconception that the purpose of abstraction is to remove repetition. Whilst it might to a degree serve this purpose, the most important job of a good abstraction is to remove dependencies. Good abstractions provide interfaces that reduce coupling...
+
+The `Individual` class effectively demonstrates the principle of abstraction. ...by providing a consistent interface between the problem domain and the optimiser, enabling the same optimisation logic to be applied across a wide range of problems with minimal changes.
+
+- Single responsibility principle
+- Separation of concerns
+- Dependency extraction
+- Loose-coupling
+- Interfaces
 
 ## Problems
 

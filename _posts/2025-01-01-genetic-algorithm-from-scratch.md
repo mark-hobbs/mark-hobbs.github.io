@@ -115,7 +115,7 @@ class Population:
 
 The `Individual` class represents a candidate solution and encapsulates its genetic representation and fitness evaluation. It serves as a base class, allowing subclasses to define problem-specific fitness functions. By inheriting from `Individual`, custom implementations can be created for various optimisation problems, making the package adaptable to different domains. Users must define the `_crossover_method` and `_mutation_method` when subclassing `Individual`. This is discussed further in the following section.
 
-`Individual` is essentially a generic interface to the optimiser...
+The `Individual` class essentially functions as an interface to the optimiser... Through this interface we can address any problem...
 
 ```python
 class Individual:

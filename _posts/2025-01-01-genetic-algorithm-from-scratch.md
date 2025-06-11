@@ -28,7 +28,7 @@ We provide a high-level overview of the implemented classes, focussing on their 
 
 ### `GeneticAlgorithm`
 
-The `GeneticAlgorithm` class controls the evolutionary process. The user can select the number of generations and number of parents used for generating offspring. There is only a single public method... `evolve`
+The `GeneticAlgorithm` class controls the evolutionary process. The user must provide an initial population from which the evolutionary process starts. The user can also define the number of generations `num_generations` and number of parents `num_parents` used for generating offspring. There is only a single public method... `evolve`
 
 ```python
 class GeneticAlgorithm:
@@ -166,7 +166,7 @@ class Individual:
 
 ### Crossover and mutation
 
-The chosen crossover and mutation strategy is dependent on the problem type (e.g. continuous, binary, permutation-based), allowing flexibility and extensibility without modifying the core genetic algorithm logic. To enable users to change the crossover and mutation methods, we will adopt a strategy design pattern. 
+The chosen crossover and mutation strategy is dependent on the problem type (e.g. continuous, binary, permutation-based). To enable users to change the crossover and mutation methods without modifying the core genetic algorithm logic, we will adopt a strategy design pattern. 
 
 The function signatures for the crossover and mutation methods must follow a standard interface to ensure compatibility:
 

@@ -115,6 +115,8 @@ class Population:
 
 The `Individual` class represents a candidate solution and encapsulates its genetic representation and fitness evaluation. It serves as a base class, allowing subclasses to define problem-specific fitness functions. By inheriting from `Individual`, custom implementations can be created for various optimisation problems, making the package adaptable to different domains. Users must define the `_crossover_method` and `_mutation_method` when subclassing `Individual`. This is discussed further in the following section.
 
+`Individual` is essentially a generic interface to the optimiser...
+
 ```python
 class Individual:
 
@@ -219,6 +221,7 @@ When core components (like optimisation methods) are properly abstracted and pac
 - Separation of concerns
 - Dependency extraction
 - Loose-coupling
+- Interfaces
 
 The `pyga` package can be installed locally using the following command `pip install git+https://github.com/mark-hobbs/pyga.git`.
 
@@ -269,6 +272,6 @@ The clean object-oriented design enables the user to efficiently generate an ini
 
 Problem decomposition is fundamental to... Effective problem decomposition requires a deep understanding of the problem domain. Without a proper grasp of the core elements/concepts... creating inappropriate abstractions or inefficient divisions of functionality.
 
-It is a common misconception that the purpose of abstraction is to remove repetition. Whilst it might to a degree serve this purpose, the most important job of a good abstraction is to remove dependencies.
+It is a common misconception that the purpose of abstraction is to remove repetition. Whilst it might to a degree serve this purpose, the most important job of a good abstraction is to remove dependencies. Good abstractions provide interfaces that reduce coupling...
 
-Perhaps the most significant difference between new and experiences programmers is their ability to identify powerful abstractions. Choosing the right abstractions requires experience and domain knowledge. It is unlikely that an experienced programmer with no domain knowledge of optimisation would chose a good abstraction.
+Perhaps the most significant difference between new and experienced programmers is their ability to identify powerful abstractions. Choosing the right abstractions requires both programming experience and domain specific knowledge. It is unlikely that an experienced programmer with no domain knowledge of optimisation would chose an appropriate abstraction.

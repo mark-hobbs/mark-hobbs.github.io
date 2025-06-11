@@ -227,6 +227,8 @@ This approach ensures that the core optimisation logic remains general-purpose, 
 
 ### Permutation type problem
 
+**Problem statement:** Given a set of points in 2D space, determine the polygon that maximises the ratio of its area to the square of its perimeter $(\text{Area}/\text{Perimeter}^2)$. This ratio serves as a measure of compactness, which is often desirable in various fields such as materials science, biology, and urban planning. Compact shapes can lead to more efficient designs, reduced material usage, and optimised spatial arrangements.
+
 ```python
 n_points = 10
 points = [Point(np.random.rand(), np.random.rand()) for _ in range(n_points)]
@@ -250,8 +252,9 @@ ga.evolve()
 
 ![](/assets/images/ga-2.gif)
 
-![](/assets/images/ga-3.gif)
+**Problem statement:** Given an initial set of points in 2D space, evolve their positions such that the resulting configuration closely matches a predefined target shape (e.g. a star). The fitness function quantitatively evaluates the similarity between a candidate shape and the target, guiding the evolution toward the optimal arrangement.
 
+![](/assets/images/ga-3.gif)
 
 ## Conclusions
 

@@ -6,7 +6,7 @@ draft: True
 ---
 
 
-This post details the implementation of a genetic algorithm from scratch and provides a number of visual examples to help develop the readers understanding. In addition to exploring the core concepts of genetic algorithms, this post places a strong emphasis on the adoption of good object-oriented programming (OOP) practices and abstraction. Good abstractions promote clearer thinking, enabling the user to focus on the problem at hand.
+This post details the implementation of a genetic algorithm from scratch and provides a number of visual examples to help develop the readers understanding. In addition to exploring the core concepts of genetic algorithms, this post places a strong emphasis on the importance of good object-oriented programming (OOP) practices and effective abstraction. Carefully designed abstractions improve usability and extensibility.
 
 Genetic algorithms are a class of heuristic optimisation techniques that mimic the process of natural selection. Beginning with a population of candidate solutions (or individuals), from which the best solutions (fittest individuals) are selected for reproduction (survival of the fittest). The fittest individuals produce offspring that form a new population (generation). The fittest individuals in each new generation are selected for breeding, and the process is repeated over many generations, leading to the emergence of increasingly optimal solutions.
 
@@ -258,9 +258,9 @@ ga.evolve()
 
 ### Continuous type problem
 
-![](/assets/images/ga-2.gif)
-
 **Problem statement:** Given an initial set of points in 2D space, evolve their positions such that the resulting configuration closely matches a predefined target shape (e.g. a star). The fitness function quantitatively evaluates the similarity between a candidate shape and the target, guiding the evolution toward the optimal arrangement.
+
+![](/assets/images/ga-2.gif)
 
 ![](/assets/images/ga-3.gif)
 

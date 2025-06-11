@@ -205,6 +205,19 @@ Users define the `_crossover_method` and `_mutation_method` when subclassing `In
 | **Boundary Mutation**          | A gene is set to either its minimum or maximum allowed value. | Continuous |
 | **Adaptive Mutation**          | Mutation rate adjusts dynamically based on evolution progress. | Continuous | -->
 
+## Abstraction
+
+Carefully designed abstractions are the key to writing usable and extensible code.
+
+It is a common misconception that the purpose of abstraction is to remove repetition. Whilst it might to a degree serve this purpose, the most important job of a good abstraction is to remove dependencies. Good abstractions provide interfaces that reduce coupling...
+
+
+- Single responsibility principle
+- Separation of concerns
+- Dependency extraction
+- Loose-coupling
+- Interfaces
+
 ## Packaging
 
 By packaging the code, it can be easily shared, installed and used by others. Inexperienced programmers often conflate general-purpose components such as optimisers with specific applications, resulting in tightly coupled code that is difficult to reuse or extend.
@@ -216,12 +229,6 @@ By separating reusable functionality from application specific logic and packagi
 ... tightly coupled solutions into modular building blocks that can be installed, shared and maintained independently. 
 
 When core components (like optimisation methods) are properly abstracted and packaged, they become valuable assets across multiple projects rather than remaining trapped in single-use implementations. This separation enhances code quality, promotes reusability and enables collaborative development.
-
-- Single responsibility principle
-- Separation of concerns
-- Dependency extraction
-- Loose-coupling
-- Interfaces
 
 The `pyga` package can be installed locally using the following command `pip install git+https://github.com/mark-hobbs/pyga.git`.
 
@@ -271,7 +278,5 @@ Genetic algorithms provide an excellent demonstration of the principles and adva
 The clean object-oriented design enables the user to efficiently generate an initial population, configure the genetic algorithm and initiate the evolutionary process with minimal code. Concise and readable code enables the user to focus on the actual problem...
 
 Problem decomposition is fundamental to... Effective problem decomposition requires a deep understanding of the problem domain. Without a proper grasp of the core elements/concepts... creating inappropriate abstractions or inefficient divisions of functionality.
-
-It is a common misconception that the purpose of abstraction is to remove repetition. Whilst it might to a degree serve this purpose, the most important job of a good abstraction is to remove dependencies. Good abstractions provide interfaces that reduce coupling...
 
 Perhaps the most significant difference between new and experienced programmers is their ability to identify powerful abstractions. Choosing the right abstractions requires both programming experience and domain specific knowledge. It is unlikely that an experienced programmer with no domain knowledge of optimisation would chose an appropriate abstraction.

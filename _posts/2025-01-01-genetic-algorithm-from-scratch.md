@@ -271,4 +271,4 @@ Problem decomposition is fundamental to... Effective problem decomposition requi
 
 It is a common misconception that the purpose of abstraction is to remove repetition. Whilst it might to a degree serve this purpose, the most important job of a good abstraction is to remove dependencies.
 
-Perhaps the most significant difference between new and experiences programmers is their ability to identify the most powerful abstractions. Choosing the right abstractions requires experience and domain knowledge. It is unlikely that an experienced programmer with no domain knowledge of optimisation would chose the best abstractions.
+Perhaps the most significant difference between new and experiences programmers is their ability to identify powerful abstractions. Choosing the right abstractions requires experience and domain knowledge. It is unlikely that an experienced programmer with no domain knowledge of optimisation would chose a good abstraction.

@@ -260,7 +260,7 @@ ga.evolve()
 
 ## Abstraction
 
-We will briefly discuss the idea of abstraction and examine how it informs the design of the genetic algorithm package.
+We will briefly discuss the idea of abstraction and examine how it informs the design of the genetic algorithm package. Abstraction is a fundamental concept in software design, yet it is hard to precisely define.
 
 Carefully designed abstractions are the key to writing usable and extensible code. Abstraction is the process of managing complexity by only exposing the essential features of an object/system and hiding the lower-level implementation details.
 
@@ -273,6 +273,8 @@ The `Individual` class effectively demonstrates the principle of abstraction. ..
 - Dependency extraction
 - Loose-coupling
 - Interfaces
+
+[Essence of abstraction](https://reasonunderpressure.com/blog/posts/the-essence-of-abstraction)
 
 ## Conclusions
 

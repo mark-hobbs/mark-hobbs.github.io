@@ -219,20 +219,6 @@ When core components (like optimisation methods) are properly abstracted and pac
 
 The `pyga` package can be installed locally using the following command `pip install git+https://github.com/mark-hobbs/pyga.git`.
 
-## Abstraction
-
-Carefully designed abstractions are the key to writing usable and extensible code. Abstraction is the process of managing complexity by only exposing the essential features of an object/system and hiding the lower-level implementation details.
-
-It is a common misconception that the purpose of abstraction is to remove repetition. Whilst it might to a degree serve this purpose, the most important job of a good abstraction is to remove dependencies. Good abstractions provide interfaces that reduce coupling...
-
-The `Individual` class effectively demonstrates the principle of abstraction. ...by providing a consistent interface between the problem domain and the optimiser, enabling the same optimisation logic to be applied across a wide range of problems with minimal changes.
-
-- Single responsibility principle
-- Separation of concerns
-- Dependency extraction
-- Loose-coupling
-- Interfaces
-
 ## Problems
 
 We address two classes of optimisation problem; (1) a permutation based problem, and (2) a continuous problem. 
@@ -271,6 +257,20 @@ ga.evolve()
 ![](/assets/images/ga-2.gif)
 
 ![](/assets/images/ga-3.gif)
+
+## Abstraction
+
+Carefully designed abstractions are the key to writing usable and extensible code. Abstraction is the process of managing complexity by only exposing the essential features of an object/system and hiding the lower-level implementation details.
+
+It is a common misconception that the purpose of abstraction is to remove repetition. Whilst it might to a degree serve this purpose, the most important job of a good abstraction is to remove dependencies. Good abstractions provide interfaces that reduce coupling...
+
+The `Individual` class effectively demonstrates the principle of abstraction. ...by providing a consistent interface between the problem domain and the optimiser, enabling the same optimisation logic to be applied across a wide range of problems with minimal changes.
+
+- Single responsibility principle
+- Separation of concerns
+- Dependency extraction
+- Loose-coupling
+- Interfaces
 
 ## Conclusions
 

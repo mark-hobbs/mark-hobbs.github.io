@@ -260,6 +260,8 @@ ga.evolve()
 
 ## Abstraction
 
+We will briefly discuss the idea of abstraction and examine how it informs the design of the genetic algorithm package.
+
 Carefully designed abstractions are the key to writing usable and extensible code. Abstraction is the process of managing complexity by only exposing the essential features of an object/system and hiding the lower-level implementation details.
 
 It is a common misconception that the purpose of abstraction is to remove repetition. Whilst it might to a degree serve this purpose, the most important job of a good abstraction is to remove dependencies. Good abstractions provide interfaces that reduce coupling...

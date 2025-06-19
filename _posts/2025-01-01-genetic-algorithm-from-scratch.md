@@ -266,7 +266,9 @@ Carefully designed abstractions are the key to writing usable and extensible cod
 
 It is a common misconception that the primary purpose of abstraction is to remove repetition. Whilst it might to a degree serve this purpose, the most important job of a good abstraction is to remove dependencies. Good abstractions provide interfaces that reduce coupling...
 
-Coupling is a measure of the degree of dependency between software modules. Stated another way, coupling is a measure of the amount of work required to modify a module. Strong coupling implies that changes in one module are likely to necessitate extensive modifications in connected modules.
+**Coupling** is a measure of the degree of dependency between software modules. Stated another way, coupling is a measure of the amount of work required to modify a module. Strong coupling implies that changes in one module are likely to necessitate extensive modifications in connected modules, leading to a cascading effect.
+
+A good design aims for low coupling, meaning modules are relatively independent and changes in one module have a minimal impact on others. 
 
 The `Individual` class effectively demonstrates the principle of abstraction. ...by providing a consistent interface between the problem domain and the optimiser, enabling the same optimisation logic to be applied across a wide range of problems with minimal changes.
 

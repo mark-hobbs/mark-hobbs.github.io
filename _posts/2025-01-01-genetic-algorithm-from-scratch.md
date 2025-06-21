@@ -86,7 +86,9 @@ class GeneticAlgorithm:
 
 The `Population` class represents all individuals within a single generation. Methods are provided for evaluating the fitness of all individuals and selecting parents for reproduction.
 
-Evaluating the fitness of each individual in the population is an embarrassingly parallel process. In the below implementation, the `evaluate` method computes the fitness of every individual in serial; however, this process could be easily parallelised on a traditional cluster or cloud infrastructure... Dask, Ray, Kubernetes (horizontal scaling)...
+Evaluating the fitness of each individual in the population is an embarrassingly parallel process. In the below implementation, the `evaluate` method computes the fitness of every individual in serial; however, this process could be easily parallelised on a traditional cluster or cloud infrastructure. For example... Dask or Ray. 
+
+Another option is to containerise a service that constructs an `Individual` from a given configuration and returns its `fitness` score via an API. By deploying multiple replicas on Kubernetes, we can horizontally scale the fitness evaluation, efficiently distributing workloads across available compute resources.
 
 ```python
 class Population:
@@ -271,6 +273,8 @@ Coupling is a measure of the degree of dependency between software modules. Stat
 A good design aims for low coupling, meaning modules are relatively independent and changes in one module have a minimal impact on others. 
 
 The `Individual` class effectively demonstrates the principle of abstraction. ...by providing a consistent interface between the problem domain and the optimiser, enabling the same optimisation logic to be applied across a wide range of problems with minimal changes.
+
+The `Population` class could be modified to evaluate individuals in parallel and no changes would be required to the `Individual` class...
 
 - Single responsibility principle
 - Separation of concerns

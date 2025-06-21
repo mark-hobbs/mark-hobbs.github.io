@@ -86,9 +86,7 @@ class GeneticAlgorithm:
 
 The `Population` class represents all individuals within a single generation. Methods are provided for evaluating the fitness of all individuals and selecting parents for reproduction.
 
-Evaluating the fitness of each individual in the population is an embarrassingly parallel process. In the below implementation, the `evaluate` method computes the fitness of every individual in serial; however, this process could be easily parallelised on a traditional cluster or cloud infrastructure. For example... Dask or Ray. 
-
-Another option is to containerise a service that constructs an `Individual` from a given configuration and returns its `fitness` score via an API. By deploying multiple replicas on Kubernetes, we can horizontally scale the fitness evaluation, efficiently distributing workloads across available compute resources.
+Evaluating the fitness of each individual in the population is an embarrassingly parallel process. In the below implementation, the `evaluate` method computes the fitness of every individual in serial; however, this process could be easily parallelised on a traditional cluster or cloud infrastructure.
 
 ```python
 class Population:
@@ -167,6 +165,10 @@ class Individual:
             raise NotImplementedError("Mutation method not defined.")
         return self._mutate_method(self, mutation_probability)
 ```
+
+A clear extension to the above would be to write a class - `HTTPIndividual(Individual)` - that exposes the different methods as API endpoints.
+
+By deploying multiple replicas on Kubernetes, we can horizontally scale the fitness evaluation, efficiently distributing workloads across available compute resources.
 
 ### Crossover and mutation
 

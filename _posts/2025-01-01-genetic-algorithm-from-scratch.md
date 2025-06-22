@@ -174,7 +174,7 @@ By deploying multiple replicas on Kubernetes, we can horizontally scale the fitn
 
 ```python
 individual = HTTPIndividual()
-serve_individual([individual], 4243)
+serve_individual(individual, url)
 ```
 
 ### Crossover and mutation

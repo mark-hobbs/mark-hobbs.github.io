@@ -115,7 +115,9 @@ class Population:
 
 The `Individual` class represents a candidate solution and encapsulates its genetic representation and fitness evaluation. It serves as a base class, allowing subclasses to define problem-specific fitness functions. By inheriting from `Individual`, custom implementations can be created for various optimisation problems, making the package adaptable to different domains. Users must define the `_crossover_method` and `_mutation_method` when subclassing `Individual`. This is discussed further in the following section.
 
-The `Individual` class essentially functions as an interface to the optimiser... Through this interface we can address any problem...
+The `Individual` class essentially functions as an interface to the optimiser... Through this interface we can address any problem... 
+
+... separate concerns between the `Individual` (often a numerical model) and the optimisation routine.
 
 ```python
 class Individual:
@@ -166,9 +168,14 @@ class Individual:
         return self._mutate_method(self, mutation_probability)
 ```
 
-A clear extension to the above would be to write a class - `HTTPIndividual(Individual)` - that exposes the different methods as API endpoints.
+A clear extension to the above would be to write a child class - `HTTPIndividual(Individual)` - that exposes the different methods (`__init__`, `fitness`, `crossover`, `mutate`) as API endpoints. 
 
 By deploying multiple replicas on Kubernetes, we can horizontally scale the fitness evaluation, efficiently distributing workloads across available compute resources.
+
+```python
+individual = HTTPIndividual()
+serve_individual([individual], 4243)
+```
 
 ### Crossover and mutation
 

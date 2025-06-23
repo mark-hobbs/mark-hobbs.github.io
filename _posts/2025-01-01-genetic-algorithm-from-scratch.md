@@ -166,7 +166,7 @@ class Individual:
         return self._mutate_method(self, mutation_probability)
 ```
 
-A clear extension to the above would be to write a class - `HTTPIndividual(Individual)` - that exposes the `fitness` evaluation as an API endpoint. By decoupling the fitness evaluation from the local runtime, it becomes possible to parallelise the fitness evaluation of all individuals in the population on cloud-based infrastructure.
+An obvious extension to the above would be to write a class - `HTTPIndividual(Individual)` - that exposes the `fitness` evaluation as an API endpoint. By decoupling the fitness evaluation from the local runtime, it becomes possible to parallelise the fitness evaluation of all individuals in the population on cloud-based infrastructure.
 
 ### Crossover and mutation
 

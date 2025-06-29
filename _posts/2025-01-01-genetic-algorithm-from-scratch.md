@@ -179,35 +179,9 @@ The function signatures for the crossover and mutation methods must follow a sta
 
 Users define the `_crossover_method` and `_mutation_method` when subclassing `Individual`. This design allows new strategies to be added as modular components, making the code adaptable to a wide range of optimisation problems.
 
-
-<!-- | **Crossover Method**           | **Description** | **Problem Type** |
-|--------------------------------|----------------|------------------|
-| **One-Point Crossover**       | Single crossover point; genes swapped after this point. | Binary, Continuous |
-| **Two-Point Crossover**       | Two crossover points; middle segment is swapped. | Binary, Continuous |
-| **Uniform Crossover**         | Each gene is randomly taken from either parent. | Binary, Continuous |
-| **Arithmetic Crossover**      | Offspring genes are a weighted sum of parent genes. | Continuous |
-| **Blend Crossover (BLX-α)**   | Offspring genes are chosen from an extended range of parent values. | Continuous |
-| **Simulated Binary Crossover (SBX)** | Mimics single-point crossover but for real-valued variables using probability distribution. | Continuous |
-| **Partially Mapped Crossover (PMX)** | Ensures offspring inherit ordered subsets while avoiding duplicates. | Permutation (e.g., TSP) |
-| **Order Crossover (OX)**      | Preserves sequence order while maintaining feasibility. | Permutation (e.g., TSP) |
-| **Cycle Crossover (CX)**      | Ensures each gene comes from exactly one parent while preserving positional info. | Permutation (e.g., TSP) |
-| **Heuristic Crossover**       | Offspring are a biased weighted combination of parents, favoring the fitter one. | Continuous |
-
-
-| **Mutation Method**            | **Description** | **Problem Type** |
-|--------------------------------|----------------|------------------|
-| **Bit Flip Mutation**          | Randomly flips a bit (for binary representation). | Binary |
-| **Swap Mutation**              | Two randomly chosen genes swap positions. | Permutation |
-| **Scramble Mutation**          | A subset of genes is shuffled randomly. | Permutation |
-| **Inversion Mutation**         | A segment of genes is reversed in order. | Permutation |
-| **Gaussian Mutation**          | Real-valued genes are perturbed by adding Gaussian noise. | Continuous |
-| **Uniform Mutation**           | A gene is replaced with a new random value within its range. | Continuous |
-| **Polynomial Mutation**        | Perturbs genes using a polynomial probability distribution. | Continuous |
-| **Non-uniform Mutation**       | Mutation step size decreases over generations to fine-tune solutions. | Continuous |
-| **Boundary Mutation**          | A gene is set to either its minimum or maximum allowed value. | Continuous |
-| **Adaptive Mutation**          | Mutation rate adjusts dynamically based on evolution progress. | Continuous | -->
-
 ## Packaging
+
+Packaging is an essential but often neglected step of the software development process. Engineers and scientists often approach code as a sequence of steps (i.e. a script) that addresses a specific problem and rarely think about code as a reusable building block. This approach limits the potential for collaboration and long-term value creation. It also leads to repeat efforts...
 
 By packaging the code, it can be easily shared, installed and used by others. Inexperienced programmers often conflate general-purpose components such as optimisers with specific applications, resulting in tightly coupled code that is difficult to reuse or extend.
 
@@ -220,6 +194,8 @@ By separating reusable functionality from application specific logic and packagi
 When core components (like optimisation methods) are properly abstracted and packaged, they become valuable assets across multiple projects rather than remaining trapped in single-use implementations. This separation enhances code quality, promotes reusability and enables collaborative development.
 
 The `pyga` package can be installed locally using the following command `pip install git+https://github.com/mark-hobbs/pyga.git`.
+
+By adopting this approach, engineers can move from writing isolated scripts to building a library of interoperable tools.
 
 ## Problems
 

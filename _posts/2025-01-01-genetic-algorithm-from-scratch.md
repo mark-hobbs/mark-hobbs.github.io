@@ -181,21 +181,20 @@ Users define the `_crossover_method` and `_mutation_method` when subclassing `In
 
 ## Packaging
 
-Packaging is an essential but often neglected step of the software development process. Engineers and scientists often approach code as a sequence of steps (i.e. a script) that addresses a specific problem and rarely think about code as a reusable building block. This approach limits the potential for collaboration and long-term value creation. It also leads to repeat efforts...
+Packaging is an essential but often neglected step in the software development process... generally serves one of two distinct purposes: (1) solving a specific problem, or (2) building a general-purpose tool. The first addresses immediate needs and reflects the particulars of a single task. By contrast, the second involves recognising patterns that recur across problems and abstracting them into reusable components. For example, (1) might be the optimisation of a wing to maximise aerodynamic efficiency, while (2) would be the optimiser. 
 
-By packaging the code, it can be easily shared, installed and used by others. Inexperienced programmers often conflate general-purpose components such as optimisers with specific applications, resulting in tightly coupled code that is difficult to reuse or extend.
+Domain experts (e.g. engineers, researchers, data scientists) approach code as a sequence of steps (i.e. a script) that addresses a specific problem and rarely think about code as a reusable building block.
 
-Distributing reusable code...
+This approach produces problem-specific solutions that are hard to maintain and extend. Inexperienced programmers often couple general-purpose components (such as optimisers) and problem-specific logic, resulting in tightly coupled code that is difficult to reuse or extend.
 
-By separating reusable functionality from application specific logic and packaging...
+... tightly coupled solutions into modular building blocks that can be installed, shared and maintained independently.
 
-... tightly coupled solutions into modular building blocks that can be installed, shared and maintained independently. 
+By separating reusable functionality from problem-specific logic, general-purpose components can be packaged and distributed. This approach reduces duplicate efforts and enables users to collaborate and build on prior work.
 
-When core components (like optimisation methods) are properly abstracted and packaged, they become valuable assets across multiple projects rather than remaining trapped in single-use implementations. This separation enhances code quality, promotes reusability and enables collaborative development.
+When core components (like optimisation methods) are properly abstracted and packaged, they become valuable assets across multiple projects rather than remaining trapped in single-use implementations. This separation enhances code quality, promotes reusability and enables collaborative development. By adopting this approach, domain experts can move from writing isolated scripts to building robust software libraries.
 
 The `pyga` package can be installed locally using the following command `pip install git+https://github.com/mark-hobbs/pyga.git`.
 
-By adopting this approach, engineers can move from writing isolated scripts to building a library of interoperable tools.
 
 ## Problems
 

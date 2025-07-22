@@ -185,11 +185,13 @@ Packaging is an essential but often neglected step in the software development p
 
 While domain experts (e.g. engineers, researchers, data scientists) typically focus on solving specific problems, developing general-purpose tools requires a shift in perspective towards reusability, abstraction and modularity. Building general-purpose tools forces developers to identify patterns across problems, design clean interfaces and write extensible code. This experience fosters better software engineering practices that improve all subsequent work.
 
-When core components (like optimisation methods) are decoupled from the problem specific logic (or properly abstracted and packaged?), they become valuable tools that can be utilised and built upon by others. This separation enhances code quality, promotes reusability and enables collaborative development. 
-
-The `pyga` package can be installed locally using the following command `pip install git+https://github.com/mark-hobbs/pyga.git`.
+This separation enhances code quality, promotes reusability and enables collaborative development.
 
 By understanding packaging, domain experts can move from writing isolated scripts to building robust software libraries.
+
+When general components (like optimisation methods) are decoupled from problem specific logic and packaged, they become valuable tools that can be utilised and built upon by others.
+
+The `pyga` package can be installed locally using the following command `pip install git+https://github.com/mark-hobbs/pyga.git`.
 
 
 ## Problems

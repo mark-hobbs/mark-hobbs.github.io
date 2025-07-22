@@ -183,7 +183,8 @@ Users define the `_crossover_method` and `_mutation_method` when subclassing `In
 
 Packaging is an essential but often neglected step in the software development process. The development of software generally serves one of two purposes: (1) to solve a specific problem, or (2) to create a general-purpose tool. The first addresses immediate needs and reflects the particulars of a single task. By contrast, the second involves recognising patterns that recur across problems and abstracting them into reusable components. For example, (1) might be the optimisation of a wing to maximise aerodynamic efficiency, while (2) would be the optimiser. 
 
-Domain experts (e.g. engineers, researchers, data scientists) approach code as a sequence of steps (i.e. a script) that addresses a specific problem and rarely think about code as a reusable building block.
+The software experience of domain experts (e.g. engineers, researchers, data scientists) typically falls into the first category.
+
 
 This approach produces problem-specific solutions that are hard to maintain and extend. Inexperienced programmers often couple general-purpose components (such as optimisers) and problem-specific logic, resulting in tightly coupled code that is difficult to reuse or extend.
 

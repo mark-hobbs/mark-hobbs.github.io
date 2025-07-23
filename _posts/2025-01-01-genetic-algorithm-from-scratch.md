@@ -181,7 +181,7 @@ Users define the `_crossover_method` and `_mutation_method` when subclassing `In
 
 ## Packaging
 
-Many domain experts (e.g. engineers, researchers, data scientists) fail to think about [packaging](https://packaging.python.org/en/latest/). Their focus is on solving problems, not distributing solutions. But understanding packaging - why it matters and how to do it - is essential for anyone writing code.
+Many domain experts (e.g. engineers, researchers, data scientists) fail to think about [packaging](https://packaging.python.org/en/latest/). Their focus is on solving problems, not distributing solutions. But understanding packaging - both why it matters and how to do it - is essential for anyone writing code.
 
 Packages exist to be installed (or *deployed*)... examples familiar to readers include `numpy` and `scipy`...
 

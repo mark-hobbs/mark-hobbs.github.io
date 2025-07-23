@@ -183,13 +183,15 @@ Users define the `_crossover_method` and `_mutation_method` when subclassing `In
 
 The development of software generally serves one of two purposes: (1) to solve a specific problem, or (2) to create a general-purpose tool. The first addresses immediate needs and reflects the particulars of a single task. By contrast, the second involves recognising patterns that recur across problems and abstracting them into reusable components. For example, (1) might be the optimisation of a wing to maximise aerodynamic efficiency, while (2) would be the optimiser. 
 
-When general-purpose methods are decoupled from problem-specific logic, they can be packaged into reusable tools that others can use and extend.
+Domain experts (e.g. engineers, researchers, data scientists) are typically focussed on solving specific problems and rarely have experience in the development of general-purpose tools. Building general-purpose tools requires a shift in thinking towards reusability, abstraction and modularity. Making this shift results in better software that can be easily maintained and extended.
 
-Packaging is an essential but often neglected step in the software development process. 
-
-While domain experts (e.g. engineers, researchers, data scientists) typically focus on solving specific problems, developing general-purpose tools requires a shift in perspective towards reusability, abstraction and modularity. Building general-purpose tools forces developers to identify patterns across problems, design clean interfaces and write extensible code. This experience fosters better software engineering practices that improve all subsequent work.
+This approach fosters better software engineering practices that improve all subsequent work.
 
 This separation enhances code quality, promotes reusability and enables collaborative development.
+
+Decoupling general-purpose methods from problem-specific logic, enables... reusable tools that others can use and extend. 
+
+Yet packaging remains an often neglected step in the software development process. 
 
 By understanding packaging, domain experts can move from writing isolated scripts to building robust software libraries.
 

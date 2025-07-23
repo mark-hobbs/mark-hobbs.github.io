@@ -181,7 +181,9 @@ Users define the `_crossover_method` and `_mutation_method` when subclassing `In
 
 ## Packaging
 
-Many domain experts (e.g. engineers, researchers, data scientists) fail to think about packaging. Their focus is on solving problems, not distributing solutions. But packaging is an essential step in the software development process. Packages exist to be installed (or *deployed*)...
+Many domain experts (e.g. engineers, researchers, data scientists) fail to think about [packaging](https://packaging.python.org/en/latest/). Their focus is on solving problems, not distributing solutions. But packaging is an essential step in the software development process. Packages exist to be installed (or *deployed*)... examples familiar to readers include `numpy` and `scipy`...
+
+It is not the purpose of this article to explain the packaging process. The goal is to encourage the reader to think about how their code will be used and distributed. Thinking about packaging leads to better code...
 
 The `pyga` package can be installed locally using the following command `pip install git+https://github.com/mark-hobbs/pyga.git`.
 

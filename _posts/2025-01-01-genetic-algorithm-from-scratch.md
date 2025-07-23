@@ -187,6 +187,7 @@ It is not the purpose of this article to explain the packaging process. The goal
 
 The `pyga` package can be installed locally using the following command `pip install git+https://github.com/mark-hobbs/pyga.git`.
 
+By understanding packaging, domain experts can move from writing isolated scripts to building robust software libraries.
 
 ## Problems
 
@@ -239,9 +240,7 @@ This separation enhances code quality, promotes reusability and enables collabor
 
 Decoupling general-purpose methods from problem-specific logic, enables... reusable tools that others can use and extend. 
 
-Yet packaging remains an often neglected step in the software development process. 
-
-By understanding packaging, domain experts can move from writing isolated scripts to building robust software libraries.
+---
 
 We will briefly discuss the idea of abstraction and examine how it informs the design of the genetic algorithm package. Abstraction is a fundamental concept in software design, yet it is hard to precisely define.
 

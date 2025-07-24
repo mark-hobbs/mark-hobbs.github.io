@@ -181,15 +181,12 @@ Users define the `_crossover_method` and `_mutation_method` when subclassing `In
 
 ## Packaging
 
-Many domain experts (e.g. engineers, researchers, data scientists) fail to think about [packaging](https://packaging.python.org/en/latest/). Their focus is on solving problems, not distributing solutions. But understanding packaging - both why it matters and how to do it - is essential for anyone writing code.
+Many domain experts (e.g. engineers, researchers, data scientists) fail to think about [packaging](https://packaging.python.org/en/latest/). Their focus is on solving problems, not distributing solutions. But understanding packaging - both why it matters and how to do it - is essential for anyone writing code. It is not the purpose of this article to explain the packaging process in detail. The goal is to encourage the reader to think about how their code will be used and distributed. Thinking about packaging leads to clean, maintainable code with proper dependency management.
 
-Packages exist to be installed (or *deployed*). Examples familiar to readers include `numpy` and `scipy`...
-
-It is not the purpose of this article to explain the packaging process. The goal is to encourage the reader to think about how their code will be used and distributed. Thinking about packaging leads to better code...
+Packages exist to be installed. Examples familiar to readers include `numpy`, `scipy` and `pandas`. By understanding packaging, domain experts can move from writing isolated scripts to building robust software libraries that can be shared within an organisation or with the open-source community. But ultimately, packaging is not just about distribution; it is about writing code that is easy to use, maintain and extend.
 
 The `pyga` package can be installed locally using the following command `pip install git+https://github.com/mark-hobbs/pyga.git`.
 
-By understanding packaging, domain experts can move from writing isolated scripts to building robust software libraries.
 
 ## Problems
 

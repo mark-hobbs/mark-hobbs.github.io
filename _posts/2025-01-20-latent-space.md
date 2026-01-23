@@ -5,14 +5,23 @@ title: Optimisation in the latent space
 draft: True
 ---
 
-This post introduces the concept of a latent space and highlights its utility in design problems through an optimisation example. A latent space is a low-dimensional representation of high-dimensional data, where similar items are positioned close together. Recent advances such as variational autoencoders (VAEs) and diffusion models have enabled the learning of very expressive low-dimensional representations of complex design spaces. By shifting optimisation to the latent space, as opposed to optimising the high-dimensional design representation, optimal designs can be identified much more efficiently.
+Defining an effective parametrisation is arguably the central challenge in design optimisation. The difficulty lies in mapping a high-dimensional geometry onto a low-dimensional design space without constraining the representation so tightly that the true optimum design becomes unreachable.
 
-- A latent space is an abstract low-dimensional representation of a high-dimensional space...
+Relating the shape of a car to that of an aeroplane illustrates the problem. A parametrisation rich enough to permit smooth interpolation between such disparate geometries is far beyond what can be specified manually. Recent advances in machine learning instead allow such design spaces to be learned implicitly, rather than prescribed explicitly.
+
+This post introduces the concept of a *latent space* and demonstrates its utility in design optimisation through a worked example. A latent space embeds high-dimensional data into a low-dimensional space in which similar objects are positioned close together. Recent advances such as variational autoencoders (VAEs) and diffusion models have enabled the learning of very expressive latent spaces. By shifting design optimisation to the latent space, as opposed to optimising the high-dimensional design representation directly, optimal designs can be identified far more efficiently.
+
+**Highlights**
+
+- Defining an effective parametrisation is arguably the central challenge in design optimisation.
+- A latent space is an abstract low-dimensional representation of a high-dimensional space
 - Items that resemble each other are located close to one another in the latent space
-- The aim of this post is to demonstrate how the concept of a latent space can be utilised in design problems.
 - Recent advances such as variational autoencoders (VAEs) and diffusion models have enabled the learning of very expressive low-dimensional representations of complex design spaces.
 - By shifting optimisation to the latent space, as opposed to optimising the high-dimensional design representation, optimal designs can be identified much more efficiently.
-- Parametrising the design problem is perhaps the most challenging problem...
+
+**Aims**
+
+- The aim of this post is to demonstrate how the concept of a latent space can be utilised in design problems.
 
 [mark-hobbs/vae](https://github.com/mark-hobbs/vae/tree/main)
 
@@ -50,8 +59,8 @@ The chosen example problem has been selected primarily to enable the promotion o
 
 Here we outline the implementation using `pytorch`. We modularise the implementation into three classes:
 
-- `VAE` 
-- `Trainer` 
+- `VAE`
+- `Trainer`
 - `ShapeData`
 
 ```python
@@ -168,6 +177,7 @@ class Trainer:
                 f"Epoch {epoch+1}/{self.epochs}, Loss: {train_loss / len(self.dataloader)}"
             )
 ```
+
 ### Encoder
 
 ### Decoder
@@ -241,7 +251,7 @@ def loss():
 
 ## Visualising the latent space
 
-Each shape is represented by 100 ordered $(x, y)$ coordinate pairs, resulting in a 200-dimensional vector. The objective is to learn a low-dimensional latent space with only 2 dimensions that captures the core geometric features of each shape. 
+Each shape is represented by 100 ordered $(x, y)$ coordinate pairs, resulting in a 200-dimensional vector. The objective is to learn a low-dimensional latent space with only 2 dimensions that captures the core geometric features of each shape.
 
 ![](/assets/images/latent-space-grid-1.png)
 

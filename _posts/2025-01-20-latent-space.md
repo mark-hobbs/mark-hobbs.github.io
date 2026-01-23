@@ -5,25 +5,30 @@ title: Optimisation in the latent space
 draft: True
 ---
 
+**Core ideas**
+
+- Defining an effective parametrisation is arguably the central challenge in design optimisation.
+- A latent space is an abstract low-dimensional representation of a high-dimensional space
+- Items that resemble each other are located close to one another in the latent space
+- Variational autoencoders (VAEs) and diffusion models enable the learning of very expressive low-dimensional representations of complex design spaces.
+- By shifting optimisation to the latent space, as opposed to optimising the high-dimensional design representation, optimal designs can be identified much more efficiently.
+
+**Aims**
+
+- The aim of this post is to introduce the concept of a *latent space* and demonstrates its utility in design optimisation through a worked example.
+
+**Code**
+
+- [mark-hobbs/vae](https://github.com/mark-hobbs/vae/tree/main)
+
+## Introduction
+
 Defining an effective parametrisation is arguably the central challenge in design optimisation. The difficulty lies in mapping a high-dimensional geometry onto a low-dimensional design space without constraining the representation so tightly that the true optimum design becomes unreachable.
 
 Relating the shape of a car to that of an aeroplane illustrates the problem. A parametrisation rich enough to permit smooth interpolation between such disparate geometries is far beyond what can be specified manually. Recent advances in machine learning instead allow such design spaces to be learned implicitly, rather than prescribed explicitly.
 
 This post introduces the concept of a *latent space* and demonstrates its utility in design optimisation through a worked example. A latent space embeds high-dimensional data into a low-dimensional space in which similar objects are positioned close together. Recent advances such as variational autoencoders (VAEs) and diffusion models have enabled the learning of very expressive latent spaces. By shifting design optimisation to the latent space, as opposed to optimising the high-dimensional design representation directly, optimal designs can be identified far more efficiently.
 
-**Highlights**
-
-- Defining an effective parametrisation is arguably the central challenge in design optimisation.
-- A latent space is an abstract low-dimensional representation of a high-dimensional space
-- Items that resemble each other are located close to one another in the latent space
-- Recent advances such as variational autoencoders (VAEs) and diffusion models have enabled the learning of very expressive low-dimensional representations of complex design spaces.
-- By shifting optimisation to the latent space, as opposed to optimising the high-dimensional design representation, optimal designs can be identified much more efficiently.
-
-**Aims**
-
-- The aim of this post is to demonstrate how the concept of a latent space can be utilised in design problems.
-
-[mark-hobbs/vae](https://github.com/mark-hobbs/vae/tree/main)
 
 ## Motivation
 

@@ -54,11 +54,13 @@ Dimensionality reduction...
 
 The chosen example problem has been selected primarily to enable the promotion of understanding through visual means.
 
-**Goal**: Train a VAE on a dataset of 2D shapes (e.g., circles, triangles, squares, stars) and use the latent space to interpolate between shapes.
+**Goal**: Train a variational autoencoder (VAE) on a dataset of parametrised two-dimensional geometric shapes (e.g. circles, triangles, squares, stars). Each shape is encoded as a sequence of 100 ordered $(x, y)$ coordinate pairs, yielding a 200-dimensional input representation. The model is constrained to learn a two-dimensional latent space, corresponding to a 100x compression of the original representation.
 
-**Visualisation**: Visualise how shapes smoothly transition and change across the latent space.
+**Visualisation**: The learned latent space is analysed by decoding points sampled across the two-dimensional manifold and visualising the corresponding reconstructed shapes. This enables qualitative assessment of the continuity, smoothness and semantic structure of the latent representation, as well as its ability to support meaningful interpolation between distinct shape classes.
 
 ## Autoencoders
+
+It is not the purpose of this blog to provide a deep discussion of autoencoders. The purpose is to highlight their utility in design problems.
 
 ## Implementation
 

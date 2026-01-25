@@ -50,21 +50,19 @@ In optimisation workflows, latent spaces dramatically reduce the search dimensio
 
 Dimensionality reduction...
 
-## Example problem
+## Motivating example
 
-The chosen example problem has been selected primarily to enable the promotion of understanding through visual means.
+The chosen example has been selected primarily to enable the promotion of understanding through visual means.
 
-**Goal**: Train a variational autoencoder (VAE) on a dataset of parametrised two-dimensional geometric shapes (e.g. circles, triangles, squares, stars). Each shape is encoded as a sequence of 100 ordered $(x, y)$ coordinate pairs, yielding a 200-dimensional input representation. The model is constrained to learn a two-dimensional latent space, corresponding to a 100x compression of the original representation.
+**Problem definition**: Train a variational autoencoder (VAE) on a dataset of parametrised two-dimensional geometric shapes (e.g. circles, triangles, squares, stars). Each shape is encoded as a sequence of 100 ordered $(x, y)$ coordinate pairs, yielding a 200-dimensional input representation. Constrain the model (VAE) to learn a two-dimensional latent space, corresponding to a 100x compression of the original representation.
 
-**Visualisation**: The learned latent space is analysed by decoding points sampled across the two-dimensional manifold and visualising the corresponding reconstructed shapes. This enables qualitative assessment of the continuity, smoothness and semantic structure of the latent representation, as well as its ability to support meaningful interpolation between distinct shape classes.
+**Analysis**: The learned latent space is analysed by decoding points sampled across the two-dimensional manifold and visualising the corresponding reconstructed shapes. This enables qualitative assessment of the continuity, smoothness and semantic structure of the latent representation, as well as its ability to support meaningful interpolation between distinct shape classes.
 
-## Autoencoders
+## Variational Autoencoders
 
-It is not the purpose of this blog to provide a deep discussion of autoencoders. The purpose is to highlight their utility in design problems.
+It is not the purpose of this blog to provide a deep discussion of variational autoencoders. The purpose is to highlight their utility in design problems.
 
-## Implementation
-
-Here we outline the implementation using `pytorch`. We modularise the implementation into three classes:
+Here we outline an implementation using `pytorch` and highlight the key decisions that influence the learning capability of the model. We modularise the implementation into three classes:
 
 - `VAE`
 - `Trainer`

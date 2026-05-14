@@ -11,7 +11,6 @@ Integrating models, ranging from simple analytical models to complex numerical s
 
 A model $F(\textbf{X})$ is a function that takes a set of input parameters $\textbf{X}$ and returns an output $y$. The model might be a computationally expensive numerical simulation or... 
 
-
 - FEA, CFD, etc
 - Outer-loop applications: design space exploration, optimisation, uncertainty quantification
 - Chaining models together

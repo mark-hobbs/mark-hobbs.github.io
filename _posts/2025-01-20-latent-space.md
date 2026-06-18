@@ -29,12 +29,13 @@ Relating the shape of a car to that of an aeroplane illustrates the problem. A p
 
 This post introduces the concept of a *latent space* and demonstrates its utility in design optimisation through a worked example. A latent space embeds high-dimensional data into a low-dimensional space in which similar objects are positioned close together. Recent advances such as variational autoencoders (VAEs) and diffusion models have enabled the learning of very expressive latent spaces. By shifting design optimisation to the latent space, as opposed to optimising the high-dimensional design representation directly, optimal designs can be identified far more efficiently.
 
-
 ## Motivation
 
 Two major factors that limit our ability to do engineering better are: (1) the computational expense of numerical simulations, and (2) our ability to concisely quantify how different shapes (or designs) are related (our ability to smoothly interpolate between different designs).
 
-Optimisation methods rely on our ability to parameterise the problem but not every design is well-suited to being parametrised. Geometries are typically represented by meshes with thousands to millions of elements.
+Optimisation methods rely on our ability to determine an expressive parameterisation of the the design problem but in reality this an extremely difficult task for most realistic design problems.
+
+Geometries are typically defined by meshes containing thousands to millions of degrees of freedom, and any manually constructed parametrisation is likely to be too restrictive and exclude viable optima.
 
 Imagine if we wanted to find a design that maximises heat dispersion... A simple metric for determining the heat dispersion potential of a given design is the ratio of the surface area to volume. Shapes with a high surface area to volume ratio tend to dissipate or exchange energy with their surrounding more effectively that shapes with a low surface area to volume ratio.
 
